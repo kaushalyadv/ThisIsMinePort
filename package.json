@@ -1,8 +1,8 @@
 {
-  "name": "Kaushal_PORT_NEW",
+  "name": "ThisIsMinePort",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://kaushalyadv.github.io/Kaushal_PORT_NEW",
+  "homepage": "https://kaushalyadv.github.io/ThisIsMinePort",
   "dependencies": {
     "@babel/core": "^7.28.0",
     "@react-three/drei": "^10.5.1",
@@ -24,7 +24,7 @@
     "predeploy": "npm run build",
     "start": "react-scripts start",
     "build": "node fetch.js && react-scripts build",
-    "deploy": "gh-pages -b master -d build",
+    "deploy": "gh-pages -b gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write \"./**/*.{js,css,json,scss}\"",
