@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/ThisIsMinePort/static/css/main.a7736e74.css",
+    "main.js": "/ThisIsMinePort/static/js/main.a73babcb.js",
+    "static/css/868.4d2dbeb5.chunk.css": "/ThisIsMinePort/static/css/868.4d2dbeb5.chunk.css",
+    "static/js/868.1d8c56d0.chunk.js": "/ThisIsMinePort/static/js/868.1d8c56d0.chunk.js",
+    "static/css/768.ae0faa4d.chunk.css": "/ThisIsMinePort/static/css/768.ae0faa4d.chunk.css",
+    "static/js/768.d379359a.chunk.js": "/ThisIsMinePort/static/js/768.d379359a.chunk.js",
+    "static/media/react_y.png": "/ThisIsMinePort/static/media/react_y.4610f955b500524b1dc3.png",
+    "static/media/machinL.png": "/ThisIsMinePort/static/media/machinL.a4c53c7b6170c6c9fb60.png",
+    "static/media/shopnova.png": "/ThisIsMinePort/static/media/shopnova.b9058dddfd0fb70d694f.png",
+    "static/media/Meta_front.png": "/ThisIsMinePort/static/media/Meta_front.8a09ac3531186aca36bb.png",
+    "static/media/Montserrat-Regular.ttf": "/ThisIsMinePort/static/media/Montserrat-Regular.3cd786652b8a2e9d41f2.ttf",
+    "static/media/Kumaun_University_logo_.png": "/ThisIsMinePort/static/media/Kumaun_University_logo_.d3ad92ac747e5223e798.png",
+    "static/media/Agustina.woff": "/ThisIsMinePort/static/media/Agustina.eb0c59dda4cc308cba96.woff",
+    "static/media/Final_resume.pdf": "/ThisIsMinePort/static/media/Final_resume.c9ac3334e5085b8ccc1c.pdf",
+    "static/media/Uttarakhand_Board_of_School_.png": "/ThisIsMinePort/static/media/Uttarakhand_Board_of_School_.02ab8b58fd2b7d60d6ed.png",
+    "static/media/manOnTable.svg": "/ThisIsMinePort/static/media/manOnTable.8f117eb207e57ed8f89d67d595aceb45.svg",
+    "static/media/contactMailDark.svg": "/ThisIsMinePort/static/media/contactMailDark.1db650d351729a0f17b4e3104e6a7b7a.svg",
+    "static/media/developerActivity.svg": "/ThisIsMinePort/static/media/developerActivity.2c0445cae86f4243433a2f5a22b2c031.svg",
+    "static/media/skill.svg": "/ThisIsMinePort/static/media/skill.35a147662ab0a1d15e579690446e0258.svg",
+    "static/media/nextuLogo.webp": "/ThisIsMinePort/static/media/nextuLogo.e033dbfa4c58c0a906aa.webp",
+    "index.html": "/ThisIsMinePort/index.html",
+    "static/media/talksCardBack.svg": "/ThisIsMinePort/static/media/talksCardBack.73ed1545d58273ba64b0.svg",
+    "main.a7736e74.css.map": "/ThisIsMinePort/static/css/main.a7736e74.css.map",
+    "main.a73babcb.js.map": "/ThisIsMinePort/static/js/main.a73babcb.js.map",
+    "868.4d2dbeb5.chunk.css.map": "/ThisIsMinePort/static/css/868.4d2dbeb5.chunk.css.map",
+    "868.1d8c56d0.chunk.js.map": "/ThisIsMinePort/static/js/868.1d8c56d0.chunk.js.map",
+    "768.ae0faa4d.chunk.css.map": "/ThisIsMinePort/static/css/768.ae0faa4d.chunk.css.map",
+    "768.d379359a.chunk.js.map": "/ThisIsMinePort/static/js/768.d379359a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a7736e74.css",
+    "static/js/main.a73babcb.js"
+  ]
+}
