@@ -12,7 +12,7 @@ export default function AchievementCard({cardInfo, isDark}) {
   }
 
   return (
-    <div className={isDark ? "dark-mode certificate-card" : "certificate-card"}>
+    <div className={isDark ? "light-mode certificate-card" : "certificate-card"}>
       <div className="certificate-image-div">
         <img
           src={cardInfo.image}
@@ -21,10 +21,10 @@ export default function AchievementCard({cardInfo, isDark}) {
         ></img>
       </div>
       <div className="certificate-detail-div">
-        <h5 className={isDark ? "dark-mode card-title" : "card-title"}>
+        <h5 className={isDark ? "light-mode card-title" : "card-title"}>
           {cardInfo.title}
         </h5>
-        <p className={isDark ? "dark-mode card-subtitle" : "card-subtitle"}>
+        <p className={isDark ? "light-mode card-subtitle" : "card-subtitle"}>
           {cardInfo.description}
         </p>
       </div>
@@ -34,7 +34,7 @@ export default function AchievementCard({cardInfo, isDark}) {
             <span
               key={i}
               className={
-                isDark ? "dark-mode certificate-tag" : "certificate-tag"
+                isDark ? "light-mode certificate-tag" : "certificate-tag"
               }
               onClick={() => openUrlInNewTab(v.url, v.name)}
             >

@@ -1,7 +1,6 @@
 import React, {useContext} from "react";
 import "./StartupProjects.scss";
 import {bigProjects} from "../../portfolio";
-import {Fade} from "react-reveal";
 import StyleContext from "../../contexts/StyleContext";
 
 export default function StartupProject() {
@@ -18,16 +17,16 @@ export default function StartupProject() {
     return null;
   }
   return (
-    <Fade bottom duration={1000} distance="20px">
       <div className="main" id="projects">
         <div>
           <h1 className="skills-heading">{bigProjects.title}</h1>
           <p
             className={
               isDark
-                ? "dark-mode project-subtitle"
+                ? "light-mode project-subtitle"
                 : "subTitle project-subtitle"
             }
+            style={{padding: '0 5%'}}
           >
             {bigProjects.subtitle}
           </p>
@@ -39,7 +38,7 @@ export default function StartupProject() {
                   key={i}
                   className={
                     isDark
-                      ? "dark-mode project-card project-card-dark"
+                      ? "light-mode project-card project-card-dark"
                       : "project-card project-card-light"
                   }
                 >
@@ -54,13 +53,13 @@ export default function StartupProject() {
                   ) : null}
                   <div className="project-detail">
                     <h5
-                      className={isDark ? "dark-mode card-title" : "card-title"}
+                      className={isDark ? "light-mode card-title" : "card-title"}
                     >
                       {project.projectName}
                     </h5>
                     <p
                       className={
-                        isDark ? "dark-mode card-subtitle" : "card-subtitle"
+                        isDark ? "light-mode card-subtitle" : "card-subtitle"
                       }
                     >
                       {project.projectDesc}
@@ -72,7 +71,7 @@ export default function StartupProject() {
                             <span
                               key={i}
                               className={
-                                isDark ? "dark-mode project-tag" : "project-tag"
+                                isDark ? "light-mode project-tag" : "project-tag"
                               }
                               onClick={() => openUrlInNewTab(link.url)}
                             >
@@ -89,6 +88,5 @@ export default function StartupProject() {
           </div>
         </div>
       </div>
-    </Fade>
   );
 }

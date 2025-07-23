@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/header/Header";
 import Greeting from "./greeting/Greeting";
 import Skills from "./skills/Skills";
@@ -15,11 +15,11 @@ import ScrollToTopButton from "./topbutton/Top";
 import Twitter from "./twitter-embed/twitter";
 import Profile from "./profile/Profile";
 import SplashScreen from "./splashScreen/SplashScreen";
-import {splashScreen} from "../portfolio";
-import {StyleProvider} from "../contexts/StyleContext";
-import {useLocalStorage} from "../hooks/useLocalStorage";
+import { splashScreen } from "../portfolio";
+import { StyleProvider } from "../contexts/StyleContext";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 import "./Main.scss";
-
+import ThreeDBackground from '../components/ThreeDBackground.jsx';
 const Main = () => {
   const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
   const [isDark, setIsDark] = useLocalStorage("isDark", darkPref.matches);
@@ -43,30 +43,38 @@ const Main = () => {
   };
 
   return (
-    <div className={isDark ? "dark-mode" : null}>
-      <StyleProvider value={{isDark: isDark, changeTheme: changeTheme}}>
-        {isShowingSplashAnimation && splashScreen.enabled ? (
-          <SplashScreen />
-        ) : (
-          <>
-            <Header />
-            <Greeting />
-            <Skills />
-            <StackProgress />
-            <Education />
-            <Projects />
-            <StartupProject />
-            <Achievement />
-            <Blogs />
-            <Talks />
-            <Twitter />
-            <Podcast />
-            <Profile />
-            <Footer />
-            <ScrollToTopButton />
-          </>
-        )}
-      </StyleProvider>
+    // Outermost container that sets the theme class
+    <div className={isDark ? "dark-mode" : "light-mode-main-container"}>
+      {/* ThreeDBackground is a sibling to the main content, positioned absolutely/fixed behind it */}
+      <ThreeDBackground /> 
+
+      {/* This div will contain all your main website content */}
+      {/* It needs the 'main' class to apply the z-index and background color */}
+      <div className="main"> 
+        <StyleProvider value={{ isDark: isDark, changeTheme: changeTheme }}>
+          {isShowingSplashAnimation && splashScreen.enabled ? (
+            <SplashScreen />
+          ) : (
+            <>
+              <Header />
+              <Greeting />
+              <Skills />
+              <StackProgress />
+              <Education />
+              <Projects />
+              <StartupProject />
+              <Achievement />
+              <Blogs />
+              <Talks />
+              {/* <Twitter /> */}
+              <Podcast />
+              <Profile />
+              <Footer />
+              <ScrollToTopButton />
+            </>
+          )}
+        </StyleProvider>
+      </div>
     </div>
   );
 };

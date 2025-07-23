@@ -4,8 +4,13 @@
   display: flex;
 }
 
-.dark-mode a {
+.light-mode a {
   color: $textColorDark;
+}
+.light-mode{
+  background: transparent;
+  color: white !important;
+  transition: "0.1s";
 }
 
 .contact-div-main > * {
@@ -13,8 +18,14 @@
 }
 
 .contact-title {
+  align-items: center;
   font-size: 65px;
   font-weight: 400;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 12px;
+  letter-spacing: .4em;
+  justify-content: center;
 }
 
 .contact-detail,
@@ -85,3 +96,5 @@
     display: none;
   }
 }
+
+

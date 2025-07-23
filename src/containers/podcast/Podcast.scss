@@ -4,6 +4,31 @@
   font-size: 56px;
   font-weight: 400;
   line-height: 0px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.music-emoji {
+  display: inline-block;
+  animation: floatUpDown 2s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.light-mode {
+  background: transparent;
+  color: white;
+  transition: "0.1s";
 }
 
 .podcast {
@@ -15,6 +40,7 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1rem 1rem;
 }
+
 .subTitle {
   color: $subTitle;
 }

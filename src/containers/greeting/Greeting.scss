@@ -1,10 +1,16 @@
 @import "../../_globalColor";
 
 .main {
-  width: 90%;
-  padding: 20px 10px;
+  width: 100%;
+  padding: 20px 30px;
   margin: 0px auto;
-  margin-top: 4rem;
+  // margin-top: 4rem;
+  z-index: 11;
+}
+.light-mode{
+  background: transparent;
+  color: white;
+  transition: "0.1s";
 }
 .greet-main {
   width: 90%;

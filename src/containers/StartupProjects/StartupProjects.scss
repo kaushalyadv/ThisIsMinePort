@@ -5,6 +5,11 @@
   height: auto;
   width: 250px;
 }
+.light-mode{
+  background: transparent;
+  color: white;
+  transition: "0.1s";
+}
 .card-title {
   color: $titleColor;
   font-size: 22px;

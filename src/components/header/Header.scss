@@ -8,8 +8,9 @@
 /* header */
 
 .dark-menu {
-  background-color: $darkBackground !important;
+  background-color: rgba(0, 0, 16, 0.5) !important;
   color: $textColorDark;
+  z-index: 5;
 }
 
 .dark-menu li a {
@@ -23,7 +24,6 @@
 .header {
   background-color: $lightBackground1;
   max-width: 100%;
-  padding: 15px 20px;
   margin: 0px auto;
 }
 

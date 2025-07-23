@@ -5,10 +5,11 @@
   color: $subTitle !important;
 }
 
-.dark-mode {
-  color: $textColorDark !important;
+.light-mode{
+  background: transparent;
+  color: white !important;
+  transition: "0.1s";
 }
-
 .footer-div {
   margin-top: 2rem;
   padding-bottom: 1rem;

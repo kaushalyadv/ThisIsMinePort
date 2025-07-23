@@ -9,6 +9,11 @@
 .splash-animation-container {
   height: 50vh;
 }
+.light-mode{
+  background: transparent;
+  color: white;
+  transition: "0.1s";
+}
 
 .splash-title-container {
   font-size: 2.5rem;

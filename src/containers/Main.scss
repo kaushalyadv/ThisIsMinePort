@@ -1,7 +1,76 @@
+// Main.scss
+
 @import "../_globalColor";
+
+/* Universal Box-Sizing and Image Max-Width for Responsiveness */
+* {
+  box-sizing: border-box;
+}
+
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
 .dark-mode {
   background-color: $darkBackground;
   color: white;
-  transition: "0.1s";
+  transition: 0.1s;
+}
+
+.light-mode-main-container {
+  background-color: $lightBackground1;
+  color: $textColor;
+  transition: 0.1s;
+}
+
+/* NOTE: This class is not being used by the ThreeDBackground component
+  from the previous answer. You can safely remove it to keep your code clean.
+*/
+// .three-d-background-container {
+//   // ... (unused styles)
+// }
+
+/* --- CORRECTED MAIN CONTENT STYLES --- */
+.main {
+  position: relative;
+  z-index: 1; /* Ensures this content is above the z-index: -1 background */
+  
+  // 1. CHANGE: Make background transparent to see the 3D canvas behind it.
+  background-color: transparent; 
+
+  min-height: 65vh;
+  overflow: hidden;
+
+  // 2. REMOVE: This was the property causing the issue.
+  // overflow-y: auto;  <-- REMOVE THIS LINE
+
+  // padding-top: ;
+  box-sizing: border-box;
+}
+
+/* Ensure your root HTML and body elements don't have conflicting backgrounds or overflow */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  // overflow-x: hidden; // Prevents horizontal scroll on the entire page
+  background-color: transparent;
+
+  /* This is fine for hiding the scrollbar */
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Style for the Header component to ensure it has a solid background and is always on top */
+.header-div {
+  background-color: var(--background-color); // This is correct, header needs a solid background
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 10;
 }

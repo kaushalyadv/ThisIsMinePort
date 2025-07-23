@@ -12,7 +12,11 @@
   transition: all 0.3s ease;
   margin-top: 30px;
 }
-
+.light-mode{
+  background: transparent;
+  color: white;
+  transition: "0.1s";
+}
 .square:hover {
   box-shadow: 0 20px 40px $lightBoxShadow;
 }

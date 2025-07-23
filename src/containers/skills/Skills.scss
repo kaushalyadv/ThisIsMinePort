@@ -9,6 +9,11 @@
 .skills-text-div {
   margin-left: 50px;
 }
+.light-mode{
+  background: transparent;
+  color: white;
+  transition: "0.1s";
+}
 
 .skills-main-div > * {
   flex: 1;
@@ -23,6 +28,8 @@
 .skills-heading {
   font-size: 56px;
   font-weight: 400;
+  display: flex;
+  justify-content: center;
 }
 .subTitle {
   color: $subTitle;

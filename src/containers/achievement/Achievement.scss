@@ -6,6 +6,11 @@
   line-height: normal;
   margin: 0px;
 }
+.light-mode{
+  background: transparent;
+  color: white;
+  transition: "0.1s";
+}
 .achievement-subtitle {
   text-transform: uppercase;
   margin: 0px;

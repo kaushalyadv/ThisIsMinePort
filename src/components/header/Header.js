@@ -1,5 +1,4 @@
 import React, {useContext} from "react";
-import Headroom from "react-headroom";
 import "./Header.scss";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import StyleContext from "../../contexts/StyleContext";
@@ -23,7 +22,6 @@ function Header() {
   const viewResume = resumeSection.display;
 
   return (
-    <Headroom>
       <header className={isDark ? "dark-menu header" : "header"}>
         <a href="/" className="logo">
           <span className="grey-color"> &lt;</span>
@@ -81,7 +79,6 @@ function Header() {
           </li>
         </ul>
       </header>
-    </Headroom>
   );
 }
 export default Header;

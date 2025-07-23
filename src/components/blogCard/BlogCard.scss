@@ -12,6 +12,11 @@
   cursor: pointer;
   height: 200px;
 }
+.light-mode{
+  background: transparent;
+  color: white;
+  transition: "0.1s";
+}
 
 .blog-title {
   color: $blogCardTitleColor;

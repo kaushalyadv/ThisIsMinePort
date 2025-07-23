@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Snake Border Glow</title>
+  <style>
+    body {
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .textarea-container {
+      position: relative;
+      width: 400px;
+      height: 200px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100%;
+      padding: 12px;
+      background: #1e1e1e;
+      border: 2px solid #444;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 16px;
+      resize: none;
+      outline: none;
+      z-index: 1;
+      position: relative;
+    }
+
+    .snake-border {
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      border-radius: 10px;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    .snake-line {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .snake-line::before {
+      content: "";
+      position: absolute;
+      width: 40px;
+      height: 2px;
+      background: cyan;
+      box-shadow: 0 0 8px cyan;
+      border-radius: 2px;
+      animation: snakeMove 6s linear infinite;
+    }
+
+    @keyframes snakeMove {
+      0%   { top: 0; left: 0; width: 40px; transform: translateX(0); }
+      12.5% { top: 0; left: 0; transform: translateX(100%); }
+      25% { top: 0; left: 100%; transform: translateY(0) rotate(90deg); }
+      37.5% { top: 0; left: 100%; transform: translateY(100%) rotate(90deg); }
+      50% { top: 100%; left: 100%; transform: translateX(0) rotate(180deg); }
+      62.5% { top: 100%; left: 100%; transform: translateX(-100%) rotate(180deg); }
+      75% { top: 100%; left: 0%; transform: translateY(0) rotate(270deg); }
+      87.5% { top: 100%; left: 0%; transform: translateY(-100%) rotate(270deg); }
+      100% { top: 0; left: 0; transform: translateX(0) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="textarea-container">
+    <textarea placeholder="Type something..."></textarea>
+    <div class="snake-border">
+      <div class="snake-line"></div>
+    </div>
+  </div>
+
+</body>
+</html>

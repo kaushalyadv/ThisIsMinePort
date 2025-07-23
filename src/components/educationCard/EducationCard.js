@@ -1,5 +1,4 @@
 import React, {createRef, useContext} from "react";
-import {Fade, Slide} from "react-reveal";
 import "./EducationCard.scss";
 import StyleContext from "../../contexts/StyleContext";
 
@@ -21,7 +20,6 @@ export default function EducationCard({school}) {
     console.error(`Image of ${school.name} is missing in education section`);
   return (
     <div>
-      <Fade left duration={1000}>
         <div className="education-card">
           {school.logo && (
             <div className="education-card-left">
@@ -41,7 +39,7 @@ export default function EducationCard({school}) {
               <h5
                 className={
                   isDark
-                    ? "dark-mode education-text-subHeader"
+                    ? "light-mode education-text-subHeader"
                     : "education-text-subHeader"
                 }
               >
@@ -49,7 +47,7 @@ export default function EducationCard({school}) {
               </h5>
               <p
                 className={`${
-                  isDark ? "dark-mode" : ""
+                  isDark ? "light-mode" : ""
                 } education-text-duration`}
               >
                 {school.duration}
@@ -63,10 +61,7 @@ export default function EducationCard({school}) {
             </div>
           </div>
         </div>
-      </Fade>
-      <Slide left duration={2000}>
         <div className="education-card-border"></div>
-      </Slide>
     </div>
   );
 }
