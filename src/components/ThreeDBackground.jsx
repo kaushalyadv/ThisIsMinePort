@@ -7,7 +7,7 @@ import * as THREE from "three";
 // The Model component now handles all its logic internally
 function Model() {
   const ref = useRef();
-  const modelPath = `${process.env.PUBLIC_URL}/Models/spaceStation.glb`;
+  const modelPath = `${process.env.PUBLIC_URL}/models/spaceStation.glb`;
   
   const { scene } = useGLTF(modelPath);
 

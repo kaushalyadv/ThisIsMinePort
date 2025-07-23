@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://kaushalyadv.github.io/ThisIsMinePort",
+
   "dependencies": {
     "@babel/core": "^7.28.0",
     "@react-three/drei": "^10.5.1",
