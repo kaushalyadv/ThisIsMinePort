@@ -41,8 +41,13 @@ const Main = () => {
   const changeTheme = () => {
     setIsDark(!isDark);
   };
+   
+//   if (true) {
+//   throw new Error("Testing ErrorBoundary");
+// }
 
   return (
+
     // Outermost container that sets the theme class
     <div className={isDark ? "dark-mode" : "light-mode-main-container"}>
       {/* ThreeDBackground is a sibling to the main content, positioned absolutely/fixed behind it */}

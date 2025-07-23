@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'; // This import is correct for React 18+
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 // This is the old ReactDOM.render method, which is deprecated in React 18 and removed in React 19.
 // You need to use ReactDOM.createRoot and root.render instead.

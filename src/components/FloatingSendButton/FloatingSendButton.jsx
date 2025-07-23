@@ -159,7 +159,7 @@ const FloatingSendButton = ({
             bottom: "20px",
             left: "50%",
             transform: "translateX(-50%)",
-            width: "200px",
+            width: "52%",
             maxWidth: "40vw",
             height: "auto",
             filter: isRelaxedPersonBlurred ? "blur(5px)" : "none",
@@ -178,7 +178,7 @@ const FloatingSendButton = ({
           autoplay
           style={{
             position: "absolute",
-            bottom: "0",
+            bottom: "-10%",
             left: "50%",
             transform: "translateX(-50%)",
             width: "100%",
@@ -188,7 +188,7 @@ const FloatingSendButton = ({
             zIndex: 2,
             opacity: showRocketAnimation ? 1 : 0,
             pointerEvents: "none",
-            transition: "opacity 0.3s ease-in-out"
+            transition: "opacity 0.5s ease-in-out"
           }}
         />
       )}

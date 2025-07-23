@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   max-width: 500px;
-  height: 200px;
+  height: auto;
   padding-bottom: 200px;
   margin: 0 auto; // centers it on all screens
 }
@@ -62,9 +62,10 @@
 
 #action-button {
   position: absolute;
-  bottom: 1rem;
+  // bottom: 1rem;
+  top: 50%;
   right: 1rem;
-  padding: 0.6rem 1rem;
+  padding: 0.37rem 1rem;
   background-color: transparent;
   border: none;
   color: white;
