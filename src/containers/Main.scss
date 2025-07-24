@@ -1,6 +1,6 @@
 // Main.scss
 
-@import "../_globalColor"; // Assuming this path is correct and the file exists
+@import "../_globalColor";
 
 /* Universal Box-Sizing and Image Max-Width for Responsiveness */
 * {
@@ -13,77 +13,68 @@ img, video, canvas, svg {
   display: block;
 }
 
-.dark-mode {
-  background-color: $darkBackground;
-  color: white;
-  transition: 0.1s;
-}
-
-.light-mode-main-container {
-  background-color: $lightBackground1;
-  color: $textColor;
-  transition: 0.1s;
-}
-
-/* --- BASE MAIN CONTENT STYLES (UNCHANGED) --- */
-.main {
-  position: relative;
-  z-index: 1; /* Ensures this content is above the z-index: -1 background */
-  
-  // Make background transparent to see the 3D canvas behind it.
-  background-color: transparent; 
-
-  min-height: 65vh; // Base min-height
-  overflow: hidden; // Prevents content inside .main from causing scrollbars
-
-  box-sizing: border-box;
-}
-
-/* Ensure your root HTML and body elements don't have conflicting backgrounds or overflow */
+/* Ensure html, body, and #root do NOT have fixed heights or scrollbars */
+/* An inner div will be handling the scrolling */
 html, body, #root {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; // Prevents horizontal scroll on the entire page by default
+  overflow: hidden; /* This prevents the main browser scrollbar */
   background-color: transparent;
 
-  /* This is fine for hiding the scrollbar across all browsers */
   &::-webkit-scrollbar {
     width: 0px;
-    background: transparent; // For Chrome, Safari
+    background: transparent;
   }
-  scrollbar-width: none; // For Firefox
-  -ms-overflow-style: none; // For Edge, IE
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* This is the outermost div in Main.jsx that will now be scrollable */
+.dark-mode, .light-mode-main-container {
+  height: 100vh; /* Make this div fill the viewport height */
+  overflow-y: auto; /* THIS IS THE KEY: Makes this specific div scrollable */
+  position: relative; /* Needed for z-index context with fixed background */
+}
+
+/* Your .main class is now *inside* the scrollable container */
+.main {
+  position: relative;
+  z-index: 1; 
+  background-color: transparent; 
+  min-height: 65vh;
+  overflow: visible; 
+  box-sizing: border-box;
 }
 
 /* Style for the Header component to ensure it has a solid background and is always on top */
 .header-div {
-  background-color: var(--background-color); // This is correct, header needs a solid background
+  background-color: var(--background-color);
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 10;
 }
 
-/* --- Responsive Adjustments using Media Queries (New Additions) --- */
-
-// Tablet devices (e.g., iPads in portrait, smaller laptops)
+/* --- Responsive Adjustments using Media Queries --- */
 @media (max-width: 1024px) {
   .main {
-    min-height: 55vh; // Adjust min-height for tablets
+    min-height: 55vh;
   }
 }
-
-// Mobile devices (e.g., phones in portrait)
 @media (max-width: 767px) {
   .main {
-    min-height: 45vh; // Adjust min-height for mobile
+    min-height: 45vh;
+  }
+}
+@media (max-width: 480px) {
+  .main {
+    min-height: 40vh;
   }
 }
 
-// Very small mobile devices (optional, for extra fine-tuning)
-@media (max-width: 480px) {
+@media (max-width: 360px) {
   .main {
-    min-height: 40vh; // Further adjust min-height for very small screens
+    min-height: 35vh;
   }
 }
