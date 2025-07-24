@@ -19,6 +19,16 @@ const FloatingSendButton = ({
   const morphData = useRef({ progress: 0, target: 0, start: null }).current;
 
   const [isFocused, setIsFocused] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  // Update windowWidth on resize
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const getButtonPath = useCallback(() => {
     const button = buttonRef.current;
@@ -121,6 +131,84 @@ const FloatingSendButton = ({
     };
   }, [getButtonPath, morphData, isFocused, text]);
 
+  // Responsive styles for relaxedPersonAnimationData
+  const getRelaxedPersonStyles = () => {
+    let bottom = "20px";
+    let width = "52%";
+    let maxWidth = "40vw";
+
+    if (windowWidth <= 1024) { // Tablets
+      bottom = "15px";
+      width = "60%";
+      maxWidth = "50vw";
+    }
+    if (windowWidth <= 768) { // Mobile
+      bottom = "10px";
+      width = "70%";
+      maxWidth = "60vw";
+    }
+    if (windowWidth <= 480) { // Small Mobile
+      bottom = "5px";
+      width = "80%";
+      maxWidth = "70vw";
+    }
+
+    return {
+      position: "absolute",
+      bottom: bottom,
+      left: "50%",
+      transform: "translateX(-50%)",
+      width: width,
+      maxWidth: maxWidth,
+      height: "auto",
+      filter: isRelaxedPersonBlurred ? "blur(5px)" : "none",
+      opacity: isRelaxedPersonBlurred ? 0.3 : 1,
+      zIndex: 0,
+      pointerEvents: "none",
+      transition: "filter 0.3s ease-in-out, opacity 0.3s ease-in-out"
+    };
+  };
+
+  // Responsive styles for rocketAnimationData
+  const getRocketAnimationStyles = () => {
+    let bottom = "-10%";
+    let width = "100%";
+    let maxWidth = "80vw";
+    let height = "50vh";
+
+    if (windowWidth <= 1024) { // Tablets
+      bottom = "-15%";
+      maxWidth = "90vw";
+      height = "45vh";
+    }
+    if (windowWidth <= 768) { // Mobile
+      bottom = "-20%";
+      maxWidth = "95vw";
+      height = "40vh";
+    }
+    if (windowWidth <= 480) { // Small Mobile
+      bottom = "-25%";
+      maxWidth = "100vw";
+      height = "35vh";
+    }
+
+    return {
+      position: "absolute",
+      bottom: bottom,
+      left: "50%",
+      transform: "translateX(-50%)",
+      width: width,
+      maxWidth: maxWidth,
+      height: height,
+      overflow: "hidden",
+      zIndex: 2,
+      opacity: showRocketAnimation ? 1 : 0,
+      pointerEvents: "none",
+      transition: "opacity 0.5s ease-in-out"
+    };
+  };
+
+
   return (
     <div className="textarea-container">
       <svg id="border-svg" xmlns="http://www.w3.org/2000/svg">
@@ -154,20 +242,7 @@ const FloatingSendButton = ({
           animationData={relaxedPersonAnimationData}
           loop
           autoplay
-          style={{
-            position: "absolute",
-            bottom: "20px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            width: "52%",
-            maxWidth: "40vw",
-            height: "auto",
-            filter: isRelaxedPersonBlurred ? "blur(5px)" : "none",
-            opacity: isRelaxedPersonBlurred ? 0.3 : 1,
-            zIndex: 0,
-            pointerEvents: "none",
-            transition: "filter 0.3s ease-in-out, opacity 0.3s ease-in-out"
-          }}
+          style={getRelaxedPersonStyles()}
         />
       )}
 
@@ -176,20 +251,7 @@ const FloatingSendButton = ({
           animationData={rocketAnimationData}
           loop={false}
           autoplay
-          style={{
-            position: "absolute",
-            bottom: "-10%",
-            left: "50%",
-            transform: "translateX(-50%)",
-            width: "100%",
-            maxWidth: "80vw",
-            height: "50vh",
-            overflow: "hidden",
-            zIndex: 2,
-            opacity: showRocketAnimation ? 1 : 0,
-            pointerEvents: "none",
-            transition: "opacity 0.5s ease-in-out"
-          }}
+          style={getRocketAnimationStyles()}
         />
       )}
     </div>
