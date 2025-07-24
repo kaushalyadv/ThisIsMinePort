@@ -1,31 +1,31 @@
-@import "../../_globalColor";
+@import "../../_globalColor"; // Assuming this path is correct and the file exists
 
 .card-image {
   max-width: 100%;
   height: auto;
-  width: 250px;
+  width: 250px; // Base width for larger screens
 }
-.light-mode{
+.light-mode {
   background: transparent;
   color: white;
   transition: "0.1s";
 }
 .card-title {
   color: $titleColor;
-  font-size: 1.375rem;
+  font-size: 1.375rem; // Base font size
   line-height: 24px;
   font-weight: 700;
   margin: 15px 0 0 0;
 }
 .card-subtitle {
   color: $cardSubtitle;
-  font-size: 1.063rem;
+  font-size: 1.063rem; // Base font size
   line-height: 1.5rem;
 }
 .certificate-card {
   background-color: $lightBackground2;
   box-shadow: $lightBoxShadowDark 0px 10px 30px -15px;
-  padding: 1.5rem;
+  padding: 1.5rem; // Base padding
   border-radius: 10px;
   border: 1px solid $lightBorder1;
   -webkit-transition: all 0.3s ease;
@@ -43,7 +43,7 @@
 }
 .certificate-image-div {
   position: relative;
-  height: 250px;
+  height: 250px; // Base height
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -51,8 +51,9 @@
 }
 .achievement-cards-div {
   display: grid;
+  // Base grid: allows cards to be at least 300px wide, and takes available space
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem 1rem;
+  gap: 1rem 1rem; // Base gap
 }
 .certificate-card-footer {
   display: flex;
@@ -67,16 +68,120 @@
   align-items: center;
   border-radius: 4px;
   display: inline-flex;
-  font-size: 0.75rem;
+  font-size: 0.75rem; // Base font size
   height: 2em;
   justify-content: center;
   white-space: nowrap;
   line-height: 1.5;
   margin: 0 0.5rem 0.5rem 0;
-  padding: 0 0.75em;
+  padding: 0 0.75em; // Base padding
   cursor: pointer;
   transition: 0.2s ease-in;
 }
 span.certificate-tag:hover {
   background: $buttonHover;
+}
+
+/* --- Responsive Adjustments using Media Queries (New Additions) --- */
+
+// Tablet devices (e.g., iPads in portrait, smaller laptops)
+@media (max-width: 1024px) {
+  .card-image {
+    width: 200px; // Slightly smaller image width for tablets
+  }
+
+  .card-title {
+    font-size: 1.25rem; // Slightly smaller title font size
+  }
+
+  .card-subtitle {
+    font-size: 1rem; // Slightly smaller subtitle font size
+  }
+
+  .certificate-card {
+    padding: 1.25rem; // Slightly less padding
+  }
+
+  .certificate-image-div {
+    height: 200px; // Adjust image container height
+  }
+
+  .achievement-cards-div {
+    // Allow cards to be slightly smaller on tablets, or fewer columns if needed
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0.75rem 0.75rem; // Slightly smaller gap
+  }
+
+  .certificate-card-footer span.certificate-tag {
+    font-size: 0.7rem; // Slightly smaller tag font size
+    padding: 0 0.6em; // Adjust tag padding
+    margin: 0 0.4rem 0.4rem 0; // Adjust tag margin
+  }
+}
+
+// Mobile devices (e.g., phones in portrait)
+@media (max-width: 767px) {
+  .card-image {
+    width: 180px; // Smaller image width for mobile
+  }
+
+  .card-title {
+    font-size: 1.125rem; // Smaller title font size
+    margin-top: 10px; // Adjust margin
+  }
+
+  .card-subtitle {
+    font-size: 0.938rem; // Smaller subtitle font size
+  }
+
+  .certificate-card {
+    padding: 1rem; // Reduced padding for mobile
+  }
+
+  .certificate-image-div {
+    height: 180px; // Adjust image container height for mobile
+  }
+
+  .achievement-cards-div {
+    // Force a single column layout for mobile for better readability
+    grid-template-columns: 1fr;
+    gap: 0.75rem 0.75rem; // Keep gap consistent or adjust as needed
+  }
+
+  .certificate-card-footer span.certificate-tag {
+    font-size: 0.65rem; // Further smaller tag font size
+    height: 1.8em; // Adjust tag height
+    padding: 0 0.5em; // Adjust tag padding
+    margin: 0 0.3rem 0.3rem 0; // Adjust tag margin
+  }
+}
+
+// Very small mobile devices (optional, for extra fine-tuning)
+@media (max-width: 480px) {
+  .card-image {
+    width: 150px; // Even smaller image width
+  }
+
+  .card-title {
+    font-size: 1rem; // Even smaller title font size
+  }
+
+  .card-subtitle {
+    font-size: 0.875rem; // Even smaller subtitle font size
+  }
+
+  .certificate-card {
+    padding: 0.75rem; // Even less padding
+  }
+
+  .certificate-image-div {
+    height: 150px; // Adjust image container height
+  }
+
+  .certificate-card-footer span.certificate-tag {
+    font-size: 0.6rem; // Smallest tag font size
+    height: 1.6em; // Adjust tag height
+    padding: 0 0.4em; // Adjust tag padding
+    margin: 0 0.2rem 0.2rem 0; // Adjust tag margin
+  }
 }

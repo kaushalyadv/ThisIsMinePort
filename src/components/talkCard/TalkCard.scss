@@ -1,21 +1,23 @@
-@import "../../_globalColor";
+@import "../../_globalColor"; // Assuming this path is correct and the file exists
 
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: center; // Centers content horizontally
 }
 
 /* Rectangle Card Layout */
 .rectangle {
-  background: url(../../assets/images/talksCardBack.svg);
+  background: url(../../assets/images/talksCardBack.svg); // Ensure this path is correct
+  background-size: cover; // Ensure background image covers the area
+  background-position: center; // Center the background image
   width: 100%;
-  height: 300px;
+  height: 300px; // Base height for larger screens
   border-radius: 4px;
   box-shadow: 0px 20px 50px $darkBoxShadow;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  margin-top: 50px;
+  margin-top: 50px; // Base top margin
 }
 .rectangle:hover {
   box-shadow: 0 20px 40px $textColorDark;
@@ -24,19 +26,19 @@
   box-shadow: 0px 0px 20px 0px;
 }
 .mask {
-  clip: rect(0px, 460px, 220px, 0px);
+  clip: rect(0px, 460px, 220px, 0px); // Base clip for larger screens
   border-radius: 4px;
   position: absolute;
 }
 
-/* Card  Styling */
+/* Card Styling */
 .talk-card-title {
   color: $textColorDark;
   margin: auto;
   text-align: left;
-  margin-top: 25px;
-  padding: 0px 0px 40px 30px;
-  font-size: 30px;
+  margin-top: 25px; // Base top margin
+  padding: 0px 0px 40px 30px; // Base padding
+  font-size: 30px; // Base font size
   line-height: normal;
   overflow: hidden;
   display: -webkit-box;
@@ -44,11 +46,11 @@
   -webkit-box-orient: vertical;
 }
 .talk-card-subtitle {
-  margin-top: 35px;
+  margin-top: 35px; // Base top margin
   text-align: justify;
-  padding-left: 30px;
-  padding-right: 30px;
-  font-size: 16px;
+  padding-left: 30px; // Base padding
+  padding-right: 30px; // Base padding
+  font-size: 16px; // Base font size
   color: $talkCardSubTitle;
   line-height: 18px;
   overflow: hidden;
@@ -59,27 +61,28 @@
 .talk-button {
   background-color: $buttonColor;
   color: $textColorDark;
-  width: 90px;
-  padding: 10px 18px;
+  width: 90px; // Base width
+  padding: 10px 18px; // Base padding
   border-radius: 3px;
   text-align: center;
   text-decoration: none;
   display: block;
-  margin-top: 20px;
-  font-size: 14px;
+  margin-top: 20px; // Base top margin
+  font-size: 14px; // Base font size
   cursor: pointer;
+  transition: 0.2s ease-in;
 }
 .talk-button:hover {
   background: $buttonHover;
 }
 .card-footer-button-div {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-around; // Base justify-content
 }
 
-/* Media Query */
+/* --- Existing Media Queries (UNCHANGED as per request) --- */
 @media (max-width: 1380px) {
-  .card-title {
+  .card-title { /* Note: This class is not directly used in the provided HTML, check if it's meant for .talk-card-title */
     font-size: 25px;
   }
 }
@@ -95,7 +98,7 @@
     width: 100%;
   }
 
-  .talk-button {
+  .talk-button { /* This block is a duplicate of the base .talk-button, consider removing it if no changes are needed here */
     background-color: $buttonColor;
     color: $textColorDark;
     width: 90px;
@@ -109,17 +112,127 @@
     cursor: pointer;
     transition: 0.2s ease-in;
   }
-  .talk-button:hover {
+  .talk-button:hover { /* This block is a duplicate of the base .talk-button:hover, consider removing it */
     background: $buttonHover;
   }
-  .card-footer-button-div {
+  .card-footer-button-div { /* This block is a duplicate of the base .card-footer-button-div, consider removing it */
     display: flex;
     justify-content: space-around;
   }
 
-  .square {
+  .square { /* This class is not defined in the base styles, ensure it's used elsewhere or remove */
     width: 100%;
     height: auto;
     padding-bottom: 30px;
+  }
+}
+
+/* --- New Media Queries for Responsiveness --- */
+
+// Tablet devices (max-width: 1024px)
+@media (max-width: 1024px) {
+  .rectangle {
+    height: 280px; // Slightly reduce height for tablets
+    margin-top: 40px; // Adjust top margin
+  }
+
+  .mask {
+    // If you want to adjust the clip for tablets, define it here.
+    // Otherwise, the 768px media query's `clip-path: none` will take over.
+  }
+
+  .talk-card-title {
+    font-size: 26px; // Adjust font size
+    padding: 0px 0px 30px 25px; // Adjust padding
+    margin-top: 20px; // Adjust top margin
+  }
+
+  .talk-card-subtitle {
+    font-size: 15px; // Adjust font size
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 30px; // Adjust top margin
+  }
+
+  .talk-button {
+    width: 85px; // Slightly smaller button width
+    padding: 9px 16px; // Slightly less padding
+    font-size: 13px; // Slightly smaller font size
+    margin-top: 18px; // Adjust top margin
+  }
+}
+
+// Mobile devices (max-width: 767px) - Overrides 768px media query for specific elements
+@media (max-width: 767px) {
+  .rectangle {
+    height: 250px; // Further reduce height for mobile
+    margin-top: 30px; // Further adjust top margin
+  }
+
+  .talk-card-title {
+    font-size: 22px; // Smaller font size
+    padding: 0px 0px 25px 20px; // Reduced padding
+    margin-top: 15px; // Reduced top margin
+    -webkit-line-clamp: 3; // Allow more lines for title on smaller screens
+  }
+
+  .talk-card-subtitle {
+    font-size: 14px; // Smaller font size
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 25px; // Reduced top margin
+    line-height: 1.4; // Adjust line-height for better readability
+    -webkit-line-clamp: 3; // Allow more lines for subtitle
+  }
+
+  .talk-button {
+    width: 80px; // Even smaller button width
+    padding: 8px 14px; // Reduced padding
+    font-size: 12px; // Smaller font size
+    margin-top: 15px; // Reduced top margin
+  }
+
+  .card-footer-button-div {
+    flex-direction: column; // Stack buttons vertically on mobile
+    align-items: center; // Center stacked buttons
+    gap: 10px; // Add spacing between stacked buttons
+  }
+  .talk-button {
+    margin: 0; /* Reset margin for buttons inside stacked footer */
+    margin-bottom: 10px; /* Add bottom margin for spacing */
+  }
+}
+
+// Very small mobile devices (max-width: 480px)
+@media (max-width: 480px) {
+  .rectangle {
+    height: 220px; // Smallest height for very small screens
+    margin-top: 20px; // Smallest top margin
+  }
+
+  .talk-card-title {
+    font-size: 18px; // Smallest font size for title
+    padding: 0px 0px 20px 15px; // Smallest padding
+    margin-top: 10px; // Smallest top margin
+    -webkit-line-clamp: 4; // Allow even more lines
+  }
+
+  .talk-card-subtitle {
+    font-size: 13px; // Smallest font size for subtitle
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 20px; // Smallest top margin
+    line-height: 1.3;
+    -webkit-line-clamp: 4; // Allow even more lines
+  }
+
+  .talk-button {
+    width: 70px; // Smallest button width
+    padding: 7px 12px; // Smallest padding
+    font-size: 11px; // Smallest font size
+    margin-top: 10px; // Smallest top margin
+  }
+  .card-footer-button-div {
+    gap: 8px; // Reduce gap for very small screens
   }
 }

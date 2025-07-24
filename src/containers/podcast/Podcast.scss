@@ -1,14 +1,14 @@
-@import "../../_globalColor";
+@import "../../_globalColor"; // Assuming this path is correct and the file exists
 
 .podcast-header-title {
-  font-size: 56px;
+  font-size: 56px; // Base font size
   font-weight: 400;
-  line-height: 0px;
+  line-height: 0px; // This might cause issues if not intended for specific alignment
 
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 8px; // Base gap between title and emoji
 }
 
 .music-emoji {
@@ -32,34 +32,90 @@
 }
 
 .podcast {
-  width: 600px;
+  width: 600px; // Base fixed width for the podcast player/embed
 }
 
 .podcast-main-div {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); // Base grid columns
+  gap: 1rem 1rem; // Base gap
 }
 
 .subTitle {
   color: $subTitle;
 }
 
+/* --- Existing Media Queries (UNCHANGED as per request) --- */
 @media (max-width: 768px) {
   .podcast-header-title {
-    font-size: 30px;
+    font-size: 30px; // Adjusted font size for tablets/phones
     text-align: center;
+    // When text-align is center, flex properties like justify-content: center are often better
+    // but keeping text-align for consistency with original code.
   }
   .podcast-header-subtitle {
-    font-size: 16px;
+    font-size: 16px; // Adjusted font size for tablets/phones
     line-height: normal;
     text-align: center;
   }
 
   .podcast {
-    width: 300px;
+    width: 300px; // Adjusted fixed width for tablets/phones
   }
   .podcast-main-div {
     text-align: center;
+  }
+}
+
+/* --- New Media Queries for Responsiveness --- */
+
+// Tablet devices (max-width: 1024px)
+@media (max-width: 1024px) {
+  .podcast-header-title {
+    font-size: 30px; // Adjust font size for tablets (larger than 768px breakpoint)
+    gap: 6px; // Slightly reduce gap
+  }
+
+  .podcast {
+    width: 500px; // Adjust width for tablets
+  }
+
+  .podcast-main-div {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); // Adjust minmax for grid items
+    gap: 0.8rem 0.8rem; // Slightly reduce gap
+  }
+}
+
+// Mobile devices (max-width: 480px)
+@media (max-width: 480px) {
+  .podcast-header-title {
+    font-size: 24px; // Further reduce font size for mobile
+    gap: 4px; // Further reduce gap
+  }
+
+  .podcast {
+    width: 100%; // Make podcast player take full width on mobile
+    max-width: 320px; // Set a max-width to prevent it from being too wide on larger phones
+  }
+
+  .podcast-main-div {
+    grid-template-columns: 1fr; // Force single column layout on mobile
+    gap: 0.7rem 0.7rem; // Further reduce gap
+  }
+}
+
+// Very small mobile devices (max-width: 375px)
+@media (max-width: 375px) {
+  .podcast-header-title {
+    font-size: 20px; // Smallest font size for title
+    gap: 3px; // Smallest gap
+  }
+
+  .podcast-header-subtitle {
+    font-size: 14px; // Smallest font size for subtitle
+  }
+
+  .podcast {
+    max-width: 280px; // Further restrict max-width for very small screens
   }
 }

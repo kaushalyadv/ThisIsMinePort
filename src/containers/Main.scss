@@ -1,6 +1,6 @@
 // Main.scss
 
-@import "../_globalColor";
+@import "../_globalColor"; // Assuming this path is correct and the file exists
 
 /* Universal Box-Sizing and Image Max-Width for Responsiveness */
 * {
@@ -25,28 +25,17 @@ img, video, canvas, svg {
   transition: 0.1s;
 }
 
-/* NOTE: This class is not being used by the ThreeDBackground component
-  from the previous answer. You can safely remove it to keep your code clean.
-*/
-// .three-d-background-container {
-//   // ... (unused styles)
-// }
-
-/* --- CORRECTED MAIN CONTENT STYLES --- */
+/* --- BASE MAIN CONTENT STYLES (UNCHANGED) --- */
 .main {
   position: relative;
   z-index: 1; /* Ensures this content is above the z-index: -1 background */
   
-  // 1. CHANGE: Make background transparent to see the 3D canvas behind it.
+  // Make background transparent to see the 3D canvas behind it.
   background-color: transparent; 
 
-  min-height: 65vh;
-  overflow: hidden;
+  min-height: 65vh; // Base min-height
+  overflow: hidden; // Prevents content inside .main from causing scrollbars
 
-  // 2. REMOVE: This was the property causing the issue.
-  // overflow-y: auto;  <-- REMOVE THIS LINE
-
-  // padding-top: ;
   box-sizing: border-box;
 }
 
@@ -55,15 +44,16 @@ html, body, #root {
   height: 100%;
   margin: 0;
   padding: 0;
-  // overflow-x: hidden; // Prevents horizontal scroll on the entire page
+  overflow-x: hidden; // Prevents horizontal scroll on the entire page by default
   background-color: transparent;
 
-  /* This is fine for hiding the scrollbar */
+  /* This is fine for hiding the scrollbar across all browsers */
   &::-webkit-scrollbar {
     width: 0px;
+    background: transparent; // For Chrome, Safari
   }
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  scrollbar-width: none; // For Firefox
+  -ms-overflow-style: none; // For Edge, IE
 }
 
 /* Style for the Header component to ensure it has a solid background and is always on top */
@@ -73,4 +63,27 @@ html, body, #root {
   top: 0;
   width: 100%;
   z-index: 10;
+}
+
+/* --- Responsive Adjustments using Media Queries (New Additions) --- */
+
+// Tablet devices (e.g., iPads in portrait, smaller laptops)
+@media (max-width: 1024px) {
+  .main {
+    min-height: 55vh; // Adjust min-height for tablets
+  }
+}
+
+// Mobile devices (e.g., phones in portrait)
+@media (max-width: 767px) {
+  .main {
+    min-height: 45vh; // Adjust min-height for mobile
+  }
+}
+
+// Very small mobile devices (optional, for extra fine-tuning)
+@media (max-width: 480px) {
+  .main {
+    min-height: 40vh; // Further adjust min-height for very small screens
+  }
 }

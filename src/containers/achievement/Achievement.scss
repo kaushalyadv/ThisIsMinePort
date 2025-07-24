@@ -1,12 +1,12 @@
-@import "../../_globalColor";
+@import "../../_globalColor"; // Assuming this path is correct and the file exists
 
 .achievement-heading {
-  font-size: 56px;
+  font-size: 56px; // Base font size
   font-weight: 400;
   line-height: normal;
   margin: 0px;
 }
-.light-mode{
+.light-mode {
   background: transparent;
   color: white;
   transition: "0.1s";
@@ -14,26 +14,65 @@
 .achievement-subtitle {
   text-transform: uppercase;
   margin: 0px;
-  margin-bottom: 50px;
+  margin-bottom: 50px; // Base bottom margin
 }
 .subTitle {
   color: $subTitle;
 }
 
-/* Media Query */
+/* --- Existing Media Queries (UNCHANGED as per request) --- */
 @media (max-width: 1380px) {
   .achievement-heading {
-    font-size: 40px;
+    font-size: 40px; // Adjusted font size for larger tablets/laptops
   }
 }
 @media (max-width: 768px) {
   .achievement-heading {
-    font-size: 30px;
+    font-size: 30px; // Adjusted font size for tablets/phones
     text-align: center;
   }
   .achievement-subtitle {
-    font-size: 16px;
+    font-size: 16px; // Adjusted font size for tablets/phones
     line-height: normal;
     text-align: center;
+  }
+}
+
+/* --- New Media Queries for Responsiveness --- */
+
+// Tablet devices (max-width: 1024px) - This will apply to a broader range of tablets
+// as the 1380px breakpoint is quite large.
+@media (max-width: 1024px) {
+  .achievement-heading {
+    font-size: 36px; // Slightly smaller than 1380px breakpoint but larger than 768px
+  }
+
+  .achievement-subtitle {
+    margin-bottom: 40px; // Reduce bottom margin slightly
+  }
+}
+
+// Mobile devices (max-width: 480px)
+@media (max-width: 480px) {
+  .achievement-heading {
+    font-size: 24px; // Further reduce font size for mobile
+    margin-bottom: 10px; // Add a small bottom margin to the heading
+  }
+
+  .achievement-subtitle {
+    font-size: 14px; // Further reduce font size for mobile
+    margin-bottom: 30px; // Reduce bottom margin for subtitle
+  }
+}
+
+// Very small mobile devices (max-width: 375px)
+@media (max-width: 375px) {
+  .achievement-heading {
+    font-size: 20px; // Smallest font size for very small screens
+  }
+
+  .achievement-subtitle {
+    font-size: 12px; // Smallest font size for very small screens
+    margin-bottom: 20px; // Smallest bottom margin
   }
 }

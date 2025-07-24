@@ -1,8 +1,8 @@
-@import "../../_globalColor";
+@import "../../_globalColor"; // Assuming this path is correct and the file exists
 
 /*React-headroom*/
 .headroom-wrapper {
-  max-height: 100px;
+  max-height: 100px; // Base max-height for the headroom wrapper
 }
 
 /* header */
@@ -25,6 +25,7 @@
   background-color: $lightBackground1;
   max-width: 100%;
   margin: 0px auto;
+  padding: 0 20px; // Base padding for larger screens
 }
 
 .header ul {
@@ -40,7 +41,7 @@
 
 .header li a {
   display: block;
-  padding: 15px 20px;
+  padding: 15px 20px; // Base padding for menu items
   color: $textColor;
   text-decoration: none;
 }
@@ -54,9 +55,9 @@
   display: block;
   flex: none;
   float: left;
-  font-size: 1.5em;
+  font-size: 1.5em; // Base font size for logo
   text-decoration: none;
-  margin-top: 10px;
+  margin-top: 10px; // Base margin-top for logo
   line-height: normal;
 }
 
@@ -82,7 +83,7 @@
   cursor: pointer;
   display: inline-block;
   float: right;
-  padding: 28px 20px;
+  padding: 28px 20px; // Base padding for menu icon
   position: relative;
   user-select: none;
 }
@@ -137,7 +138,7 @@
 }
 
 .header .menu-btn:checked ~ .menu {
-  max-height: 486px;
+  max-height: 486px; // Base max-height for expanded mobile menu
 }
 
 .header .menu-btn:checked ~ .menu-icon .navicon {
@@ -157,9 +158,8 @@
   top: 0;
 }
 
-/* 48em = 768px */
-
-@media (min-width: 48em) {
+/* --- Existing Desktop Media Query (UNCHANGED) --- */
+@media (min-width: 48em) { /* 48em = 768px (assuming base 16px font) */
   .header li {
     float: left;
   }
@@ -167,16 +167,104 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 20px; /* Ensure padding is consistent with base for desktop */
   }
   .header .menu {
-    max-height: none;
+    max-height: none; /* Menu is always visible on desktop */
   }
   .header .menu-icon {
-    display: none;
+    display: none; /* Hide hamburger icon on desktop */
   }
 }
-@media (max-width: 960px) and (min-width: 768px) {
+
+/* --- Responsive Adjustments using Media Queries (New Additions) --- */
+
+// Tablet and smaller desktop screens (max-width: 1023px)
+// This applies to devices where the mobile menu (hamburger) is active.
+@media (max-width: 1023px) {
   .header {
-    font-size: 12px;
+    padding: 0 15px; // Adjust horizontal padding for the header
+  }
+
+  .header .logo {
+    font-size: 1.3em; // Slightly smaller logo for tablets
+    margin-top: 15px; // Adjust vertical alignment
+  }
+
+  .header .menu-icon {
+    padding: 20px 15px; // Adjust padding for the hamburger icon
+  }
+
+  .header li a {
+    padding: 12px 15px; // Adjust padding for menu items in expanded mobile menu
+    font-size: 0.95rem; // Slightly smaller font size for menu items
+  }
+
+  // The headroom-wrapper max-height might need adjustment if the header content changes significantly.
+  // For now, 100px is generally fine, but could be reduced if needed.
+  .headroom-wrapper {
+    max-height: 90px;
   }
 }
+
+// Mobile devices (max-width: 767px)
+@media (max-width: 767px) {
+  .header {
+    padding: 0 10px; // Further reduce horizontal padding
+  }
+
+  .header .logo {
+    font-size: 1.2em; // Smaller logo for phones
+    margin-top: 12px; // Adjust vertical alignment
+  }
+
+  .header .menu-icon {
+    padding: 18px 10px; // Adjust padding for hamburger icon
+  }
+
+  .header li a {
+    padding: 10px 10px; // Further adjust padding for menu items
+    font-size: 0.9rem; // Smaller font size for menu items
+  }
+
+  .header .menu-btn:checked ~ .menu {
+    max-height: 350px; // Adjust max-height for mobile menu to prevent overflow on phones
+  }
+
+  .headroom-wrapper {
+    max-height: 80px; // Further reduce headroom max-height
+  }
+}
+
+// Very small mobile devices (max-width: 480px)
+@media (max-width: 480px) {
+  .header .logo {
+    font-size: 1.1em; // Even smaller logo
+    margin-top: 10px;
+  }
+
+  .header .menu-icon {
+    padding: 15px 8px; // Even smaller padding for icon
+  }
+
+  .header li a {
+    padding: 8px 8px; // Even smaller padding for menu items
+    font-size: 0.85rem; // Even smaller font size
+  }
+
+  .header .menu-btn:checked ~ .menu {
+    max-height: 300px; // Further adjust max-height for very small screens
+  }
+
+  .headroom-wrapper {
+    max-height: 70px; // Smallest headroom max-height
+  }
+}
+
+// Removed the original specific media query:
+// @media (max-width: 960px) and (min-width: 768px) {
+//   .header {
+//     font-size: 12px;
+//   }
+// }
+// This adjustment is now handled more granularly by the new broader max-width media queries on specific elements.

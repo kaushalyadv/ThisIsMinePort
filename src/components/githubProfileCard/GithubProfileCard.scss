@@ -1,23 +1,23 @@
-@import "../../_globalColor";
+@import "../../_globalColor"; // Assuming this path is correct and the file exists
 
 .profile-image {
   border-radius: 50%;
-  border: 0.5rem solid $githubProfileCardBorder;
+  border: 0.5rem solid $githubProfileCardBorder; // Base border thickness
   margin-left: auto;
   width: 100%;
-  max-width: 350px;
+  max-width: 350px; // Base max-width
   height: auto;
   box-shadow: $lightBoxShadow 0 30px 30px -30px;
   transition: all 0.3s ease-out;
 }
 
 .profile-image:hover {
-  box-shadow: none;
+  box-shadow: none; // Base hover effect
 }
 
 .prof-title {
   margin: 0;
-  font-size: 40px;
+  font-size: 40px; // Base font size
   font-weight: 400;
 }
 
@@ -30,53 +30,54 @@
 }
 
 .row {
-  display: flex;
+  display: flex; // Base display for larger screens
 }
 
 .main-content-profile {
-  flex: 80%;
+  flex: 80%; // Base flex distribution
 }
 
 .image-content-profile {
-  text-align: right;
-  flex: 20%;
+  text-align: right; // Base text alignment
+  flex: 20%; // Base flex distribution
   max-width: 100%;
   height: auto;
 }
 
 .bio-text {
-  line-height: 30px;
-  font-size: 22px;
+  line-height: 30px; // Base line-height
+  font-size: 22px; // Base font size
 }
 
 .desc-prof {
-  line-height: 45px;
-  font-size: 19px;
+  line-height: 45px; // Base line-height
+  font-size: 19px; // Base font size
 }
 
 .subTitle {
   color: $subTitle;
 }
 
+/* --- Existing Media Query (UNCHANGED as per request) --- */
 @media (max-width: 768px) {
   .row {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; // Stack columns vertically
   }
 
   .main-content-profile {
     text-align: center;
-    order: 2;
+    order: 2; // Move content below image
   }
 
   .bio-text {
-    font-size: 16px;
+    font-size: 16px; // Adjust font size
   }
 
   .image-content-profile {
     margin-left: auto;
     margin-right: auto;
-    order: 1;
+    order: 1; // Move image above content
   }
 
   .desc-prof {
@@ -88,7 +89,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: 250px;
+    max-width: 250px; // Adjust max-width
     height: auto;
   }
 
@@ -99,7 +100,53 @@
 
   .prof-title {
     padding-bottom: 1rem;
-    font-size: 32px;
+    font-size: 32px; // Adjust font size
     text-align: center;
+  }
+}
+
+/* --- New Media Query for Mobile Devices (max-width: 480px) --- */
+@media (max-width: 480px) {
+  .profile-image {
+    max-width: 200px; // Further reduce max-width for very small screens
+    border: 0.3rem solid $githubProfileCardBorder; // Slightly thinner border
+  }
+
+  .prof-title {
+    font-size: 28px; // Further reduce font size
+    padding-bottom: 0.8rem;
+  }
+
+  .bio-text {
+    font-size: 15px; // Further reduce font size
+    line-height: 25px; // Adjust line-height
+  }
+
+  .desc-prof {
+    font-size: 15px; // Further reduce font size
+    line-height: 25px; // Adjust line-height
+  }
+
+  .opp-div {
+    padding-bottom: 0.8rem; // Reduce padding
+  }
+}
+
+// Optional: Even smaller mobile devices (max-width: 375px)
+@media (max-width: 375px) {
+  .profile-image {
+    max-width: 180px; // Even smaller max-width
+    border: 0.25rem solid $githubProfileCardBorder; // Even thinner border
+  }
+
+  .prof-title {
+    font-size: 24px; // Smallest font size
+    padding-bottom: 0.6rem;
+  }
+
+  .bio-text,
+  .desc-prof {
+    font-size: 14px; // Smallest font size for text
+    line-height: 22px; // Smallest line-height
   }
 }

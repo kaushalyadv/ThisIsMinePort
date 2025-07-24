@@ -1,23 +1,23 @@
-@import "../../_globalColor";
+@import "../../_globalColor"; // Assuming this path is correct and the file exists
 
 .skills-main-div {
-  display: flex;
+  display: flex; // Base display for larger screens
   width: 100%;
   overflow: hidden;
 }
 
 .skills-text-div {
-  margin-left: 50px;
+  margin-left: 50px; // Base left margin for text content
 }
-.light-mode{
+.light-mode {
   background: transparent;
   color: white;
   transition: "0.1s";
 }
 
 .skills-main-div > * {
-  flex: 1;
-  margin-bottom: 30px;
+  flex: 1; // Base flex distribution
+  margin-bottom: 30px; // Base bottom margin for flex items
 }
 
 .skills-image-div > img {
@@ -26,16 +26,16 @@
 }
 
 .skills-heading {
-  font-size: 56px;
+  font-size: 56px; // Base font size
   font-weight: 400;
   display: flex;
-  justify-content: center;
+  justify-content: center; // Centers the heading horizontally
 }
 .subTitle {
   color: $subTitle;
 }
 
-/* Media Query */
+/* --- Existing Media Queries (UNCHANGED as per request) --- */
 @media (max-width: 1380px) {
   .skills-heading {
     font-size: 40px;
@@ -46,26 +46,74 @@
     font-size: 30px;
     text-align: center;
   }
-  .greeting-text-p {
+  .greeting-text-p { /* This class is not defined in the base skills section, ensure it's used elsewhere */
     font-size: 16px;
     line-height: normal;
   }
   .skills-main-div {
-    flex-direction: column;
+    flex-direction: column; // Stack sections vertically
   }
   .skills-text-div {
-    margin-left: 0px;
-    margin: 20px;
+    margin-left: 0px; // Remove left margin when stacked
+    margin: 20px; // Add general margin for spacing
   }
-  .skills-text {
+  .skills-text { /* This class is not defined in the base skills section, ensure it's used elsewhere */
     font-size: 16px;
   }
-  .skills-text-subtitle {
+  .skills-text-subtitle { /* This class is not defined in the base skills section, ensure it's used elsewhere */
     font-size: 16px;
     text-align: center;
   }
   .skills-image-div {
-    /* display: none; */
-    order: 2;
+    /* display: none; */ // This was commented out, keeping it as is.
+    order: 2; // Move image below text content
+  }
+}
+
+/* --- New Media Queries for Responsiveness --- */
+
+// Tablet devices (max-width: 1024px)
+@media (max-width: 1024px) {
+  .skills-text-div {
+    margin-left: 30px; // Reduce left margin for tablets
+  }
+
+  .skills-main-div > * {
+    margin-bottom: 25px; // Slightly reduce bottom margin for flex items
+  }
+
+  .skills-heading {
+    font-size: 36px; // Adjust font size for tablets
+  }
+}
+
+// Mobile devices (max-width: 480px)
+@media (max-width: 480px) {
+  .skills-text-div {
+    margin-left: 0px; // Ensure no left margin on mobile
+    margin: 15px; // Adjust general margin
+  }
+
+  .skills-main-div > * {
+    margin-bottom: 20px; // Further reduce bottom margin
+  }
+
+  .skills-heading {
+    font-size: 28px; // Further reduce font size for mobile
+  }
+}
+
+// Very small mobile devices (max-width: 375px)
+@media (max-width: 375px) {
+  .skills-text-div {
+    margin: 10px; // Smallest general margin
+  }
+
+  .skills-main-div > * {
+    margin-bottom: 15px; // Smallest bottom margin
+  }
+
+  .skills-heading {
+    font-size: 24px; // Smallest font size for heading
   }
 }

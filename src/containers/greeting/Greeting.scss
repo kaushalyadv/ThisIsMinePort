@@ -1,62 +1,57 @@
-@import "../../_globalColor";
+@import "../../_globalColor"; // Assuming this path is correct and the file exists
 
 .main {
-  width: 100%;
-  padding: 20px 30px;
-  margin: 0px auto;
-  // margin-top: 4rem;
+  width: 100%; // Base width
+  padding: 20px 30px; // Base padding
+  margin: 0px auto; // Centers the main content horizontally
   z-index: 11;
 }
-.light-mode{
+.light-mode {
   background: transparent;
   color: white;
   transition: "0.1s";
 }
 .greet-main {
-  width: 90%;
-  padding: 20px 10px;
-  margin: 0px auto;
-  margin-top: 2rem;
+  width: 90%; // Base width for the greeting section
+  padding: 20px 10px; // Base padding
+  margin: 0px auto; // Centers the greeting section horizontally
+  margin-top: 2rem; // Base top margin
 }
 
 .greeting-main {
-  display: flex;
+  display: flex; // Base display for larger screens
 }
 
 .subTitle {
   color: $subTitle !important;
 }
 
-.greeting-main {
-  display: flex;
-}
-
 .greeting-main > * {
   flex: 1;
-  margin-bottom: 30px;
+  margin-bottom: 30px; // Base bottom margin for flex items
 }
 
 .empty-div {
-  margin-bottom: 40px;
+  margin-bottom: 40px; // Base bottom margin
 }
 
 .button-greeting-div {
-  display: flex;
-  margin-top: 40px;
+  display: flex; // Base display for buttons
+  margin-top: 40px; // Base top margin
 }
 .download-link-button {
   text-decoration: none;
 }
 
 .greeting-text {
-  font-size: 70px;
+  font-size: 70px; // Base font size
   line-height: 1.1;
   color: $textColor !important;
 }
 
 .greeting-text-p {
-  font-size: 30px;
-  line-height: 40px;
+  font-size: 30px; // Base font size
+  line-height: 40px; // Base line-height
 }
 
 .greeting-image-div > img {
@@ -96,7 +91,7 @@
   }
 }
 
-/* Media Query */
+/* --- Existing Media Queries (UNCHANGED as per request) --- */
 @media (max-width: 1380px) {
   .greeting-text {
     font-size: 50px;
@@ -119,15 +114,111 @@
     text-align: center;
   }
   .greeting-main {
-    display: block;
+    display: block; // Stack sections vertically
   }
   .greeting-image-div {
-    height: 256px;
+    height: 256px; // Fixed height for image div
+  }
+  // When stacking, ensure content is centered within the flex item
+  .greeting-main > * {
+    text-align: center;
+    margin-bottom: 20px; /* Adjust margin for stacked items */
   }
 }
 
 @media (max-width: 320px) {
   .main {
-    width: auto;
+    width: auto; // Allow width to adjust automatically
+  }
+}
+
+/* --- New Media Queries for Responsiveness --- */
+
+// Tablet devices (max-width: 1024px)
+@media (max-width: 1024px) {
+  .main {
+    padding: 15px 20px; // Adjust padding
+  }
+
+  .greet-main {
+    width: 95%; // Slightly increase width for tablets
+    padding: 15px 10px; // Adjust padding
+    margin-top: 1.8rem; // Adjust top margin
+  }
+
+  .greeting-text {
+    font-size: 45px; // Adjust font size for tablets (between 1380px and 768px)
+  }
+
+  .greeting-text-p {
+    font-size: 18px; // Adjust font size for tablets
+    line-height: 28px; // Adjust line-height
+  }
+
+  .button-greeting-div {
+    margin-top: 30px; // Adjust top margin for buttons
+  }
+}
+
+// Mobile devices (max-width: 480px)
+@media (max-width: 480px) {
+  .main {
+    padding: 10px 15px; // Further adjust padding
+  }
+
+  .greet-main {
+    width: 98%; // Further increase width for mobile
+    padding: 10px 5px; // Further adjust padding
+    margin-top: 1.5rem; // Further adjust top margin
+  }
+
+  .greeting-text {
+    font-size: 28px; // Further reduce font size for mobile
+    line-height: 1.2; // Adjust line-height
+  }
+
+  .greeting-text-p {
+    font-size: 15px; // Further reduce font size for mobile
+    line-height: 24px; // Further adjust line-height
+  }
+
+  .button-greeting-div {
+    flex-direction: column; // Stack buttons vertically on very small screens
+    align-items: center; // Center stacked buttons
+    margin-top: 20px; // Reduce top margin
+    gap: 10px; // Add gap between stacked buttons
+  }
+
+  .greeting-main > * {
+    margin-bottom: 15px; // Reduce bottom margin for stacked items
+  }
+
+  .empty-div {
+    margin-bottom: 20px; // Reduce bottom margin for empty div
+  }
+
+  .greeting-image-div {
+    height: 200px; // Further reduce image div height
+  }
+}
+
+// Very small mobile devices (max-width: 375px) - Overrides 320px for font size
+@media (max-width: 375px) {
+  .greeting-text {
+    font-size: 24px; // Smallest font size for heading
+  }
+
+  .greeting-text-p {
+    font-size: 14px; // Smallest font size for paragraph
+    line-height: 22px;
+  }
+
+  .button-greeting-div {
+    margin-top: 15px; // Smallest top margin for buttons
+    gap: 8px; // Smallest gap
+  }
+
+  .greeting-image-div {
+    height: 180px; // Smallest image div height
   }
 }

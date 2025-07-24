@@ -1,18 +1,18 @@
 /*Blog Cards Layout*/
-@import "../../_globalColor";
+@import "../../_globalColor"; // Assuming this path is correct and the file exists
 
 .square {
-  width: 440px;
-  height: 430px;
+  width: 440px; // Base fixed width for larger screens
+  height: 430px; // Base fixed height for larger screens
   background: $textColorDark;
   border-radius: 4px;
   box-shadow: 0px 20px 50px $darkBoxShadow;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  margin-top: 30px;
+  margin-top: 30px; // Base top margin
 }
-.light-mode{
+.light-mode {
   background: transparent;
   color: white;
   transition: "0.1s";
@@ -22,7 +22,7 @@
 }
 
 .blog-header-text {
-  font-size: 56px;
+  font-size: 56px; // Base font size
   font-weight: 400;
 }
 
@@ -31,10 +31,10 @@
 }
 .blog-main-div > * {
   flex: 1;
-  margin-bottom: 30px;
+  margin-bottom: 30px; // Base bottom margin for flex items
 }
 .blog-main-div {
-  display: flex;
+  display: flex; // Base display for larger screens
 }
 .blog-image-div > img {
   max-width: 100%;
@@ -42,14 +42,14 @@
 }
 .blog-text-div {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); // Base grid columns
+  gap: 32px; // Base gap
 }
 .subTitle {
   color: $subTitle;
 }
 
-/* Media Query */
+/* --- Existing Media Queries (UNCHANGED as per request) --- */
 @media (max-width: 1380px) {
   .blog-header-text {
     font-size: 40px;
@@ -66,9 +66,84 @@
     text-align: center;
   }
 }
-
 @media screen and (max-width: 480px) and (min-width: 300px) {
   .blog-text-div {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+/* --- New Media Queries for Responsiveness --- */
+
+// Tablet devices (max-width: 1024px)
+@media (max-width: 1024px) {
+  .square {
+    width: 380px; // Adjust width for tablets
+    height: 380px; // Adjust height for tablets
+    margin-top: 25px; // Adjust top margin
+  }
+
+  .blog-header-text {
+    font-size: 36px; // Adjust font size for tablets
+  }
+
+  .blog-main-div {
+    flex-direction: column; // Stack items vertically on tablets if needed
+    align-items: center; // Center items when stacked
+  }
+
+  .blog-main-div > * {
+    margin-bottom: 25px; // Adjust bottom margin for stacked items
+  }
+
+  .blog-text-div {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); // Adjust grid columns for tablets
+    gap: 24px; // Adjust gap
+  }
+}
+
+// Mobile devices (max-width: 767px)
+@media (max-width: 767px) {
+  .square {
+    width: 100%; // Make card take full width on mobile
+    max-width: 350px; // Set a max-width to prevent it from being too wide on larger phones
+    height: 350px; // Adjust height for mobile
+    margin-top: 20px; // Adjust top margin
+  }
+
+  .blog-header-text {
+    font-size: 28px; // Further adjust font size for mobile
+    margin-bottom: 10px; // Add a small bottom margin to the heading
+  }
+
+  .blog-subtitle {
+    font-size: 14px; // Further adjust font size for mobile
+    margin-bottom: 40px; // Adjust bottom margin for subtitle
+  }
+
+  .blog-text-div {
+    grid-template-columns: 1fr; // Force single column layout on mobile
+    gap: 20px; // Adjust gap
+  }
+}
+
+// Very small mobile devices (max-width: 480px)
+// This breakpoint already exists for .blog-text-div, I'm adding other adjustments here.
+@media (max-width: 480px) {
+  .square {
+    height: 300px; // Further adjust height for very small screens
+    margin-top: 15px; // Further adjust top margin
+  }
+
+  .blog-header-text {
+    font-size: 24px; // Smallest font size for heading
+  }
+
+  .blog-subtitle {
+    font-size: 12px; // Smallest font size for subtitle
+    margin-bottom: 30px; // Smallest bottom margin
+  }
+
+  .blog-main-div > * {
+    margin-bottom: 20px; // Further adjust bottom margin for stacked items
   }
 }

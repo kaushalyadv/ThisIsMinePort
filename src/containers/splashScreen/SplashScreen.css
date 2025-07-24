@@ -9,7 +9,7 @@
 .splash-animation-container {
   height: 50vh;
 }
-.light-mode{
+.light-mode {
   background: transparent;
   color: white;
   transition: "0.1s";
@@ -25,4 +25,60 @@
   font-variant-ligatures: no-common-ligatures;
   -webkit-font-variant-ligatures: no-common-ligatures;
   padding: 0 20px;
+}
+
+@media (max-width: 1024px) {
+  .splash-animation-container {
+    height: 45vh;
+  }
+
+  .splash-title-container {
+    font-size: 2.2rem;
+  }
+
+  .splash-title {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .splash-animation-container {
+    height: 40vh;
+  }
+
+  .splash-title-container {
+    font-size: 1.8rem;
+  }
+
+  .splash-title {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .splash-animation-container {
+    height: 35vh;
+  }
+
+  .splash-title-container {
+    font-size: 1.5rem;
+  }
+
+  .splash-title {
+    padding: 0 8px;
+  }
+}
+
+@media (max-width: 375px) {
+  .splash-animation-container {
+    height: 30vh;
+  }
+
+  .splash-title-container {
+    font-size: 1.3rem;
+  }
+
+  .splash-title {
+    padding: 0 5px;
+  }
 }

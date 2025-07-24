@@ -20,3 +20,43 @@
   background-color: $topButtonHover;
   transition: all ease-in-out 0.2s;
 }
+
+@media (max-width: 1024px) {
+  #topButton {
+    bottom: 18px;
+    right: 25px;
+    padding: 13px;
+    border-radius: 13px;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 767px) {
+  #topButton {
+    bottom: 15px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  #topButton {
+    bottom: 10px;
+    right: 15px;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 375px) {
+  #topButton {
+    bottom: 8px;
+    right: 10px;
+    padding: 6px;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+}

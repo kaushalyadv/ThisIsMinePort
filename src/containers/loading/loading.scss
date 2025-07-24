@@ -1,9 +1,9 @@
-@import "../../_globalColor";
+@import "../../_globalColor"; // Assuming this path is correct and the file exists
 
 .sk-circle {
-  margin: 100px auto;
-  width: 40px;
-  height: 40px;
+  margin: 100px auto; // Base margin for vertical positioning and centering
+  width: 40px; // Base width
+  height: 40px; // Base height
   position: relative;
 }
 .sk-circle .sk-child {
@@ -147,5 +147,34 @@
   40% {
     -webkit-transform: scale(1);
     transform: scale(1);
+  }
+}
+
+/* --- Responsive Adjustments using Media Queries --- */
+
+// Tablet devices (max-width: 1024px)
+@media (max-width: 1024px) {
+  .sk-circle {
+    margin: 80px auto; // Adjust top margin for tablets
+    width: 35px; // Slightly smaller size for tablets
+    height: 35px;
+  }
+}
+
+// Mobile devices (max-width: 767px)
+@media (max-width: 767px) {
+  .sk-circle {
+    margin: 60px auto; // Further adjust top margin for mobile
+    width: 30px; // Smaller size for mobile
+    height: 30px;
+  }
+}
+
+// Very small mobile devices (max-width: 480px)
+@media (max-width: 480px) {
+  .sk-circle {
+    margin: 40px auto; // Even less top margin for very small screens
+    width: 25px; // Smallest size for very small screens
+    height: 25px;
   }
 }

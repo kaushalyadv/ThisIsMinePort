@@ -1,18 +1,18 @@
-@import "../../_globalColor";
+@import "../../_globalColor"; // Assuming this path is correct and the file exists
 
 .dev-icons {
   padding-left: 0;
   list-style: none;
-  font-size: 3rem;
+  font-size: 3rem; // Base icon size
   margin-bottom: 0px;
   margin-top: 0px;
-  text-align: center;
+  text-align: center; // Center alignment for the entire list of icons
 }
 
 .software-skill-inline {
   display: inline-block;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  margin-right: 20px; // Base horizontal spacing between icons
+  margin-bottom: 20px; // Base vertical spacing between rows of icons
 }
 
 .software-skill-inline > i {
@@ -24,8 +24,74 @@
 }
 .software-skill-inline > p {
   color: $subTitle;
-  font-size: 10px;
+  font-size: 10px; // Base font size for the skill name
 }
 .software-skill-inline > i:hover ~ p {
   color: $skillsColor;
+}
+
+/* --- Responsive Adjustments using Media Queries --- */
+
+// Tablet devices (max-width: 1024px)
+@media (max-width: 1024px) {
+  .dev-icons {
+    font-size: 2.5rem; // Slightly smaller icon size for tablets
+  }
+
+  .software-skill-inline {
+    margin-right: 18px; // Slightly reduced horizontal spacing
+    margin-bottom: 18px; // Slightly reduced vertical spacing
+  }
+
+  .software-skill-inline > p {
+    font-size: 9px; // Slightly smaller font for skill name
+  }
+}
+
+// Mobile devices (max-width: 767px)
+@media (max-width: 767px) {
+  .dev-icons {
+    font-size: 2rem; // Smaller icon size for mobile
+  }
+
+  .software-skill-inline {
+    margin-right: 15px; // Reduced horizontal spacing
+    margin-bottom: 15px; // Reduced vertical spacing
+  }
+
+  .software-skill-inline > p {
+    font-size: 8px; // Smaller font for skill name
+  }
+}
+
+// Very small mobile devices (max-width: 480px)
+@media (max-width: 480px) {
+  .dev-icons {
+    font-size: 1.8rem; // Even smaller icon size for very small screens
+  }
+
+  .software-skill-inline {
+    margin-right: 10px; // Further reduced horizontal spacing
+    margin-bottom: 10px; // Further reduced vertical spacing
+  }
+
+  .software-skill-inline > p {
+    font-size: 7px; // Even smaller font for skill name
+  }
+}
+
+// Optional: Even smaller mobile devices (max-width: 375px)
+@media (max-width: 375px) {
+  .dev-icons {
+    font-size: 1.6rem; // Smallest icon size
+  }
+
+  .software-skill-inline {
+    margin-right: 8px; // Smallest horizontal spacing
+    margin-bottom: 8px; // Smallest vertical spacing
+  }
+
+  .software-skill-inline > p {
+    font-size: 6px; // Smallest font for skill name
+  }
 }

@@ -1,28 +1,29 @@
 .education-heading {
-  font-size: 56px;
+  font-size: 56px; // Base font size
   font-weight: 400;
 }
 
 .education-section {
   display: flex;
   flex-direction: column;
-  width: 90%;
-  padding: 20px 0px;
-  margin: 0px auto;
-  margin-top: 2rem;
+  width: 90%; // Base width
+  padding: 20px 0px; // Base padding
+  margin: 0px auto; // Centers the section horizontally
+  margin-top: 2rem; // Base top margin
 }
 
 .education-section > * {
   flex: 1;
-  margin-bottom: 30px;
+  margin-bottom: 30px; // Base bottom margin for flex items
 }
 
 .education-card-container {
   display: flex;
-  flex-direction: column;
-  padding-top: 20px;
+  flex-direction: column; // Cards stack vertically by default
+  padding-top: 20px; // Base padding-top
 }
 
+/* --- Existing Media Queries (UNCHANGED as per request) --- */
 @media (max-width: 1380px) {
   .education-card-container {
     padding-top: 0px;
@@ -46,5 +47,65 @@
   }
   .education-text-subtitle {
     font-size: 16px;
+  }
+}
+
+/* --- New Media Queries for Responsiveness --- */
+
+// Tablet devices (max-width: 1024px)
+@media (max-width: 1024px) {
+  .education-section {
+    width: 95%; // Slightly increase width for tablets to utilize space
+    margin-top: 1.8rem; // Adjust top margin
+  }
+
+  .education-section > * {
+    margin-bottom: 25px; // Slightly reduce bottom margin for flex items
+  }
+
+  .education-heading {
+    font-size: 36px; // Adjust font size for tablets
+  }
+}
+
+// Mobile devices (max-width: 480px)
+@media (max-width: 480px) {
+  .education-section {
+    width: 98%; // Further increase width for mobile to maximize space
+    padding: 15px 0px; // Reduce vertical padding
+    margin-top: 1.5rem; // Further reduce top margin
+  }
+
+  .education-section > * {
+    margin-bottom: 20px; // Further reduce bottom margin for flex items
+  }
+
+  .education-heading {
+    font-size: 24px; // Further reduce font size for mobile
+    margin-bottom: 10px; // Add a small bottom margin to the heading for spacing
+  }
+
+  .education-text-subtitle {
+    font-size: 14px; // Further reduce subtitle font size
+  }
+}
+
+// Very small mobile devices (max-width: 375px)
+@media (max-width: 375px) {
+  .education-section {
+    padding: 10px 0px; // Smallest vertical padding
+    margin-top: 1rem; // Smallest top margin
+  }
+
+  .education-section > * {
+    margin-bottom: 15px; // Smallest bottom margin for flex items
+  }
+
+  .education-heading {
+    font-size: 20px; // Smallest font size for heading
+  }
+
+  .education-text-subtitle {
+    font-size: 13px; // Smallest subtitle font size
   }
 }

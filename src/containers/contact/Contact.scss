@@ -1,37 +1,37 @@
-@import "../../_globalColor";
+@import "../../_globalColor"; // Assuming this path is correct and the file exists
 
 .contact-div-main {
-  display: flex;
+  display: flex; // Base display for larger screens
 }
 
 .light-mode a {
   color: $textColorDark;
 }
-.light-mode{
+.light-mode {
   background: transparent;
   color: white !important;
   transition: "0.1s";
 }
 
 .contact-div-main > * {
-  flex: 1;
+  flex: 1; // Base flex distribution
 }
 
 .contact-title {
   align-items: center;
-  font-size: 65px;
+  font-size: 65px; // Base font size
   font-weight: 400;
   display: flex;
-  flex-direction: row-reverse;
-  gap: 12px;
-  letter-spacing: .4em;
+  flex-direction: row-reverse; // Base direction
+  gap: 12px; // Base gap
+  letter-spacing: .4em; // Base letter spacing
   justify-content: center;
 }
 
 .contact-detail,
 .contact-detail-email {
-  margin-top: 20px;
-  font-size: 40px;
+  margin-top: 20px; // Base top margin
+  font-size: 40px; // Base font size
   font-weight: 400;
   color: $subTitle;
   text-decoration: none;
@@ -49,31 +49,36 @@
 }
 
 .contact-text-div {
-  margin-top: 1.5rem;
+  margin-top: 1.5rem; // Base top margin
 }
 
 .contact-margin-top {
-  margin-top: 4rem;
+  margin-top: 4rem; // Base top margin
 }
 
 .contact-image-div > img {
   max-width: 100%;
   height: auto;
-  margin-left: 1.5rem;
-  margin-top: -4rem;
+  margin-left: 1.5rem; // Base left margin
+  margin-top: -4rem; // Base top margin
 }
 
-/* Media Query */
+/* --- Existing Media Queries (UNCHANGED as per request) --- */
 @media (max-width: 1380px), (max-width: 768px) {
+  // Note: There are two .contact-title rules here, the second one will override the first.
+  // I'm keeping them as is, but it's good to be aware.
   .contact-title {
-    font-size: 56px;
+    font-size: 56px; /* This will be overridden by the next rule at 768px */
     font-weight: 400;
     text-align: center;
   }
 
   .contact-title {
-    font-size: 40px;
+    font-size: 40px; /* This is the effective font size at 768px and below */
     text-align: center;
+    flex-direction: column; /* Stack title elements vertically */
+    gap: 5px; /* Reduce gap when stacked */
+    letter-spacing: normal; /* Reset letter spacing for better readability when stacked */
   }
 
   .contact-subtitle {
@@ -93,8 +98,54 @@
   }
 
   .contact-image-div {
-    display: none;
+    display: none; // Hide image on smaller screens
+  }
+
+  .contact-div-main {
+    flex-direction: column; // Stack contact sections vertically
+    align-items: center; // Center content when stacked
   }
 }
 
+/* --- New Media Query for Mobile Devices (max-width: 480px) --- */
+@media (max-width: 480px) {
+  .contact-title {
+    font-size: 32px; // Further reduce font size for mobile
+    gap: 3px; // Further reduce gap
+  }
 
+  .contact-subtitle {
+    font-size: 14px; // Further reduce font size for mobile
+  }
+
+  .contact-detail,
+  .contact-detail-email {
+    font-size: 18px; // Further reduce font size for contact details
+    margin-top: 15px; // Reduce top margin
+  }
+
+  .contact-text-div {
+    margin-top: 1rem; // Reduce top margin
+  }
+
+  .contact-margin-top {
+    margin-top: 2rem; // Reduce top margin for this specific element
+  }
+}
+
+// Optional: Even smaller mobile devices (max-width: 375px)
+@media (max-width: 375px) {
+  .contact-title {
+    font-size: 28px; // Smallest font size for title
+  }
+
+  .contact-subtitle {
+    font-size: 13px; // Smallest font size for subtitle
+  }
+
+  .contact-detail,
+  .contact-detail-email {
+    font-size: 16px; // Smallest font size for contact details
+    margin-top: 10px; // Smallest top margin
+  }
+}

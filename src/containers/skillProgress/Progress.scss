@@ -1,7 +1,7 @@
-@import "../../_globalColor";
+@import "../../_globalColor"; // Assuming this path is correct and the file exists
 
 .meter {
-  height: 20px;
+  height: 20px; // Base height for the progress bar
   position: relative;
   background: $progressBarBackground;
   -moz-border-radius: 25px;
@@ -20,51 +20,128 @@
   overflow: hidden;
 }
 .skill {
-  line-height: 3.5vw;
+  line-height: 3.5vw; // Base line-height, scales with viewport width
 }
 .skill-bars {
-  font-size: 28px;
-  width: 40%;
+  font-size: 28px; // Base font size for skill names
+  width: 40%; // Base width for the skill bars section
 }
 .skills-container {
-  display: flex;
-  width: 90%;
-  padding: 20px 10px;
-  margin: 0px auto;
-  margin-top: 2rem;
+  display: flex; // Base display for larger screens
+  width: 90%; // Base width for the container
+  padding: 20px 10px; // Base padding
+  margin: 0px auto; // Centers horizontally
+  margin-top: 2rem; // Base top margin
 }
 .skills-container > * {
   flex: 1;
-  margin-bottom: 30px;
+  margin-bottom: 30px; // Base bottom margin for flex items
 }
 .skills-image > img {
-  margin-left: 80px;
+  margin-left: 80px; // Base left margin for image
   max-width: 90%;
   height: auto;
 }
 
-/* Media Query */
+/* --- Existing Media Queries (UNCHANGED as per request) --- */
 
 @media (max-width: 1456px) {
-  .skills-bar {
+  .skills-bar { /* This class is not defined in the base style, ensure it's used elsewhere */
     line-height: 4rem;
   }
   .skills-image {
-    display: none;
+    display: none; // Hide image on larger tablets/laptops
     order: 2;
   }
 }
 
 @media (max-width: 768px) {
   .skills-container {
-    flex-direction: column;
+    flex-direction: column; // Stack sections vertically
   }
-  .skills-bar {
+  .skills-bar { /* This class is not defined in the base style, ensure it's used elsewhere */
     line-height: 3rem;
     margin: 20px;
   }
   .skills-image {
-    display: none;
+    display: none; // Keep image hidden
     order: 2;
+  }
+}
+
+/* --- New Media Queries for Responsiveness --- */
+
+// Tablet devices (max-width: 1024px)
+@media (max-width: 1024px) {
+  .skills-container {
+    width: 95%; // Slightly increase width for tablets
+    padding: 15px 10px; // Adjust padding
+    margin-top: 1.8rem; // Adjust top margin
+  }
+
+  .skills-container > * {
+    margin-bottom: 25px; // Slightly reduce bottom margin
+  }
+
+  .skill-bars {
+    font-size: 24px; // Adjust font size for skill names
+    width: 100%; // Make skill bars take full width when stacked
+  }
+
+  .skill {
+    line-height: 4.5vw; // Adjust line-height to scale with tablet viewport
+  }
+
+  .meter {
+    height: 18px; // Slightly reduce meter height
+  }
+}
+
+// Mobile devices (max-width: 480px)
+@media (max-width: 480px) {
+  .skills-container {
+    width: 98%; // Further increase width for mobile
+    padding: 10px 5px; // Further reduce padding
+    margin-top: 1.5rem; // Further reduce top margin
+  }
+
+  .skills-container > * {
+    margin-bottom: 20px; // Further reduce bottom margin
+  }
+
+  .skill-bars {
+    font-size: 20px; // Further reduce font size for skill names
+  }
+
+  .skill {
+    line-height: 6vw; // Adjust line-height to scale with mobile viewport (more aggressive)
+  }
+
+  .meter {
+    height: 16px; // Further reduce meter height
+  }
+}
+
+// Very small mobile devices (max-width: 375px)
+@media (max-width: 375px) {
+  .skills-container {
+    padding: 8px 5px; // Smallest padding
+    margin-top: 1rem; // Smallest top margin
+  }
+
+  .skills-container > * {
+    margin-bottom: 15px; // Smallest bottom margin
+  }
+
+  .skill-bars {
+    font-size: 18px; // Smallest font size for skill names
+  }
+
+  .skill {
+    line-height: 7vw; // Smallest line-height (most aggressive scaling)
+  }
+
+  .meter {
+    height: 14px; // Smallest meter height
   }
 }

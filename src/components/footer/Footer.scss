@@ -1,16 +1,56 @@
-@import "../../_globalColor";
+@import "../../_globalColor"; // Assuming this path is correct and the file exists
 
 .footer-text {
   text-align: center;
   color: $subTitle !important;
+  font-size: 1rem; // Base font size for larger screens
 }
 
-.light-mode{
+.light-mode {
   background: transparent;
   color: white !important;
   transition: "0.1s";
 }
+
 .footer-div {
-  margin-top: 2rem;
-  padding-bottom: 1rem;
+  margin-top: 2rem; // Base margin-top
+  padding-bottom: 1rem; // Base padding-bottom
+}
+
+/* --- Responsive Adjustments using Media Queries --- */
+
+// Tablet devices (max-width: 1024px)
+@media (max-width: 1024px) {
+  .footer-text {
+    font-size: 0.95rem; // Slightly smaller font for tablets
+  }
+
+  .footer-div {
+    margin-top: 1.8rem; // Slightly reduced margin-top
+    padding-bottom: 0.8rem; // Slightly reduced padding-bottom
+  }
+}
+
+// Mobile devices (max-width: 767px)
+@media (max-width: 767px) {
+  .footer-text {
+    font-size: 0.9rem; // Smaller font for mobile
+  }
+
+  .footer-div {
+    margin-top: 1.5rem; // Reduced margin-top
+    padding-bottom: 0.7rem; // Reduced padding-bottom
+  }
+}
+
+// Very small mobile devices (max-width: 480px)
+@media (max-width: 480px) {
+  .footer-text {
+    font-size: 0.85rem; // Even smaller font for very small screens
+  }
+
+  .footer-div {
+    margin-top: 1.2rem; // Further reduced margin-top
+    padding-bottom: 0.5rem; // Further reduced padding-bottom
+  }
 }

@@ -1,30 +1,31 @@
-@import "../../_globalColor";
+@import "../../_globalColor"; // Assuming this path is correct and the file exists
 
 .social-media-div {
-  font-size: 2em;
+  font-size: 2em; // Base font size, influencing icon size due to `em` units
+  text-align: center; // Center alignment for larger screens as well, often desired
 }
 
 .icon-button {
-  margin-bottom: 10px;
+  margin-bottom: 10px; // Base bottom margin for individual buttons
 }
 
 .icon-button i {
   color: $textColorDark;
-  border-radius: 2.6rem;
+  border-radius: 2.6rem; // Base border-radius
   cursor: pointer;
   display: inline-block;
-  font-size: 1.3rem;
-  height: 2.6rem;
-  line-height: 2.6rem;
-  margin: 0 5px;
+  font-size: 1.3rem; // Base font size for the icon itself
+  height: 2.6rem; // Base height
+  line-height: 2.6rem; // Base line-height for vertical centering
+  margin: 0 5px; // Base horizontal margin between icons
   position: relative;
   text-align: center;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  width: 2.6rem;
-  margin-bottom: 10px;
+  width: 2.6rem; // Base width
+  margin-bottom: 10px; // Duplicate, consider removing if .icon-button handles it
   transition: 0.2s ease-in;
 }
 
@@ -82,9 +83,43 @@
   background-color: $textColor;
 }
 
-/* Media Query */
+/* --- Existing Media Query (UNCHANGED) --- */
 @media (max-width: 768px) {
   .social-media-div {
-    text-align: center;
+    text-align: center; // Ensures centering on tablets and smaller screens
+  }
+}
+
+/* --- New Media Query for Mobile Devices (max-width: 480px) --- */
+@media (max-width: 480px) {
+  .social-media-div {
+    font-size: 1.8em; // Slightly smaller overall size for mobile
+  }
+
+  .icon-button i {
+    font-size: 1.1rem; // Smaller icon font size
+    height: 2.2rem; // Reduced height
+    line-height: 2.2rem; // Adjusted line-height
+    width: 2.2rem; // Reduced width
+    margin: 0 4px; // Reduced horizontal margin
+    border-radius: 2.2rem; // Adjusted border-radius
+    margin-bottom: 8px; // Reduced bottom margin
+  }
+}
+
+// Optional: Even smaller mobile devices (max-width: 375px)
+@media (max-width: 375px) {
+  .social-media-div {
+    font-size: 1.6em; // Even smaller overall size
+  }
+
+  .icon-button i {
+    font-size: 1rem; // Smallest icon font size
+    height: 2rem; // Smallest height
+    line-height: 2rem; // Smallest line-height
+    width: 2rem; // Smallest width
+    margin: 0 3px; // Smallest horizontal margin
+    border-radius: 2rem; // Smallest border-radius
+    margin-bottom: 6px; // Smallest bottom margin
   }
 }

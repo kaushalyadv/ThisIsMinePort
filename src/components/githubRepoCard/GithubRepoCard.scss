@@ -1,10 +1,10 @@
-@import "../../_globalColor";
+@import "../../_globalColor"; // Assuming this path is correct and the file exists
 
 .repo-card-div {
   color: $githubRepoCardColor;
   background-color: $lightBackground2;
   box-shadow: $lightBoxShadowDark 0px 10px 30px -15px;
-  padding: 2rem;
+  padding: 2rem; // Base padding
   cursor: pointer;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
@@ -18,7 +18,7 @@
   display: flex;
   -webkit-box-pack: justify;
   justify-content: space-between;
-  font-size: 13px;
+  font-size: 13px; // Base font size
   color: $githubRepoCardRepoCardStatsColor;
 }
 
@@ -26,6 +26,7 @@
   -webkit-box-flex: 1;
   flex-grow: 1;
   display: flex;
+  flex-wrap: wrap; // Allow stats to wrap on smaller screens
 }
 
 .language-color {
@@ -40,7 +41,8 @@
   display: flex;
   -webkit-box-align: center;
   align-items: center;
-  margin-right: 0.75rem;
+  margin-right: 0.75rem; // Base margin
+  margin-bottom: 0.25rem; // Add a small bottom margin for wrapping
 }
 
 .repo-name-div {
@@ -50,7 +52,7 @@
 
 .repo-svg {
   margin-right: 0.5rem;
-  min-width: 16px;
+  min-width: 16px; // Base min-width
 }
 
 .repo-name {
@@ -58,12 +60,12 @@
   text-overflow: ellipsis;
   color: $githubRepoCardRepoNameColor;
   margin-bottom: 0.75rem;
-  font-size: 25px;
+  font-size: 25px; // Base font size
   font-weight: 700;
   letter-spacing: -0.5px;
   overflow: hidden;
   margin: 0px;
-  height: 30px;
+  height: 30px; // Base height
 }
 
 .repo-star-svg {
@@ -73,8 +75,9 @@
 .repo-description {
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 2; // Base line clamp
   -webkit-box-orient: vertical;
+  font-size: 1rem; // Base font size for description
 }
 
 .dark-card-mode {
@@ -92,4 +95,99 @@
 .dark-card-mode:hover {
   background-color: $buttonColor !important;
   box-shadow: 0px 0px 16px $darkBoxShadow;
+}
+
+/* --- Responsive Adjustments using Media Queries --- */
+
+// Tablet devices (max-width: 1024px)
+@media (max-width: 1024px) {
+  .repo-card-div {
+    padding: 1.5rem; // Slightly less padding for tablets
+  }
+
+  .repo-name {
+    font-size: 22px; // Slightly smaller font size for repo name
+    height: 27px; // Adjust height
+  }
+
+  .repo-description {
+    font-size: 0.95rem; // Slightly smaller font for description
+  }
+
+  .repo-stats {
+    font-size: 12px; // Slightly smaller font for stats
+  }
+
+  .repo-left-stat span {
+    margin-right: 0.6rem; // Adjust margin
+  }
+}
+
+// Mobile devices (max-width: 767px)
+@media (max-width: 767px) {
+  .repo-card-div {
+    padding: 1rem; // Reduced padding for mobile
+  }
+
+  .repo-name {
+    font-size: 20px; // Smaller font size for repo name
+    height: 25px; // Adjust height
+    margin-bottom: 0.5rem; // Reduce bottom margin
+  }
+
+  .repo-svg {
+    min-width: 14px; // Slightly smaller icon
+    margin-right: 0.4rem;
+  }
+
+  .repo-description {
+    font-size: 0.9rem; // Smaller font for description
+    -webkit-line-clamp: 3; // Allow more lines for description on mobile
+  }
+
+  .repo-stats {
+    flex-direction: column; // Stack stats vertically on mobile
+    align-items: flex-start; // Align stacked stats to the start
+    font-size: 11px; // Smaller font for stats
+  }
+
+  .repo-left-stat {
+    width: 100%; // Ensure left stats take full width when stacked
+  }
+
+  .repo-left-stat span {
+    margin-right: 0.5rem; // Adjust margin
+    margin-bottom: 0.4rem; // Increase vertical spacing between stacked stats
+  }
+}
+
+// Very small mobile devices (max-width: 480px)
+@media (max-width: 480px) {
+  .repo-card-div {
+    padding: 0.8rem; // Even less padding
+  }
+
+  .repo-name {
+    font-size: 18px; // Even smaller font size for repo name
+    height: 22px; // Adjust height
+  }
+
+  .repo-svg {
+    min-width: 12px; // Even smaller icon
+    margin-right: 0.3rem;
+  }
+
+  .repo-description {
+    font-size: 0.85rem; // Even smaller font for description
+    -webkit-line-clamp: 4; // Allow even more lines if needed
+  }
+
+  .repo-stats {
+    font-size: 10px; // Smallest font for stats
+  }
+
+  .repo-left-stat span {
+    margin-right: 0.4rem; // Adjust margin
+    margin-bottom: 0.3rem; // Adjust vertical spacing
+  }
 }
