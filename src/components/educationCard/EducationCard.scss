@@ -127,7 +127,15 @@
     text-align: center;
   }
   .education-card-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     max-width: 100%;
+  }
+  .education-text-details{
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
   }
   .education-card-border {
     width: 100%;
@@ -141,7 +149,7 @@
   }
   .education-text-bullets > ul {
     max-width: 80%;
-    margin: auto;
+    margin: unset;
   }
   .education-text-school {
     font-size: 18px; /* Further adjust font size for smaller tablets/large phones */

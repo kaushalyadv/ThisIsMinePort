@@ -143,12 +143,12 @@ const FloatingSendButton = ({
       maxWidth = "50vw";
     }
     if (windowWidth <= 768) { // Mobile
-      bottom = "10px";
+      bottom = "-60%";
       width = "70%";
       maxWidth = "60vw";
     }
     if (windowWidth <= 480) { // Small Mobile
-      bottom = "5px";
+      // bottom = "5px";
       width = "80%";
       maxWidth = "70vw";
     }

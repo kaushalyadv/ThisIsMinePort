@@ -57,13 +57,12 @@ export default function Blogs() {
       <div className="blog-header" style={{display: 'flex', flexDirection: 'column', alignItems:'center'}}>
         <h1 className="blog-header-text">{blogSection.title}</h1>
         <p
-          className={
-            isDark ? "light-mode blog-subtitle" : "subTitle blog-subtitle"
-                }
-                style={
-                  {padding: '0 10.5em'}
-                }
-        >
+  className={isDark ? "light-mode blog-subtitle" : "subTitle blog-subtitle"}
+  style={{
+    padding: window.innerWidth <= 768 ? '0' : '0 10.5em'
+  }}
+>
+
           {blogSection.subtitle}
         </p>
       </div>

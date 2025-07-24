@@ -136,11 +136,6 @@
     margin-top: 40px; // Adjust top margin
   }
 
-  .mask {
-    // If you want to adjust the clip for tablets, define it here.
-    // Otherwise, the 768px media query's `clip-path: none` will take over.
-  }
-
   .talk-card-title {
     font-size: 26px; // Adjust font size
     padding: 0px 0px 30px 25px; // Adjust padding
@@ -193,7 +188,6 @@
   }
 
   .card-footer-button-div {
-    flex-direction: column; // Stack buttons vertically on mobile
     align-items: center; // Center stacked buttons
     gap: 10px; // Add spacing between stacked buttons
   }

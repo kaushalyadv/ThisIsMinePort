@@ -221,6 +221,12 @@
   .header .menu-icon {
     padding: 18px 10px; // Adjust padding for hamburger icon
   }
+  .header-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 
   .header li a {
     padding: 10px 10px; // Further adjust padding for menu items

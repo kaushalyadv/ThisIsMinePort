@@ -17,7 +17,15 @@ export default function Podcast() {
 
   return (
     <div className="main">
-      <div className="podcast-header" style={{ width: "100%", padding: '2.5em', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+      <div className="podcast-header"
+  style={{
+    width: "100%",
+    padding: window.innerWidth <= 768 ? '15% 3% 0 3%' : '2.5em',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+  }}
+>
         <h1 className="podcast-header-title">
   <span className="music-emoji">🎵</span> My Music Zone
 </h1>
