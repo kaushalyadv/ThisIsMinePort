@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/ThisIsMinePort/static/css/main.358697ab.css",
-    "main.js": "/ThisIsMinePort/static/js/main.1b5b4a90.js",
-    "static/css/868.4d2dbeb5.chunk.css": "/ThisIsMinePort/static/css/868.4d2dbeb5.chunk.css",
+    "main.css": "/ThisIsMinePort/static/css/main.b30134cf.css",
+    "main.js": "/ThisIsMinePort/static/js/main.2aa81850.js",
+    "static/css/868.8d4193d6.chunk.css": "/ThisIsMinePort/static/css/868.8d4193d6.chunk.css",
     "static/js/868.298a3eb1.chunk.js": "/ThisIsMinePort/static/js/868.298a3eb1.chunk.js",
-    "static/css/768.ae0faa4d.chunk.css": "/ThisIsMinePort/static/css/768.ae0faa4d.chunk.css",
+    "static/css/768.31806905.chunk.css": "/ThisIsMinePort/static/css/768.31806905.chunk.css",
     "static/js/768.9b55a310.chunk.js": "/ThisIsMinePort/static/js/768.9b55a310.chunk.js",
     "static/media/react_y.png": "/ThisIsMinePort/static/media/react_y.4610f955b500524b1dc3.png",
     "static/media/machinL.png": "/ThisIsMinePort/static/media/machinL.a4c53c7b6170c6c9fb60.png",
@@ -13,7 +13,7 @@
     "static/media/Montserrat-Regular.ttf": "/ThisIsMinePort/static/media/Montserrat-Regular.3cd786652b8a2e9d41f2.ttf",
     "static/media/Kumaun_University_logo_.png": "/ThisIsMinePort/static/media/Kumaun_University_logo_.d3ad92ac747e5223e798.png",
     "static/media/Agustina.woff": "/ThisIsMinePort/static/media/Agustina.eb0c59dda4cc308cba96.woff",
-    "static/media/Final_resume.pdf": "/ThisIsMinePort/static/media/Final_resume.c9ac3334e5085b8ccc1c.pdf",
+    "static/media/Final_resume.pdf": "/ThisIsMinePort/static/media/Final_resume.55e0c3768598aef67408.pdf",
     "static/media/Uttarakhand_Board_of_School_.png": "/ThisIsMinePort/static/media/Uttarakhand_Board_of_School_.02ab8b58fd2b7d60d6ed.png",
     "static/media/manOnTable.svg": "/ThisIsMinePort/static/media/manOnTable.8f117eb207e57ed8f89d67d595aceb45.svg",
     "static/media/contactMailDark.svg": "/ThisIsMinePort/static/media/contactMailDark.1db650d351729a0f17b4e3104e6a7b7a.svg",
@@ -22,15 +22,15 @@
     "static/media/nextuLogo.webp": "/ThisIsMinePort/static/media/nextuLogo.e033dbfa4c58c0a906aa.webp",
     "index.html": "/ThisIsMinePort/index.html",
     "static/media/talksCardBack.svg": "/ThisIsMinePort/static/media/talksCardBack.73ed1545d58273ba64b0.svg",
-    "main.358697ab.css.map": "/ThisIsMinePort/static/css/main.358697ab.css.map",
-    "main.1b5b4a90.js.map": "/ThisIsMinePort/static/js/main.1b5b4a90.js.map",
-    "868.4d2dbeb5.chunk.css.map": "/ThisIsMinePort/static/css/868.4d2dbeb5.chunk.css.map",
+    "main.b30134cf.css.map": "/ThisIsMinePort/static/css/main.b30134cf.css.map",
+    "main.2aa81850.js.map": "/ThisIsMinePort/static/js/main.2aa81850.js.map",
+    "868.8d4193d6.chunk.css.map": "/ThisIsMinePort/static/css/868.8d4193d6.chunk.css.map",
     "868.298a3eb1.chunk.js.map": "/ThisIsMinePort/static/js/868.298a3eb1.chunk.js.map",
-    "768.ae0faa4d.chunk.css.map": "/ThisIsMinePort/static/css/768.ae0faa4d.chunk.css.map",
+    "768.31806905.chunk.css.map": "/ThisIsMinePort/static/css/768.31806905.chunk.css.map",
     "768.9b55a310.chunk.js.map": "/ThisIsMinePort/static/js/768.9b55a310.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.358697ab.css",
-    "static/js/main.1b5b4a90.js"
+    "static/css/main.b30134cf.css",
+    "static/js/main.2aa81850.js"
   ]
 }
