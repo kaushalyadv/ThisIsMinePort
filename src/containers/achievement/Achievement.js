@@ -12,7 +12,7 @@ export default function Achievement() {
   return (
     <div className="main" id="achievements">
       <div className="achievement-main-div" style={{padding: '5%'}}>
-        <div className="achievement-header" style={{lineHeight: '2.5em'}}> 
+        <div className="achievement-header" style={{lineHeight: '2.5em', display: 'flex', alignItems: 'center', flexDirection: 'column'}}> 
           <h1
             className={
               isDark

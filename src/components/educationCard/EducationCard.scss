@@ -36,6 +36,7 @@
 }
 
 .education-text-school {
+  color: #c0c0c0 !important;
   margin: 0;
   font-size: 28px; // Base font size
   font-weight: 700;
@@ -59,7 +60,7 @@
 }
 
 .education-text-subHeader {
-  color: $textColor;
+  color: #c0c0c0 ;
   font-weight: 700;
   font-size: 19px; // Base font size
   margin: 0px;
@@ -68,18 +69,20 @@
 }
 
 .education-text-duration {
-  color: $titleColor;
+  color: #c0c0c0 !important;
   font-size: 19px; // Base font size
   margin: 0px;
   padding-top: 0.5rem;
 }
 
 .education-text-desc {
+  color: #c0c0c0 !important;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
 .education-text-bullets > ul {
+  line-height: 170%;
   margin-top: 0.5rem;
 }
 

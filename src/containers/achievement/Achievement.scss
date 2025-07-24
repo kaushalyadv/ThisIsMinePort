@@ -3,12 +3,13 @@
 .achievement-heading {
   font-size: 56px; // Base font size
   font-weight: 400;
+  color: #c9c9c9 !important; // Ensures the heading is visible against dark backgrounds
   line-height: normal;
   margin: 0px;
 }
 .light-mode {
   background: transparent;
-  color: white;
+  color: white !important;
   transition: "0.1s";
 }
 .achievement-subtitle {

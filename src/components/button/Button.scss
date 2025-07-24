@@ -24,6 +24,11 @@
   transition: all 0.3s ease 0s;
   transform: translateY(-3px);
 }
+.light-mode.main-button {
+  &:hover {
+    color: #000 !important; // Example: white text on hover in light mode
+  }
+}
 .project-button {
   display: flex;
   justify-content: center; // Centers buttons horizontally

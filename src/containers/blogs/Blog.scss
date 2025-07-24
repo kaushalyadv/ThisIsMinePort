@@ -14,7 +14,7 @@
 }
 .light-mode {
   background: transparent;
-  color: white;
+  color: white !important;
   transition: "0.1s";
 }
 .square:hover {
@@ -22,6 +22,7 @@
 }
 
 .blog-header-text {
+  color: #c9c9c9 !important; 
   font-size: 56px; // Base font size
   font-weight: 400;
 }

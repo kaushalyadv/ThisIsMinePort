@@ -11,7 +11,7 @@
 }
 .light-mode {
   background: transparent;
-  color: white;
+  color: white !important;
   transition: "0.1s";
 }
 
@@ -28,6 +28,7 @@
 .skills-heading {
   font-size: 56px; // Base font size
   font-weight: 400;
+  color: #c9c9c9 !important;
   display: flex;
   justify-content: center; // Centers the heading horizontally
 }

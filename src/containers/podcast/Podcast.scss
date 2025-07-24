@@ -1,6 +1,7 @@
 @import "../../_globalColor"; // Assuming this path is correct and the file exists
 
 .podcast-header-title {
+  color: #c9c9c9 !important; // Ensures the title is visible against dark backgrounds
   font-size: 56px; // Base font size
   font-weight: 400;
   line-height: 0px; // This might cause issues if not intended for specific alignment
@@ -27,7 +28,7 @@
 
 .light-mode {
   background: transparent;
-  color: white;
+  color: white !important;
   transition: "0.1s";
 }
 

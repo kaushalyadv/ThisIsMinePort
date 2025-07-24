@@ -20,6 +20,7 @@
   overflow: hidden;
 }
 .skill {
+  color: $toggleSwitchSliderBG !important;
   line-height: 3.5vw; // Base line-height, scales with viewport width
 }
 .skill-bars {

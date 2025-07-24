@@ -8,7 +8,7 @@
 }
 .light-mode {
   background: transparent;
-  color: white;
+  color: white !important;
   transition: "0.1s";
 }
 .greet-main {
@@ -46,7 +46,7 @@
 .greeting-text {
   font-size: 70px; // Base font size
   line-height: 1.1;
-  color: $textColor !important;
+  color: #c9c9c9 !important;
 }
 
 .greeting-text-p {

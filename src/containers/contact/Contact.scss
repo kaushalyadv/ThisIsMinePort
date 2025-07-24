@@ -18,6 +18,7 @@
 }
 
 .contact-title {
+  color: #c9c9c9 !important; // Ensures the title is visible against dark backgrounds
   align-items: center;
   font-size: 65px; // Base font size
   font-weight: 400;
@@ -76,9 +77,9 @@
   .contact-title {
     font-size: 40px; /* This is the effective font size at 768px and below */
     text-align: center;
-    flex-direction: column; /* Stack title elements vertically */
+    // flex-direction: column; /* Stack title elements vertically */
     gap: 5px; /* Reduce gap when stacked */
-    letter-spacing: normal; /* Reset letter spacing for better readability when stacked */
+    letter-spacing: .3em; /* Reset letter spacing for better readability when stacked */
   }
 
   .contact-subtitle {

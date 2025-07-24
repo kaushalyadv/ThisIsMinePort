@@ -61,7 +61,7 @@ export default function Blogs() {
             isDark ? "light-mode blog-subtitle" : "subTitle blog-subtitle"
                 }
                 style={
-                  {padding: '0 2.5em'}
+                  {padding: '0 10.5em'}
                 }
         >
           {blogSection.subtitle}

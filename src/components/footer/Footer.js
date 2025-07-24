@@ -16,6 +16,7 @@ export default function Footer() {
           href="https://github.com/kaushalyadv"
           target="_blank"
           rel="noreferrer"
+          style={{color: "white"}}
         >
           Kaushal Yadav
         </a>
