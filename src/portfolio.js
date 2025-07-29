@@ -204,8 +204,8 @@ const bigProjects = {
     "A showcase of practical projects I've worked on, including a full-featured eCommerce site built as a college group leader with secure payment integration and backend control.",
   projects: [
     {
-      image: require("./assets/images/shopnova.png"),
-      projectName: "ShopNova (MERN Ecommerce)",
+      image: require("./assets/images/Techsphere.png"),
+      projectName: "TechSphere (MERN Ecommerce)",
       projectDesc:
         "A full-stack MERN eCommerce platform with Stripe payment integration. Includes dynamic product management, secure checkout, and admin dashboard for backend operations.",
       footerLink: [
