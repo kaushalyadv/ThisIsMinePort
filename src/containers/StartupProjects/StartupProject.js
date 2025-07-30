@@ -9,10 +9,11 @@ export default function StartupProject() {
       return;
     }
     var win = window.open(url, "_blank");
-    win.focus();
+    if (win) {
+      win.focus();
+    }
   }
 
-  // State for managing the custom tooltip
   const [tooltipVisible, setTooltipVisible] = useState(false);
   const [tooltipPosition, setTooltipPosition] = useState({
     opacity: 0,
@@ -23,12 +24,9 @@ export default function StartupProject() {
   });
   const tooltipContent = "Pull to reveal!";
 
-  // Ref to attach to the .bt-bt element to get its position for tooltip
   const btBtRef = useRef(null);
-  // Ref to attach to the .Site-bt-box element to control its animation
   const siteBtBoxRef = useRef(null);
 
-  // Handlers for showing/hiding and positioning the tooltip (on bt-bt hover)
   const handleBtBtMouseEnter = () => {
     if (btBtRef.current && siteBtBoxRef.current) {
       const rect = btBtRef.current.getBoundingClientRect();
@@ -63,7 +61,6 @@ export default function StartupProject() {
     }
   };
 
-  // Effect hook to handle animations for the pull chain
   useEffect(() => {
     const pullChains = document.querySelectorAll(".Site-bt-box");
     if (pullChains.length === 0) {
@@ -95,11 +92,14 @@ export default function StartupProject() {
     window.addEventListener("scroll", handleScroll);
 
     // --- 2. Drag-to-Pull Logic ---
-    const mouseDownHandlers = [];
+    const startHandlers = [];
+    const moveHandlers = [];
+    const endHandlers = [];
 
     pullChains.forEach(chain => {
       const wire = chain.querySelector(".bt-wire");
       const handle = chain.querySelector(".bt-bt");
+      const myWebsiteUrl = "https://brand-new-ecco.vercel.app/";
 
       if (!wire || !handle) return;
 
@@ -108,29 +108,31 @@ export default function StartupProject() {
       const initialWireHeight = 60;
       const initialHandleTop = 60;
       const maxPull = 50;
-      const myWebsiteUrl = "https://brand-new-ecco.vercel.app/"; 
 
-      const handleMouseMove = (e) => {
+      const handleMove = (e) => {
         if (!isDragging) return;
-        const deltaY = e.clientY - startY;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        const deltaY = clientY - startY;
         const pullDistance = Math.max(0, Math.min(deltaY, maxPull));
+        
         wire.style.height = `${initialWireHeight + pullDistance}px`;
         handle.style.top = `${initialHandleTop + pullDistance}px`;
 
-        // Check if pull distance has reached the maximum
         if (pullDistance >= maxPull) {
           openUrlInNewTab(myWebsiteUrl);
-          // Reset the drag state to allow repeated pulls
           isDragging = false;
           wire.style.height = `${initialWireHeight}px`;
           handle.style.top = `${initialHandleTop}px`;
-          window.removeEventListener('mousemove', handleMouseMove);
-          window.removeEventListener('mouseup', handleMouseUp);
-          window.removeEventListener('mouseleave', handleMouseUp);
+          window.removeEventListener('mousemove', handleMove);
+          window.removeEventListener('mouseup', handleEnd);
+          window.removeEventListener('mouseleave', handleEnd);
+          window.removeEventListener('touchmove', handleMove);
+          window.removeEventListener('touchend', handleEnd);
+          window.removeEventListener('touchcancel', handleEnd);
         }
       };
 
-      const handleMouseUp = () => {
+      const handleEnd = () => {
         if (!isDragging) return;
         isDragging = false;
         chain.style.transition = '';
@@ -138,32 +140,55 @@ export default function StartupProject() {
         handle.style.transition = '';
         wire.style.height = '';
         handle.style.top = '';
-        window.removeEventListener('mousemove', handleMouseMove);
-        window.removeEventListener('mouseup', handleMouseUp);
-        window.removeEventListener('mouseleave', handleMouseUp);
+        window.removeEventListener('mousemove', handleMove);
+        window.removeEventListener('mouseup', handleEnd);
+        window.removeEventListener('mouseleave', handleEnd);
+        window.removeEventListener('touchmove', handleMove);
+        window.removeEventListener('touchend', handleEnd);
+        window.removeEventListener('touchcancel', handleEnd);
       };
 
-      const handleMouseDown = (e) => {
+      const handleStart = (e) => {
         e.preventDefault();
         isDragging = true;
-        startY = e.clientY;
+        startY = e.touches ? e.touches[0].clientY : e.clientY;
+        
         chain.style.transition = 'none';
         wire.style.transition = 'none';
         handle.style.transition = 'none';
-        window.addEventListener('mousemove', handleMouseMove);
-        window.addEventListener('mouseup', handleMouseUp);
-        window.addEventListener('mouseleave', handleMouseUp);
+        
+        window.addEventListener('mousemove', handleMove);
+        window.addEventListener('mouseup', handleEnd);
+        window.addEventListener('mouseleave', handleEnd);
+        window.addEventListener('touchmove', handleMove, { passive: false });
+        window.addEventListener('touchend', handleEnd);
+        window.addEventListener('touchcancel', handleEnd);
       };
       
-      chain.addEventListener('mousedown', handleMouseDown);
-      mouseDownHandlers.push({ chain, handler: handleMouseDown });
+      chain.addEventListener('mousedown', handleStart);
+      chain.addEventListener('touchstart', handleStart, { passive: false });
+      
+      startHandlers.push({ chain, handler: handleStart });
+      moveHandlers.push({ handler: handleMove });
+      endHandlers.push({ handler: handleEnd });
     });
 
     // --- 3. Single Cleanup Function for all listeners ---
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      mouseDownHandlers.forEach(({ chain, handler }) => {
+      startHandlers.forEach(({ chain, handler }) => {
         chain.removeEventListener('mousedown', handler);
+        chain.removeEventListener('touchstart', handler);
+      });
+      moveHandlers.forEach(({ handler }) => {
+        window.removeEventListener('mousemove', handler);
+        window.removeEventListener('touchmove', handler);
+      });
+      endHandlers.forEach(({ handler }) => {
+        window.removeEventListener('mouseup', handler);
+        window.removeEventListener('mouseleave', handler);
+        window.removeEventListener('touchend', handler);
+        window.removeEventListener('touchcancel', handler);
       });
     };
   }, []);
@@ -172,6 +197,7 @@ export default function StartupProject() {
   if (!bigProjects.display) {
     return null;
   }
+
   return (
     <div className="main" id="projects">
       <div>
