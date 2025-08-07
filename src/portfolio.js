@@ -204,7 +204,7 @@ const bigProjects = {
     "A showcase of practical projects I've worked on, including a full-featured eCommerce site built as a college group leader with secure payment integration and backend control.",
   projects: [
     {
-      image: require("./assets/images/Techsphere.png"),
+      image: require("../src/assets/images/Techsphere.png"),
       projectName: "TechSphere (MERN Ecommerce)",
       projectDesc:
         "A full-stack MERN eCommerce platform with Stripe payment integration. Includes dynamic product management, secure checkout, and admin dashboard for backend operations.",
@@ -242,7 +242,7 @@ const achievementSection = {
     {
       title: "Machine Learning Basics - College Program",
       subtitle: "College program covering ML fundamentals and algorithms.",
-      image: require("./assets/images/machinL.png"),
+      image: require("../src/assets/images/machinL.png"),
       imageAlt: "JavaScript Logo",
       footerLink: []
 

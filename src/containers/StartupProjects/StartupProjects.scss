@@ -75,6 +75,11 @@
   }
 }
 
+/*
+* CORRECTED CODE BLOCK
+* This section now animates the height of the wire and position of the handle
+* to create a visible stretch/shrink effect on scroll.
+*/
 .Site-bt-box {
   position: absolute;
   top: 0;
@@ -83,13 +88,8 @@
   height: 100px;
   cursor: pointer;
   z-index: 10;
-  transition: transform 0.4s ease-out;
   transform-origin: top center;
   animation: sway 5s ease-in-out infinite alternate;
-
-  &.paused-sway {
-    animation-play-state: paused;
-  }
 
   .bt-wire {
     position: absolute;
@@ -97,32 +97,63 @@
     left: 50%;
     transform: translateX(-50%);
     width: 5px;
-    height: 60px;
+    height: 60px; /* The default height */
     background-color: transparent;
     border-radius: 2px;
-    background-image:
-      repeating-linear-gradient(
-        to bottom,
-        #f8f9fa 0px,
-        #f8f9fa 8px,
-        transparent 8px,
-        transparent 12px
-      );
+    background-image: repeating-linear-gradient(
+      to bottom,
+      #f8f9fa 0px,
+      #f8f9fa 8px,
+      transparent 8px,
+      transparent 12px
+    );
     background-size: 100% 12px;
+    /* Add a transition to height for a smooth effect */
     transition: height 0.2s ease-out;
   }
 
   .bt-bt {
     position: absolute;
     left: 50%;
-    top: 60px;
+    top: 60px; /* The default position */
     transform: translateX(-50%);
     width: 18px;
     height: 18px;
     background-color: #231942;
     border-radius: 50%;
     border: 2px solid #5e548e;
+    /* Add a transition to top for a smooth effect */
     transition: top 0.2s ease-out;
+  }
+
+  /* This class is added when you scroll DOWN */
+  &.scrolling-down {
+    animation-play-state: paused;
+    /* Stretch the wire */
+    .bt-wire {
+      height: 75px; 
+    }
+    /* Move the handle down */
+    .bt-bt {
+      top: 75px;
+    }
+  }
+
+  /* This class is added when you scroll UP */
+  &.scrolling-up {
+    animation-play-state: paused;
+    /* Shrink the wire */
+    .bt-wire {
+      height: 45px;
+    }
+    /* Move the handle up */
+    .bt-bt {
+      top: 45px;
+    }
+  }
+
+  &.paused-sway {
+    animation-play-state: paused;
   }
 }
 
