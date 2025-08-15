@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* Base styles from your original file */
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #121212; // A dark background for the page
+}
+
+.graphic-showcase {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.main-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    span {
+        font-size: 33px;
+        width: fit-content;
+        font-weight: 500;
+        color: #d9dbdf;
+        font-family: 'Inter', sans-serif;
+    }
+}
+
+.maingrph {
+    width: 100%;
+    max-width: 1400px; // Max width for large screens
+    height: 700px;
+    max-height: 85vh;
+    padding: 1.5%;
+    display: flex;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    border-radius: 50px;
+    font-family: 'Inter', sans-serif;
+    border: 1px solid rgba(211, 211, 211, 0.397);
+    box-shadow: 0px 10px 30px -15px #d9dbdf;
+}
+
+.maingrph::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(500px);
+    transform: scale(1.1);
+    image-rendering: pixelated;
+    z-index: 0;
+}
+
+.leftgrph {
+    margin: 2%;
+    width: 65%;
+    border-radius: 40px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    overflow: hidden;
+    transition: box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.leftgrph:hover {
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
+}
+
+.leftgrph .left-content-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: scale(0.9) translateY(30px);
+    transition: opacity 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.leftgrph .left-content-wrapper.active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    z-index: 1;
+}
+
+.leftgrph .left-content-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 0;
+}
+
+.leftgrph .left-content-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 40px;
+    transition: transform 0.6s ease-in-out, object-fit 0.6s ease-in-out;
+}
+
+.leftgrph:hover .left-content-wrapper.active .left-content-image {
+    object-fit: contain;
+}
+
+.rightgrph {
+    margin: 2% 2% 2% 0; // Adjusted margin
+    width: 35%; // Adjusted width
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, filter 0.5s ease-in-out;
+}
+
+.leftgrph:hover + .rightgrph {
+    filter: blur(8px);
+    transform: scale(1);
+}
+
+.rightgrph .rightgrph-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: none;
+}
+
+.rightgrph .right-item {
+    position: absolute;
+    width: 90%;
+    height: auto; // Allow height to be flexible
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: white;
+    box-sizing: border-box;
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1),
+                filter 0.6s cubic-bezier(0.165, 0.84, 0.44, 1),
+                opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.rightgrph .right-item h3 {
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.rightgrph .right-item p {
+    line-height: 1.5;
+    opacity: 0.9;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    font-size: 1rem;
+}
+
+/* =====================================
+  RESPONSIVE MEDIA QUERIES
+===================================== */
+
+/* --- Tablet & Small Desktop (<= 1024px) --- */
+@media (max-width: 1024px) {
+    .maingrph {
+        flex-direction: column; // Stack panels vertically
+        height: auto;
+        max-height: none;
+        padding: 1rem;
+        border-radius: 30px;
+    }
+
+    .leftgrph, .rightgrph {
+        width: 100%; // Both panels take full width
+        margin: 0; // Reset margins
+    }
+
+    .leftgrph {
+        height: 45vh; // Give image panel a fixed portion of the viewport height
+        margin-bottom: 1rem; // Space between stacked panels
+    }
+
+    .rightgrph {
+        height: 35vh; // Text panel height
+    }
+
+    .rightgrph .right-item h3 {
+        font-size: 1.5rem;
+    }
+
+    .rightgrph .right-item p {
+        font-size: 0.9rem;
+    }
+
+    // Disable hover effect on touch devices where it's not practical
+    .leftgrph:hover + .rightgrph {
+        filter: none;
+        transform: none;
+    }
+}
+
+/* --- Mobile (<= 600px) --- */
+@media (max-width: 600px) {
+    .graphic-showcase {
+        padding: 0.5rem;
+    }
+
+    .main-header span {
+        font-size: 24px;
+    }
+
+    .maingrph {
+        border-radius: 20px;
+    }
+
+    .leftgrph, .rightgrph {
+        border-radius: 20px;
+    }
+
+    .leftgrph {
+        height: 40vh;
+    }
+
+    .rightgrph {
+        height: 30vh;
+    }
+
+    .rightgrph .right-item {
+        padding: 15px;
+    }
+
+    .rightgrph .right-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .rightgrph .right-item p {
+        font-size: 0.8rem;
+    }
+}
