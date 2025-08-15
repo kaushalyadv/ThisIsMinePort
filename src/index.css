@@ -1,32 +1,63 @@
+/* === Font Imports === */
+@font-face {
+  font-family: "Mozilla Headline";
+  src: url("./assets/fonts/MozillaHeadline-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @font-face {
   font-family: "Agustina Regular";
   font-style: normal;
   font-weight: normal;
   src: local("Agustina Regular"),
-    url("./assets/fonts/Agustina.woff") format("woff");
+       url("./assets/fonts/Agustina.woff") format("woff");
   font-display: swap;
 }
+
 @font-face {
   font-family: "Montserrat";
   src: local("Montserrat"),
-    url("./assets/fonts/Montserrat-Regular.ttf") format("woff");
+       url("./assets/fonts/Montserrat-Regular.ttf") format("truetype");
   font-display: swap;
 }
+
+/* === Base Code Block Styling === */
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+
+/* === HTML & Body Styling === */
 html,
 body {
   scroll-behavior: smooth;
 }
+
 body {
   margin: 0;
-  font: 19px / 23px Montserrat, "Montserrat", sans-serif;
+  font: 19px / 23px "Mozilla Headline", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* Media Query */
+
+/* === Global Font Override (Excludes Font Awesome Icons) === */
+*:not(.fab):not(.fas):not(.far):not(.fal):not(.fad),
+*:not(.fab):not(.fas):not(.far):not(.fal):not(.fad)::before,
+*:not(.fab):not(.fas):not(.far):not(.fal):not(.fad)::after {
+  font-family: "Mozilla Headline", sans-serif !important;
+}
+
+/* === Special Override for Logo Name === */
+.header .logo-name {
+  font-family: "Agustina Regular" !important;
+  font-weight: bold;
+  font-variant-ligatures: no-common-ligatures;
+  -webkit-font-variant-ligatures: no-common-ligatures;
+  padding: 0 10px;
+}
+
+/* === Media Query === */
 @media (max-width: 1380px) {
   html,
   body {
