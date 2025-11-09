@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 @import "../../_globalColor"; // Assuming this path is correct and the file exists
 
 /*React-headroom*/
@@ -11,6 +12,10 @@
   background-color: rgba(0, 0, 16, 0.5) !important;
   color: $textColorDark;
   z-index: 5;
+}
+
+.logo-name{
+   font-family: 'Great Vibes', cursive !important;
 }
 
 .dark-menu li a {

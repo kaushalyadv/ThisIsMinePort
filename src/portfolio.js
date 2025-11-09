@@ -53,9 +53,9 @@ const skillsSection = {
     emoji(
       "⚡Designing sleek, interactive user interfaces that bring your web and mobile apps to life — pixel by pixel, line by line"
     ),
-    emoji("⚡ Crafting PWAs with both classic multi-page setups and modern SPA frameworks — because flexibility matters."),
+    emoji("⚡Crafting PWAs with both classic multi-page setups and modern SPA frameworks — because flexibility matters."),
     emoji(
-      "⚡ Whether it’s blender magic, Unity Engine, or Android studio vibes — I connect projects with the cloud like it's second nature"
+      "⚡Whether it’s blender magic, Unity Engine, or Android studio vibes — I connect projects with the cloud like it's second nature"
     )
   ],
 

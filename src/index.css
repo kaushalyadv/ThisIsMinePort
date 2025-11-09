@@ -45,7 +45,7 @@ body {
 *:not(.fab):not(.fas):not(.far):not(.fal):not(.fad),
 *:not(.fab):not(.fas):not(.far):not(.fal):not(.fad)::before,
 *:not(.fab):not(.fas):not(.far):not(.fal):not(.fad)::after {
-  font-family: "Mozilla Headline", sans-serif !important;
+  font-family: "Mozilla Headline", sans-serif ;
 }
 
 /* === Special Override for Logo Name === */

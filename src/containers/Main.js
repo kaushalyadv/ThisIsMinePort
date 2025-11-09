@@ -12,7 +12,7 @@ import Talks from "./talks/Talks";
 import Podcast from "./podcast/Podcast";
 import Education from "./education/Education";
 import ScrollToTopButton from "./topbutton/Top";
-import Twitter from "./twitter-embed/twitter";
+// import Twitter from "./twitter-embed/twitter";
 import Profile from "./profile/Profile";
 import SplashScreen from "./splashScreen/SplashScreen";
 import GraphicShowcase from "./GraphicShowcase/GraphicShowcase.js";
@@ -21,6 +21,7 @@ import { StyleProvider } from "../contexts/StyleContext";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import "./Main.scss";
 import ThreeDBackground from '../components/ThreeDBackground.jsx';
+import KaushalGPTChat from '../components/KaushalGPTChat.js';
 
 const Main = () => {
   const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
@@ -85,12 +86,23 @@ const Main = () => {
       {/* This div will contain all your main website content */}
       {/* It needs the 'main' class to apply the z-index and background color */}
       <div className="main"> 
+        {/* <video
+  className="bg-video"
+  autoPlay
+  muted
+  loop
+  playsInline
+>
+  <source src={Final_cut} type="video/mp4" />
+</video> */}
+
         <StyleProvider value={{ isDark: isDark, changeTheme: changeTheme }}>
           {isShowingSplashAnimation && splashScreen.enabled ? (
             <SplashScreen />
           ) : (
             <>
               <Header />
+              <KaushalGPTChat />
               <Greeting />
               <Skills />
               <StackProgress />
