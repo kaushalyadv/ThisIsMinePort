@@ -22,6 +22,7 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 import "./Main.scss";
 import ThreeDBackground from '../components/ThreeDBackground.jsx';
 import KaushalGPTChat from '../components/KaushalGPTChat.js';
+import KaushalGPTWidget from "../components/KaushalGPTWidget.js";
 
 const Main = () => {
   const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
@@ -102,7 +103,8 @@ const Main = () => {
           ) : (
             <>
               <Header />
-              <KaushalGPTChat />
+              {/* <KaushalGPTChat /> */}
+              <KaushalGPTWidget />
               <Greeting />
               <Skills />
               <StackProgress />

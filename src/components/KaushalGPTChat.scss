@@ -1,186 +1,332 @@
-/* --- Main Chat Window --- */
-.KaushalGPTChat {
-  /* Positioning */
+/* --- Import a modern font --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* --- CSS Variables for easy themeing --- */
+:root {
+  --chat-bg-gradient: linear-gradient(145deg, rgba(30, 30, 45, 0.9), rgba(17, 17, 27, 0.9));
+  --chat-border-color: rgba(255, 255, 255, 0.18);
+  --user-bubble-bg: linear-gradient(135deg, #007bff, #0056b3);
+  --assistant-bubble-bg: #343a40;
+  --input-bg: rgba(0, 0, 0, 0.3);
+  --input-border: rgba(255, 255, 255, 0.3);
+  --button-bg: linear-gradient(135deg, #8A2BE2, #4B0082); // Violet gradient
+  --button-hover-bg: linear-gradient(135deg, #9932CC, #8A2BE2);
+  --brand-color: #8A2BE2; // Violet
+}
+
+/* =====================================================
+  NEW: Chat Launcher Button
+=====================================================
+*/
+.chat-launcher-button {
   position: fixed;
-  top: 15vh;
+  bottom: 20px;
   right: 20px;
   z-index: 1000;
-
-  /* Sizing */
-  width: 380px;  /* (w-96) */
-  height: 500px; /* (h-[500px]) */
   
-  /* Layout: Flex column (messages on top, input on bottom) */
-  display: flex;
-  flex-direction: column;
-
-  /* Appearance */
-  background-color: #0a0a0a;
-  color: white;
-  border-radius: 16px; /* (rounded-2xl) */
-  border: 1px solid #374151; /* (border-gray-800) */
-  padding: 16px; /* (p-4) */
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* (shadow-xl) */
-  box-sizing: border-box;
-
-  /* Animation */
-  animation: floatUpDown 3s ease-in-out infinite;
-  outline: 2px solid aqua;
-}
-
-/* --- Message Area --- */
-.chat-messages-container {
-  flex: 1 1 auto; /* (flex-1) Allows this to grow and fill space */
-  overflow-y: auto; /* Makes the message list scrollable */
-  margin-bottom: 12px; /* (mb-3) */
-  padding: 4px; /* (p-1) */
-}
-
-/* --- Individual Message Bubbles --- */
-.message {
-  padding: 12px; /* (p-3) */
-  border-radius: 8px; /* (rounded-lg) */
-  max-width: 90%; /* Don't let bubbles take full width */
-  margin-bottom: 12px; /* (space-y-3) */
-
-  /* THIS IS THE FIX for horizontal overflow */
-  /* It makes long words break and wrap to the next line */
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-
-  /* THIS IS THE FIX for scrollable text in a bubble */
-  max-height: 256px; /* (max-h-64) */
-  overflow-y: auto; /* Allows text inside the bubble to scroll */
-}
-
-.message-content {
-  /* This preserves newlines from the bot's response */
-  white-space: pre-wrap;
-}
-
-.user-message {
-  background-color: #2563eb; /* (bg-blue-600) */
-  text-align: right;
-  margin-left: auto; /* (ml-auto) */
-}
-
-.bot-message {
-  background-color: #1f2937; /* (bg-gray-800) */
-  text-align: left;
-  margin-right: auto; /* (mr-auto) */
-  color: #90e0ef; /* Your original aqua-like text color */
-}
-
-/* --- Scrollbar Hiding (for both message list and bubbles) --- */
-.chat-messages-container,
-.message {
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  /* Hide scrollbar for IE, Edge and Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-/* --- Input Area --- */
-.input-area {
-  flex-shrink: 0; /* (flex-shrink-0) Prevents this area from shrinking */
-  display: flex; /* (flex) */
-  width: 100%;
-}
-
-.chat-input {
-  flex: 1 1 auto; /* (flex-1) Takes up remaining space */
-  background-color: #111827; /* (bg-gray-900) */
-  border: 1px solid #374151; /* (border-gray-700) */
-  color: white;
-  padding: 8px 12px; /* (px-3 py-2) */
-  border-radius: 8px 0 0 8px; /* (rounded-l-lg) */
-  outline: none;
-  font-size: 14px;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.chat-input:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
-}
-
-.chat-input:disabled {
-  opacity: 0.7;
-}
-
-/* --- Send Button --- */
-.send-button {
-  flex-shrink: 0; /* Prevents shrinking */
-  background-color: #3b82f6; /* (bg-blue-600) */
-  color: white;
-  padding: 0 16px; /* (px-4) */
-  border-radius: 0 8px 8px 0; /* (rounded-r-lg) */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
   border: none;
-  cursor: pointer;
-  font-weight: 600;
+  background: var(--button-bg);
+  color: white;
+  
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s, transform 0.1s;
+  
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  
+  svg {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background: var(--button-hover-bg);
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 8px 25px rgba(138, 43, 226, 0.5);
+    
+    svg {
+      transform: scale(1.2);
+    }
+  }
+
+  &:active {
+    transform: scale(1.0);
+  }
 }
 
-.send-button:not(:disabled):hover {
-  background-color: #2563eb; /* (hover:bg-blue-700) */
+
+/* =====================================================
+  Main Chat Window (UPDATED for animation)
+=====================================================
+*/
+.KaushalGPTChat {
+  font-size: .8em;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1001; // Higher than the launcher button
+
+  width: 380px;
+  height: 500px;
+  max-height: 80vh;
+
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+
+  /* Glassmorphism Effect */
+  background: var(--chat-bg-gradient);
+  color: white;
+  border-radius: 20px;
+  border: 1px solid var(--chat-border-color);
+  padding: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-sizing: border-box;
+  overflow: hidden;
+
+  /* --- POPUP ANIMATION ---
+  This is the key part. We transition opacity and transform.
+  */
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* Start 'closed' (hidden) */
+  &.closed {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    pointer-events: none; // Allows clicking "through" it
+  }
+
+  /* Animate to 'open' (visible) */
+  &.open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+    // We removed the float animation as it conflicts with the popup
+  }
 }
 
-.send-button:not(:disabled):active {
-  transform: scale(0.98);
+/* =====================================================
+  NEW: Chat Header & Close Button
+=====================================================
+*/
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-shrink: 0; // Prevent shrinking
+
+  h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
 }
 
-.send-button:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
+.chat-close-button {
+  background: transparent;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+  }
 }
 
-.send-icon {
-  width: 20px; /* (w-5) */
-  height: 20px; /* (h-5) */
+
+/* =====================================================
+  Chat Messages (Existing, slightly modified)
+=====================================================
+*/
+.chat-messages {
+  flex: 1 1 auto; /* Allows this to grow and fill space */
+  overflow-y: auto; /* Makes the message list scrollable */
+  margin-bottom: 12px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+
+  /* Custom scrollbar */
+  &::-webkit-scrollbar { width: 6px; }
+  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar-thumb {
+    background: var(--brand-color);
+    border-radius: 3px;
+  }
+  scrollbar-width: thin;
+  scrollbar-color: var(--brand-color) transparent;
 }
 
-/* --- CSS Loader --- */
+.message-bubble {
+  padding: 12px 16px;
+  border-radius: 18px;
+  max-width: 85%;
+  word-wrap: break-word;
+  margin-bottom: 12px;
+  line-height: 1.5;
+  animation: popIn 0.3s ease-out;
+  white-space: pre-wrap;
+
+  &.user {
+    background: var(--user-bubble-bg);
+    color: white;
+    margin-left: auto;
+    border-bottom-right-radius: 6px;
+  }
+
+  &.assistant {
+    background: var(--assistant-bubble-bg);
+    color: #f8f9fa;
+    margin-right: auto;
+    border-bottom-left-radius: 6px;
+  }
+}
+
+/* =====================================================
+  Input Area (Existing)
+=====================================================
+*/
+.input-area {
+  flex-shrink: 0;
+  display: flex;
+  margin-top: auto;
+}
+
+.chat-input {
+  flex: 1 1 auto;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 50px 0 0 50px;
+  outline: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  transform: scale(1);
+
+  &::placeholder { color: #999; }
+  &:focus {
+    border-color: var(--brand-color);
+    box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.4);
+  }
+  &:disabled {
+    opacity: 0.7;
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.send-button {
+  flex-shrink: 0;
+  background: var(--button-bg);
+  color: white;
+  padding: 0 20px;
+  border-radius: 0 50px 50px 0;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+
+  svg { transition: transform 0.2s ease; }
+
+  &:not(:disabled):hover {
+    background: var(--button-hover-bg);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px 0 rgba(138, 43, 226, 0.5);
+  }
+  &:not(:disabled):active { transform: scale(0.98); }
+  &:not(:disabled):hover svg { transform: rotate(-15deg) scale(1.1); }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+/* =====================================================
+  Loaders & Animations (Existing)
+=====================================================
+*/
 .loader {
-  width: 20px; /* (w-5) */
-  height: 20px; /* (h-5) */
-  border: 2px solid white; /* (border-2 border-white) */
-  border-top-color: transparent; /* (border-t-transparent) */
-  border-radius: 50%; /* (rounded-full) */
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-top-color: white;
+  border-radius: 50%;
   animation: spin 1s linear infinite;
 }
 
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  
+  span {
+    height: 8px;
+    width: 8px;
+    background: #999;
+    border-radius: 50%;
+    margin: 0 2px;
+    animation: bounce 1.4s infinite both;
+    
+    &:nth-child(2) { animation-delay: 0.2s; }
+    &:nth-child(3) { animation-delay: 0.4s; }
+  }
+}
+
+/* --- Keyframe Animations --- */
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
-/* --- Floating Animation --- */
-@keyframes floatUpDown {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.8) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-/* --- Mobile Responsive --- */
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1.0); }
+}
+
+/* =====================================================
+  Mobile Responsive (UPDATED)
+=====================================================
+*/
 @media (max-width: 768px) {
   .KaushalGPTChat {
-    width: 90vw !important;
-    max-width: none !important;
-    height: 70vh !important;
-    max-height: none !important;
-    bottom: 15px !important;
-    right: 50% !important;
-    transform: translateX(50%) !important;
-    animation: none; /* Disable float on mobile */
+    width: 90vw;
+    height: 70vh;
+    bottom: 15px;
+    right: 50%;
+    
+    /* We just need to adjust the 'open' transform 
+      to account for the translateX
+    */
+    &.closed {
+      transform: translateX(50%) translateY(20px) scale(0.9);
+    }
+    &.open {
+      transform: translateX(50%) translateY(0) scale(1);
+    }
+  }
+
+  .chat-launcher-button {
+    bottom: 15px;
+    right: 15px;
   }
 }
