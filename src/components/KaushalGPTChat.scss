@@ -15,13 +15,13 @@
 }
 
 /* =====================================================
-  NEW: Chat Launcher Button
+  NEW: Chat Launcher Button (MERGED)
 =====================================================
 */
 .chat-launcher-button {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  top: 50%;
+  left: 45%;
   z-index: 1000;
   
   width: 60px;
@@ -39,8 +39,14 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
   
+  // This makes sure the glitter stays inside the button
+  position: relative;
+  // We removed 'overflow: hidden' so particles can escape!
+
   svg {
     transition: transform 0.3s ease;
+    // Make sure the icon is on top of the glitter
+    z-index: 2;
   }
 
   &:hover {
@@ -55,6 +61,67 @@
 
   &:active {
     transform: scale(1.0);
+  }
+
+  /* --- Glitter Styles --- */
+  .glitter-wrapper {
+    // This container holds the particles
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; // So you can't click on the glitter
+    z-index: 1;
+    border-radius: 50%; // Match the button
+  }
+
+  .glitter {
+    position: absolute;
+    bottom: 25%; // Start from near the center-bottom
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    
+    // This gives it the "comet-like" glow
+    box-shadow: 
+      0 0 4px 2px rgba(255, 255, 255, 0.8),
+      0 0 6px 4px rgba(255, 255, 255, 0.5),
+      0 0 8px 6px rgba(138, 43, 226, 0.3); // Glow matches your brand color
+
+    // Link to the animation
+    animation: evaporate 4s linear infinite;
+  }
+  
+  // This SASS loop is the magic!
+  // It gives each particle a different animation delay and position.
+  @for $i from 1 through 10 {
+    .glitter:nth-child(#{$i}) {
+      
+      // Stagger the animation start time
+      animation-delay: #{($i - 1) * 0.4}s;
+      
+      // Randomize starting horizontal position & end-point
+      $x-pos: random(40) - 20; // from -20 to +20
+      $x-end: $x-pos + random(60) - 30; // spread out
+      
+      // Set CSS variables for the animation to use
+      --x-start: #{$x-pos}px;
+      --x-end: #{$x-end}px;
+      
+      // Make some particles smaller and a different color
+      @if $i % 3 == 0 {
+        width: 3px;
+        height: 3px;
+        background: #f0f; // A magenta spark
+        box-shadow: 
+          0 0 4px 2px rgba(255, 0, 255, 0.8),
+          0 0 8px 6px rgba(255, 0, 255, 0.3);
+      }
+    }
   }
 }
 
@@ -328,5 +395,24 @@
   .chat-launcher-button {
     bottom: 15px;
     right: 15px;
+  }
+}
+
+/* =====================================================
+  Glitter Animation (MOVED)
+=====================================================
+*/
+@keyframes evaporate {
+  0% {
+    transform: translate(var(--x-start, 0), 0) scale(1);
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    // Move up (negative Y) and to its random X end-point
+    transform: translate(var(--x-end, 0), -80px) scale(0);
+    opacity: 0;
   }
 }

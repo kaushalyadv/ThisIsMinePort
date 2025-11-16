@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import KaushalGPTChat from './KaushalGPTChat'; // Import the chat window
-import './KaushalGPTChat.scss'; // We'll add the new button styles here
+import KaushalGPTChat from './KaushalGPTChat';
+import './KaushalGPTChat.scss';
 
 // A simple Chat Icon for the launcher button
 const ChatIcon = () => (
@@ -12,31 +12,41 @@ const ChatIcon = () => (
 export default function KaushalGPTWidget() {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
-  // Toggle the chat window
   const toggleChat = () => {
     setIsChatOpen(!isChatOpen);
   };
 
   return (
     <>
-      {/* This is the chat window component.
-        We pass `isOpen` to control its visibility.
-        We pass `onClose` so it can tell this parent to close it.
-      */}
       <KaushalGPTChat 
         isOpen={isChatOpen} 
         onClose={() => setIsChatOpen(false)} 
       />
 
-      {/* This is the new launcher button.
-        It's styled entirely by the SCSS file.
-      */}
       <button 
         className="chat-launcher-button" 
         onClick={toggleChat}
         aria-label="Toggle chat"
       >
+        {/* The icon stays on top */}
         <ChatIcon />
+        
+        {/* --- 🌟 NEW GLITTER EFFECT --- */}
+        <div className="glitter-wrapper">
+          {/* We'll add 10 glitter particles */}
+          <div className="glitter"></div>
+          <div className="glitter"></div>
+          <div className="glitter"></div>
+          <div className="glitter"></div>
+          <div className="glitter"></div>
+          <div className="glitter"></div>
+          <div className="glitter"></div>
+          <div className="glitter"></div>
+          <div className="glitter"></div>
+          <div className="glitter"></div>
+        </div>
+        {/* --- END GLITTER EFFECT --- */}
+
       </button>
     </>
   );

@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import './KaushalGPTChat.scss';
 
+
+const GOOGLE_WEBHOOK = "https://script.google.com/macros/s/AKfycbyz5ZO3POOAm_fK-1XHzLvI2Vi6QZjGhyoD0hxeiwVx6g-kg8NecK4gVbstOR1ihe8FFA/exec";
+const WEBHOOK_SECRET = "Kaushal@7017Yadav";
+
 // New Close Icon
 const CloseIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
@@ -32,33 +36,54 @@ export default function KaushalGPTChat({ isOpen, onClose }) {
     scrollToBottom();
   }, [messages, loading]); // Scroll on new messages or when loading
 
-  const sendMessage = async () => {
-    if (!input.trim()) return;
+const sendMessage = async () => {
+  if (!input.trim()) return;
 
-    const newMessages = [...messages, { role: "user", content: input }];
-    setMessages(newMessages);
-    setInput("");
-    setLoading(true);
+  const userMessage = input;
+  const newMessages = [...messages, { role: "user", content: userMessage }];
+  setMessages(newMessages);
+  setInput("");
+  setLoading(true);
 
-    try {
-      const res = await fetch("https://dark-hat-faec.kaushalyadav-twitter.workers.dev/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          mode: "default",
-          messages: newMessages,
-        }),
-      });
+  try {
+    // 1) Ask KaushalGPT backend
+    const res = await fetch("https://dark-hat-faec.kaushalyadav-twitter.workers.dev/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        mode: "default",
+        messages: newMessages,
+      }),
+    });
 
-      const data = await res.json();
-      const reply = data.choices?.[0]?.message?.content || "No response 🤖";
-      setMessages([...newMessages, { role: "assistant", content: reply }]);
-    } catch (e) {
-      console.error(e);
-    } finally {
-      setLoading(false);
-    }
-  };
+    const data = await res.json();
+    const botReply = data.choices?.[0]?.message?.content || "No response 🤖";
+
+    // 2) Send to Google Webhook (Sheet + WhatsApp)
+    fetch("https://dark-hat-faec.kaushalyadav-twitter.workers.dev/log", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    secret: WEBHOOK_SECRET,
+    event: "website_chat",
+    message: userMessage,
+    reply: botReply,
+    page: window.location.href,
+    userTimestamp: Date.now()
+  }),
+}).catch(err => console.warn("Sheet log failed:", err));
+
+    // 3) Update UI
+    setMessages([...newMessages, { role: "assistant", content: botReply }]);
+
+  } catch (e) {
+    console.error(e);
+  } finally {
+    setLoading(false);
+  }
+};
+
+
 
   return (
     // We add 'open' or 'closed' class based on the 'isOpen' prop
