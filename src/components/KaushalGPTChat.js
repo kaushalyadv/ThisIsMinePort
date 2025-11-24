@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import './KaushalGPTChat.scss';
 
 
-const GOOGLE_WEBHOOK = "https://script.google.com/macros/s/AKfycbyz5ZO3POOAm_fK-1XHzLvI2Vi6QZjGhyoD0hxeiwVx6g-kg8NecK4gVbstOR1ihe8FFA/exec";
+const GOOGLE_WEBHOOK = "https://script.google.com/macros/s/AKfycbzqJeTbjUxahf6dtd_8AE-p8zT0N7mW9YuL4aZUNTFITtv0-_UZs15PTCLKsYRXU82rpQ/exec";
 const WEBHOOK_SECRET = "Kaushal@7017Yadav";
 
 // New Close Icon

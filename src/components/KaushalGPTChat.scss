@@ -18,31 +18,35 @@
   NEW: Chat Launcher Button (MERGED)
 =====================================================
 */
-.chat-launcher-button {
-  position: fixed;
-  top: 50%;
-  left: 45%;
-  z-index: 1000;
-  
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: none;
-  background: var(--button-bg);
-  color: white;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  cursor: pointer;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  
-  // This makes sure the glitter stays inside the button
-  position: relative;
-  // We removed 'overflow: hidden' so particles can escape!
 
+.chat-launcher-3d {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.chat-launcher-3d canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.chat-launcher-button {
+      position: fixed;
+    top: 85%;
+    left: 90%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: none;
+    // background: linear-gradient(135deg, #8A2BE2, #4B0082);
+    background: transparent;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
   svg {
     transition: transform 0.3s ease;
     // Make sure the icon is on top of the glitter
@@ -50,9 +54,9 @@
   }
 
   &:hover {
-    background: var(--button-hover-bg);
+    // background: var(--button-hover-bg);
     transform: scale(1.1) rotate(10deg);
-    box-shadow: 0 8px 25px rgba(138, 43, 226, 0.5);
+    // box-shadow: 0 8px 25px rgba(138, 43, 226, 0.5);
     
     svg {
       transform: scale(1.2);
@@ -88,9 +92,9 @@
     
     // This gives it the "comet-like" glow
     box-shadow: 
-      0 0 4px 2px rgba(255, 255, 255, 0.8),
-      0 0 6px 4px rgba(255, 255, 255, 0.5),
-      0 0 8px 6px rgba(138, 43, 226, 0.3); // Glow matches your brand color
+      0 0 4px 2px rgba(35, 141, 137, 0.8),
+      0 0 6px 4px rgba(77, 218, 211, 0.5),
+      0 0 8px 6px rgba(10, 124, 84, 0.3); // Glow matches your brand color
 
     // Link to the animation
     animation: evaporate 4s linear infinite;
@@ -116,10 +120,10 @@
       @if $i % 3 == 0 {
         width: 3px;
         height: 3px;
-        background: #f0f; // A magenta spark
+        background: rgb(0, 255, 238); // A magenta spark
         box-shadow: 
-          0 0 4px 2px rgba(255, 0, 255, 0.8),
-          0 0 8px 6px rgba(255, 0, 255, 0.3);
+          0 0 4px 2px rgba(80, 255, 226, 0.8),
+          0 0 8px 6px rgba(2, 155, 127, 0.3);
       }
     }
   }
