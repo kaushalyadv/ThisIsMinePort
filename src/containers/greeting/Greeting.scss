@@ -37,7 +37,7 @@
 
 .button-greeting-div {
   display: flex; // Base display for buttons
-  margin-top: 40px; // Base top margin
+  margin-top: 30px; // Base top margin
 }
 .download-link-button {
   text-decoration: none;
@@ -52,7 +52,56 @@
 .greeting-text-p {
   font-size: 30px; // Base font size
   line-height: 40px; // Base line-height
+  
 }
+// .light-text {
+//   background: linear-gradient(
+//     120deg,
+//     rgba(255, 255, 255, 0.9) 0%,
+//     rgba(255, 255, 255, 0.4) 30%,
+//     rgba(255, 255, 255, 0.2) 60%,
+//     rgba(255, 255, 255, 0.1) 100%
+//   );
+//   -webkit-background-clip: text;
+//   color: transparent;
+// }
+
+// .light-overlay {
+//   position: relative;
+// }
+
+// .light-overlay::after {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 60%;
+//   height: 60%;
+//   pointer-events: none;
+//   background: radial-gradient(
+//     circle at top left,
+//     rgba(255, 255, 255, 0.25),
+//     transparent 70%
+//   );
+//   mix-blend-mode: screen;
+// }
+
+// .glow-text {
+//   color: #ffffff !important;
+//   background: radial-gradient(
+//     circle at top left,
+//     rgba(255, 255, 255, 0.9) 0%,
+//     rgba(255, 255, 255, 0.4) 25%,
+//     rgba(255, 255, 255, 0.15) 50%,
+//     rgba(255, 255, 255, 0.05) 70%,
+//     rgba(255, 255, 255, 0) 100%
+//   ) !important;
+//   -webkit-background-clip: text !important;
+//   background-clip: text !important;
+//   color: transparent !important;
+// }
+
+
 
 .greeting-image-div > img {
   max-width: 100%;
@@ -94,10 +143,10 @@
 /* --- Existing Media Queries (UNCHANGED as per request) --- */
 @media (max-width: 1380px) {
   .greeting-text {
-    font-size: 50px;
+    font-size: 45px;
   }
   .greeting-text-p {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 @media (max-width: 768px) {

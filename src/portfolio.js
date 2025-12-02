@@ -23,7 +23,7 @@ const greeting = {
   username: "Kaushal Yadav",
   title: "Hi all, I'm Kaushal",
   subTitle: emoji(
-    "A passionate A creative and driven Frontend Developer 💻✨ with hands-on experience crafting engaging web and mobile apps using JavaScript, React.js, django, and blender — along with a mix of modern tools and libraries to bring ideas to life. Developer 🤩 having an experience of building Web and Mobile applications with JavaScript / Reactjs / Nodejs / React Native and some other cool libraries and frameworks."
+    "A creative, detail-driven Frontend Developer with real hands-on experience building smooth and engaging web and mobile experiences. I work primarily with JavaScript, React.js, Node.js, React Native, and Django, and I love bringing ideas to life with modern tools, clean design thinking, and a bit of experimentation. I’ve built multiple projects across web and mobile, and I’m always exploring new libraries, frameworks, and even 3D tools like Blender to push my work a little further every time."
   ),
   resumeLink:
     "https://docs.google.com/presentation/d/14uF7NmhsXxVjML5RhtkP6UHCqZto3VUo/edit?usp=sharing&ouid=115960713439289799000&rtpof=true&sd=true", // Set to empty to hide the button

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Great+Vibes&family=Mozilla+Headline:wght@200..700&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+
+
 /* === Font Imports === */
 @font-face {
   font-family: "Mozilla Headline";
@@ -36,7 +39,7 @@ body {
 
 body {
   margin: 0;
-  font: 19px / 23px "Mozilla Headline", sans-serif;
+  font: 16px / 23px "Mozilla Headline", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -45,7 +48,7 @@ body {
 *:not(.fab):not(.fas):not(.far):not(.fal):not(.fad),
 *:not(.fab):not(.fas):not(.far):not(.fal):not(.fad)::before,
 *:not(.fab):not(.fas):not(.far):not(.fal):not(.fad)::after {
-  font-family: "Mozilla Headline", sans-serif ;
+  font-family: "Cinzel", serif;
 }
 
 /* === Special Override for Logo Name === */

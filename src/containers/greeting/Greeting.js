@@ -28,7 +28,7 @@ export default function Greeting() {
             <p
               className={
                 isDark
-                  ? "light-mode greeting-text-p"
+                  ? "light-mode greeting-text-p glow-text"
                   : "greeting-text-p subTitle"
               }
             >

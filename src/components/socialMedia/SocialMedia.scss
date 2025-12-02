@@ -1,6 +1,8 @@
 @import "../../_globalColor"; // Assuming this path is correct and the file exists
 
 .social-media-div {
+  display: flex;
+  justify-content: flex-start;
   font-size: 2em; // Base font size, influencing icon size due to `em` units
   text-align: center; // Center alignment for larger screens as well, often desired
 }
@@ -15,7 +17,7 @@
   cursor: pointer;
   display: inline-block;
   font-size: 1.3rem; // Base font size for the icon itself
-  height: 2.6rem; // Base height
+  height: 2rem; // Base height
   line-height: 2.6rem; // Base line-height for vertical centering
   margin: 0 5px; // Base horizontal margin between icons
   position: relative;
@@ -24,7 +26,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  width: 2.6rem; // Base width
+  width: 3.6rem; // Base width
   margin-bottom: 10px; // Duplicate, consider removing if .icon-button handles it
   transition: 0.2s ease-in;
 }
