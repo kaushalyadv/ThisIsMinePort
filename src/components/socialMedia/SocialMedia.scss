@@ -1,6 +1,8 @@
 @import "../../_globalColor"; // Assuming this path is correct and the file exists
 
 .social-media-div {
+  translate: -50%;
+  margin-left: 45%;
   display: flex;
   justify-content: flex-start;
   font-size: 2em; // Base font size, influencing icon size due to `em` units
