@@ -3,6 +3,11 @@
 .contact-div-main {
   display: flex; // Base display for larger screens
 }
+.contact-header{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
 
 .light-mode a {
   color: $textColorDark;

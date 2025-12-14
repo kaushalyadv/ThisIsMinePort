@@ -9,13 +9,13 @@
   --assistant-bubble-bg: #343a40;
   --input-bg: rgba(0, 0, 0, 0.3);
   --input-border: rgba(255, 255, 255, 0.3);
-  --button-bg: linear-gradient(135deg, #8A2BE2, #4B0082); // Violet gradient
+  --button-bg: linear-gradient(135deg, #8A2BE2, #4B0082); /* Violet gradient */
   --button-hover-bg: linear-gradient(135deg, #9932CC, #8A2BE2);
-  --brand-color: #8A2BE2; // Violet
+  --brand-color: #8A2BE2; /* Violet */
 }
 
 /* =====================================================
-  NEW: Chat Launcher Button (MERGED)
+   NEW: Chat Launcher Button (MERGED)
 =====================================================
 */
 
@@ -30,119 +30,104 @@
   width: 100% !important;
   height: 100% !important;
 }
+
 .chat-launcher-button {
-      position: fixed;
-    top: 85%;
-    left: 90%;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: none;
-    // background: linear-gradient(135deg, #8A2BE2, #4B0082);
-    background: transparent;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-  svg {
-    transition: transform 0.3s ease;
-    // Make sure the icon is on top of the glitter
-    z-index: 2;
-  }
-
-  &:hover {
-    // background: var(--button-hover-bg);
-    transform: scale(1.1) rotate(10deg);
-    // box-shadow: 0 8px 25px rgba(138, 43, 226, 0.5);
-    
-    svg {
-      transform: scale(1.2);
-    }
-  }
-
-  &:active {
-    transform: scale(1.0);
-  }
-
-  /* --- Glitter Styles --- */
-  .glitter-wrapper {
-    // This container holds the particles
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; // So you can't click on the glitter
-    z-index: 1;
-    border-radius: 50%; // Match the button
-  }
-
-  .glitter {
-    position: absolute;
-    bottom: 25%; // Start from near the center-bottom
-    left: 50%;
-    width: 4px;
-    height: 4px;
-    background: #fff;
-    border-radius: 50%;
-    opacity: 0;
-    
-    // This gives it the "comet-like" glow
-    box-shadow: 
-      0 0 4px 2px rgba(35, 141, 137, 0.8),
-      0 0 6px 4px rgba(77, 218, 211, 0.5),
-      0 0 8px 6px rgba(10, 124, 84, 0.3); // Glow matches your brand color
-
-    // Link to the animation
-    animation: evaporate 4s linear infinite;
-  }
-  
-  // This SASS loop is the magic!
-  // It gives each particle a different animation delay and position.
-  @for $i from 1 through 10 {
-    .glitter:nth-child(#{$i}) {
-      
-      // Stagger the animation start time
-      animation-delay: #{($i - 1) * 0.4}s;
-      
-      // Randomize starting horizontal position & end-point
-      $x-pos: random(40) - 20; // from -20 to +20
-      $x-end: $x-pos + random(60) - 30; // spread out
-      
-      // Set CSS variables for the animation to use
-      --x-start: #{$x-pos}px;
-      --x-end: #{$x-end}px;
-      
-      // Make some particles smaller and a different color
-      @if $i % 3 == 0 {
-        width: 3px;
-        height: 3px;
-        background: rgb(0, 255, 238); // A magenta spark
-        box-shadow: 
-          0 0 4px 2px rgba(80, 255, 226, 0.8),
-          0 0 8px 6px rgba(2, 155, 127, 0.3);
-      }
-    }
-  }
+  position: fixed;
+  /* RESPONSIVE FIX: Used bottom/right instead of top/left % to keep it in corner */
+  bottom: 30px;
+  right: 30px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
 }
+
+.chat-launcher-button svg {
+  transition: transform 0.3s ease;
+  /* Make sure the icon is on top of the glitter */
+  z-index: 2;
+}
+
+.chat-launcher-button:hover {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.chat-launcher-button:hover svg {
+  transform: scale(1.2);
+}
+
+.chat-launcher-button:active {
+  transform: scale(1.0);
+}
+
+/* --- Glitter Styles --- */
+.chat-launcher-button .glitter-wrapper {
+  /* This container holds the particles */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* So you can't click on the glitter */
+  z-index: 1;
+  border-radius: 50%; /* Match the button */
+}
+
+.chat-launcher-button .glitter {
+  position: absolute;
+  bottom: 25%; /* Start from near the center-bottom */
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  
+  /* This gives it the "comet-like" glow */
+  box-shadow: 
+    0 0 4px 2px rgba(35, 141, 137, 0.8),
+    0 0 6px 4px rgba(77, 218, 211, 0.5),
+    0 0 8px 6px rgba(10, 124, 84, 0.3); /* Glow matches your brand color */
+
+  /* Link to the animation */
+  animation: evaporate 4s linear infinite;
+}
+
+/* Sass loop simulation for standard CSS */
+.chat-launcher-button .glitter:nth-child(1) { animation-delay: 0s; --x-start: -10px; --x-end: 20px; }
+.chat-launcher-button .glitter:nth-child(2) { animation-delay: 0.4s; --x-start: 15px; --x-end: -25px; }
+.chat-launcher-button .glitter:nth-child(3) { animation-delay: 0.8s; --x-start: -5px; --x-end: 30px; width: 3px; height: 3px; background: rgb(0, 255, 238); }
+.chat-launcher-button .glitter:nth-child(4) { animation-delay: 1.2s; --x-start: 20px; --x-end: -10px; }
+.chat-launcher-button .glitter:nth-child(5) { animation-delay: 1.6s; --x-start: -20px; --x-end: 15px; }
+.chat-launcher-button .glitter:nth-child(6) { animation-delay: 2.0s; --x-start: 10px; --x-end: -30px; width: 3px; height: 3px; background: rgb(0, 255, 238); }
+.chat-launcher-button .glitter:nth-child(7) { animation-delay: 2.4s; --x-start: -15px; --x-end: 10px; }
+.chat-launcher-button .glitter:nth-child(8) { animation-delay: 2.8s; --x-start: 25px; --x-end: -15px; }
+.chat-launcher-button .glitter:nth-child(9) { animation-delay: 3.2s; --x-start: -12px; --x-end: 25px; width: 3px; height: 3px; background: rgb(0, 255, 238); }
+.chat-launcher-button .glitter:nth-child(10) { animation-delay: 3.6s; --x-start: 18px; --x-end: -20px; }
 
 
 /* =====================================================
-  Main Chat Window (UPDATED for animation)
+   Main Chat Window (UPDATED for animation)
 =====================================================
 */
 .KaushalGPTChat {
-  font-size: .8em;
+  font-size: .9em; /* Slightly bumped for readability */
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 1001; // Higher than the launcher button
+  z-index: 1001; /* Higher than the launcher button */
 
   width: 380px;
-  height: 500px;
+  height: 550px;
   max-height: 80vh;
 
   display: flex;
@@ -161,29 +146,26 @@
   box-sizing: border-box;
   overflow: hidden;
 
-  /* --- POPUP ANIMATION ---
-  This is the key part. We transition opacity and transform.
-  */
+  /* --- POPUP ANIMATION --- */
   transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
-  /* Start 'closed' (hidden) */
-  &.closed {
-    opacity: 0;
-    transform: translateY(20px) scale(0.9);
-    pointer-events: none; // Allows clicking "through" it
-  }
+/* Start 'closed' (hidden) */
+.KaushalGPTChat.closed {
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  pointer-events: none; /* Allows clicking "through" it */
+}
 
-  /* Animate to 'open' (visible) */
-  &.open {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    pointer-events: auto;
-    // We removed the float animation as it conflicts with the popup
-  }
+/* Animate to 'open' (visible) */
+.KaushalGPTChat.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
 }
 
 /* =====================================================
-  NEW: Chat Header & Close Button
+   NEW: Chat Header & Close Button
 =====================================================
 */
 .chat-header {
@@ -191,13 +173,13 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
-  flex-shrink: 0; // Prevent shrinking
+  flex-shrink: 0; /* Prevent shrinking */
+}
 
-  h3 {
-    margin: 0;
-    font-size: 1.1rem;
-    font-weight: 600;
-  }
+.chat-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 .chat-close-button {
@@ -211,16 +193,16 @@
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
+}
 
-  &:hover {
-    color: white;
-    background: rgba(255, 255, 255, 0.1);
-  }
+.chat-close-button:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 
 /* =====================================================
-  Chat Messages (Existing, slightly modified)
+   Chat Messages (Existing, slightly modified)
 =====================================================
 */
 .chat-messages {
@@ -232,14 +214,15 @@
   flex-direction: column;
 
   /* Custom scrollbar */
-  &::-webkit-scrollbar { width: 6px; }
-  &::-webkit-scrollbar-track { background: transparent; }
-  &::-webkit-scrollbar-thumb {
-    background: var(--brand-color);
-    border-radius: 3px;
-  }
   scrollbar-width: thin;
   scrollbar-color: var(--brand-color) transparent;
+}
+
+.chat-messages::-webkit-scrollbar { width: 6px; }
+.chat-messages::-webkit-scrollbar-track { background: transparent; }
+.chat-messages::-webkit-scrollbar-thumb {
+  background: var(--brand-color);
+  border-radius: 3px;
 }
 
 .message-bubble {
@@ -251,24 +234,25 @@
   line-height: 1.5;
   animation: popIn 0.3s ease-out;
   white-space: pre-wrap;
+  font-size: 0.95em;
+}
 
-  &.user {
-    background: var(--user-bubble-bg);
-    color: white;
-    margin-left: auto;
-    border-bottom-right-radius: 6px;
-  }
+.message-bubble.user {
+  background: var(--user-bubble-bg);
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 6px;
+}
 
-  &.assistant {
-    background: var(--assistant-bubble-bg);
-    color: #f8f9fa;
-    margin-right: auto;
-    border-bottom-left-radius: 6px;
-  }
+.message-bubble.assistant {
+  background: var(--assistant-bubble-bg);
+  color: #f8f9fa;
+  margin-right: auto;
+  border-bottom-left-radius: 6px;
 }
 
 /* =====================================================
-  Input Area (Existing)
+   Input Area (Existing)
 =====================================================
 */
 .input-area {
@@ -288,16 +272,16 @@
   font-size: 14px;
   transition: all 0.3s ease;
   transform: scale(1);
+}
 
-  &::placeholder { color: #999; }
-  &:focus {
-    border-color: var(--brand-color);
-    box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.4);
-  }
-  &:disabled {
-    opacity: 0.7;
-    background: rgba(0, 0, 0, 0.5);
-  }
+.chat-input::placeholder { color: #999; }
+.chat-input:focus {
+  border-color: var(--brand-color);
+  box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.4);
+}
+.chat-input:disabled {
+  opacity: 0.7;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .send-button {
@@ -312,24 +296,24 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+}
 
-  svg { transition: transform 0.2s ease; }
+.send-button svg { transition: transform 0.2s ease; }
 
-  &:not(:disabled):hover {
-    background: var(--button-hover-bg);
-    transform: scale(1.05);
-    box-shadow: 0 0 15px 0 rgba(138, 43, 226, 0.5);
-  }
-  &:not(:disabled):active { transform: scale(0.98); }
-  &:not(:disabled):hover svg { transform: rotate(-15deg) scale(1.1); }
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
+.send-button:not(:disabled):hover {
+  background: var(--button-hover-bg);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px 0 rgba(138, 43, 226, 0.5);
+}
+.send-button:not(:disabled):active { transform: scale(0.98); }
+.send-button:not(:disabled):hover svg { transform: rotate(-15deg) scale(1.1); }
+.send-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* =====================================================
-  Loaders & Animations (Existing)
+   Loaders & Animations (Existing)
 =====================================================
 */
 .loader {
@@ -345,19 +329,20 @@
   display: flex;
   align-items: center;
   padding: 12px 16px;
-  
-  span {
-    height: 8px;
-    width: 8px;
-    background: #999;
-    border-radius: 50%;
-    margin: 0 2px;
-    animation: bounce 1.4s infinite both;
-    
-    &:nth-child(2) { animation-delay: 0.2s; }
-    &:nth-child(3) { animation-delay: 0.4s; }
-  }
 }
+
+.typing-indicator span {
+  height: 8px;
+  width: 8px;
+  background: #999;
+  border-radius: 50%;
+  margin: 0 2px;
+  animation: bounce 1.4s infinite both;
+}
+
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
 
 /* --- Keyframe Animations --- */
 @keyframes spin {
@@ -374,38 +359,6 @@
   40% { transform: scale(1.0); }
 }
 
-/* =====================================================
-  Mobile Responsive (UPDATED)
-=====================================================
-*/
-@media (max-width: 768px) {
-  .KaushalGPTChat {
-    width: 90vw;
-    height: 70vh;
-    bottom: 15px;
-    right: 50%;
-    
-    /* We just need to adjust the 'open' transform 
-      to account for the translateX
-    */
-    &.closed {
-      transform: translateX(50%) translateY(20px) scale(0.9);
-    }
-    &.open {
-      transform: translateX(50%) translateY(0) scale(1);
-    }
-  }
-
-  .chat-launcher-button {
-    bottom: 15px;
-    right: 15px;
-  }
-}
-
-/* =====================================================
-  Glitter Animation (MOVED)
-=====================================================
-*/
 @keyframes evaporate {
   0% {
     transform: translate(var(--x-start, 0), 0) scale(1);
@@ -415,8 +368,71 @@
     opacity: 1;
   }
   100% {
-    // Move up (negative Y) and to its random X end-point
+    /* Move up (negative Y) and to its random X end-point */
     transform: translate(var(--x-end, 0), -80px) scale(0);
     opacity: 0;
+  }
+}
+
+/* =====================================================
+   RESPONSIVE MEDIA QUERIES (COMPLETELY REWORKED)
+=====================================================
+*/
+
+/* 1. Tablet / Small Laptop */
+@media (max-width: 768px) {
+  .KaushalGPTChat {
+    width: 90vw; /* Wider on tablets */
+    right: 5vw; /* Center horizontally relative to viewport */
+    bottom: 90px; /* Above the button */
+    height: 600px;
+  }
+  
+  .chat-launcher-button {
+    bottom: 20px;
+    right: 20px;
+    width: 60px; /* Slightly smaller button */
+    height: 60px;
+  }
+}
+
+/* 2. Mobile Phones (The critical part) */
+@media (max-width: 480px) {
+  .KaushalGPTChat {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    bottom: 0;
+    right: 0;
+    border-radius: 0; /* Remove rounded corners for fullscreen */
+    border: none;
+  }
+
+  /* Adjust animation for mobile to slide up from bottom */
+  .KaushalGPTChat.closed {
+    transform: translateY(100%);
+    opacity: 1;
+    border-radius: 0;
+  }
+  
+  .KaushalGPTChat.open {
+    transform: translateY(0);
+    opacity: 1;
+    border-radius: 0;
+  }
+
+  .chat-launcher-button {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  /* Prevent iOS zoom on input focus */
+  .chat-input {
+    font-size: 16px; 
+  }
+  
+  /* Adjust header for touch targets */
+  .chat-header {
+    padding-top: 10px;
   }
 }

@@ -8,14 +8,19 @@
 }
 
 .icon-button {
+  text-decoration: none;
   margin-bottom: 10px; // Base bottom margin for individual buttons
 }
 
 .icon-button i {
+  // outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: $textColorDark;
   border-radius: 2.6rem; // Base border-radius
   cursor: pointer;
-  display: inline-block;
+  // display: inline-block;
   font-size: 1.3rem; // Base font size for the icon itself
   height: 2rem; // Base height
   line-height: 2.6rem; // Base line-height for vertical centering
