@@ -1,8 +1,6 @@
 @import "../../_globalColor"; // Assuming this path is correct and the file exists
 
 .social-media-div {
-  translate: -50%;
-  margin-left: 45%;
   display: flex;
   justify-content: flex-start;
   font-size: 2em; // Base font size, influencing icon size due to `em` units
@@ -95,8 +93,11 @@
 /* --- Existing Media Query (UNCHANGED) --- */
 @media (max-width: 768px) {
   .social-media-div {
+    translate: -50%;
     text-align: center; // Ensures centering on tablets and smaller screens
+    margin-left: 50% !important;
   }
+  
 }
 
 /* --- New Media Query for Mobile Devices (max-width: 480px) --- */
