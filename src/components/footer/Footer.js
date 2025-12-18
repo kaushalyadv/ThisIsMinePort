@@ -18,7 +18,18 @@ export default function Footer() {
           rel="noreferrer"
           style={{color: "white"}}
         >
-          Kaushal Yadav
+          Kaushal Yadav_ 
+        </a>
+        <a>
+          &
+        </a>
+        <a
+          href="https://www.linkedin.com/in/anjali-gaira-93413b2b9/"
+          target="_blank"
+          rel="noreferrer"
+          style={{color: "white"}}
+        >
+          _Anjali Gaira
         </a>
       </p>
     </div>
