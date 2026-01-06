@@ -1,6 +1,7 @@
 import React, {useContext} from "react";
 import emoji from "react-easy-emoji";
 import "./Greeting.scss";
+import ThreeModel from "../../components/ThreeModelFront";
 import landingPerson from "../../assets/lottie/landingPerson";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
