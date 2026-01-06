@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ThisIsMinePort/static/css/main.80112908.css",
-    "main.js": "/ThisIsMinePort/static/js/main.33ebdf04.js",
+    "main.js": "/ThisIsMinePort/static/js/main.d1da71b8.js",
     "static/css/868.8d4193d6.chunk.css": "/ThisIsMinePort/static/css/868.8d4193d6.chunk.css",
     "static/js/868.298a3eb1.chunk.js": "/ThisIsMinePort/static/js/868.298a3eb1.chunk.js",
     "static/css/768.31806905.chunk.css": "/ThisIsMinePort/static/css/768.31806905.chunk.css",
@@ -17,7 +17,7 @@
     "static/media/Techsphere.png": "/ThisIsMinePort/static/media/Techsphere.757cf79c4c365cb930d4.png",
     "static/media/Montserrat-Regular.ttf": "/ThisIsMinePort/static/media/Montserrat-Regular.3cd786652b8a2e9d41f2.ttf",
     "static/media/Kumaun_University_logo_.png": "/ThisIsMinePort/static/media/Kumaun_University_logo_.d3ad92ac747e5223e798.png",
-    "static/media/Final_resume.pdf": "/ThisIsMinePort/static/media/Final_resume.0e739b5a6ffe308585bc.pdf",
+    "static/media/Final_resume.pdf": "/ThisIsMinePort/static/media/Final_resume.2b4723bb35624777e352.pdf",
     "static/media/Agustina.woff": "/ThisIsMinePort/static/media/Agustina.eb0c59dda4cc308cba96.woff",
     "static/media/Uttarakhand_Board_of_School_.png": "/ThisIsMinePort/static/media/Uttarakhand_Board_of_School_.02ab8b58fd2b7d60d6ed.png",
     "static/media/MozillaHeadline-Regular.ttf": "/ThisIsMinePort/static/media/MozillaHeadline-Regular.5986a9f23e51a3d7b18d.ttf",
@@ -29,7 +29,7 @@
     "index.html": "/ThisIsMinePort/index.html",
     "static/media/talksCardBack.svg": "/ThisIsMinePort/static/media/talksCardBack.73ed1545d58273ba64b0.svg",
     "main.80112908.css.map": "/ThisIsMinePort/static/css/main.80112908.css.map",
-    "main.33ebdf04.js.map": "/ThisIsMinePort/static/js/main.33ebdf04.js.map",
+    "main.d1da71b8.js.map": "/ThisIsMinePort/static/js/main.d1da71b8.js.map",
     "868.8d4193d6.chunk.css.map": "/ThisIsMinePort/static/css/868.8d4193d6.chunk.css.map",
     "868.298a3eb1.chunk.js.map": "/ThisIsMinePort/static/js/868.298a3eb1.chunk.js.map",
     "768.31806905.chunk.css.map": "/ThisIsMinePort/static/css/768.31806905.chunk.css.map",
@@ -37,6 +37,6 @@
   },
   "entrypoints": [
     "static/css/main.80112908.css",
-    "static/js/main.33ebdf04.js"
+    "static/js/main.d1da71b8.js"
   ]
 }
