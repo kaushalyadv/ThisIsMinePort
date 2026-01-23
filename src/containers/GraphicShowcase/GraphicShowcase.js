@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-// Assuming the SCSS file is in the same directory
 import './GraphicShowcase.scss'; 
+
 import sahg from '../../assets/images/tshirtupdt.jpg';
 import hph from '../../assets/images/headph_png_fnl.jpg';
 import moon from '../../assets/images/MOON_YK.jpg';
@@ -8,44 +8,67 @@ import boi from '../../assets/images/nowigpne.jpg';
 import pol from '../../assets/images/godbye.jpg';
 
 
-// --- Mock Image Imports ---
-// Using placeholders for demonstration.
-// const sahg = "https://placehold.co/800x600/ffadad/111?text=T-Shirt";
-// const hph = "https://placehold.co/800x600/ffd6a5/111?text=Headphones";
-// const moon = "https://placehold.co/800x600/caffbf/111?text=Moon+Art";
-// const boi = "https://placehold.co/800x600/9bf6ff/111?text=Car+Art";
-// const pol = "https://placehold.co/800x600/a0c4ff/111?text=Poster";
+// ✅ PDF import
+import brandGuide from '../../assets/images/_minerva_calendar_.pdf';
+import brand_minerva from '../../assets/images/Minerva___white__final.pdf';
+
 
 const sectionsData = [
   {
     id: 1,
-    title: 'KYD Premium Cotton Tee',
-    description: 'Minimal yet impactful merchandise mockup, highlighting 100% premium cotton with a sleek, monochrome aesthetic for a luxury streetwear vibe',
-    image: sahg,
+    title: 'Brand Awareness Calendar Design',
+    description:
+      'Created a citywide gifting calendar for Minerva Progressive School as part of a brand awareness initiative.The design focused on professionalism, clarity, and brand recall, helping introduce the school to families across the city through everyday visual engagement.',
+    type: 'pdf',
+    media: brandGuide,
   },
-  {
-    id: 2,
-    title: 'Pulse 30',
-    description: 'Showcasing design for premium over-ear headphones, built around 30-hour battery life and rapid USB-C charging. Uses sharp contrast and a vibrant palette to balance tech elegance with bold energy',
-    image: hph,
-  },
+ {
+  id: 2,
+  title: 'Newspaper Recruitment Advertisement',
+  description:
+    'Designed a newspaper recruitment advertisement for Minerva Progressive School aimed at hiring teaching and administrative staff. The design emphasized clear information hierarchy, emotional connection, and print-friendly readability to ensure strong visibility and engagement in a citywide newspaper publication.',
+  type: 'pdf',
+  media: brand_minerva,
+},
   {
     id: 3,
-    title: 'Yours, Beyond Time | Film Festival Key Art',
-    description: 'Cinematic key art concept for a fictional film festival, combining surreal space imagery with poetic typography.',
-    image: moon,
+    title: 'KYD Premium Cotton Tee',
+    description:
+      'Minimal yet impactful merchandise mockup, highlighting 100% premium cotton with a sleek, monochrome aesthetic for a luxury streetwear vibe',
+    type: 'image',
+    media: sahg,
   },
   {
     id: 4,
-    title: 'Industrial Reality | Editorial Poster',
-    description: 'A striking editorial poster on urban pollution, blending bold typography with atmospheric photography. Designed for a policy-focused magazine, it uses visual tension to convey urgency while staying minimal',
-    image: boi,
+    title: 'Pulse 30',
+    description:
+      'Showcasing design for premium over-ear headphones, built around 30-hour battery life and rapid USB-C charging.',
+    type: 'image',
+    media: hph,
   },
   {
     id: 5,
+    title: 'Yours, Beyond Time | Film Festival Key Art',
+    description:
+      'Cinematic key art concept for a fictional film festival, combining surreal space imagery with poetic typography.',
+    type: 'image',
+    media: moon,
+  },
+  {
+    id: 6,
+    title: 'Industrial Reality | Editorial Poster',
+    description:
+      'A striking editorial poster on urban pollution, blending bold typography with atmospheric photography.',
+    type: 'image',
+    media: boi,
+  },
+  {
+    id: 7,
     title: 'Automotive Lifestyle Adventure Art',
-    description: 'A bold, high-contrast poster design capturing the thrill of road trips and the freedom of open highways.',
-    image: pol,
+    description:
+      'A bold, high-contrast poster design capturing the thrill of road trips and the freedom of open highways.',
+    type: 'image',
+    media: pol,
   },
 ];
 
@@ -53,7 +76,7 @@ export default function GraphicShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
   const rightPanelRef = useRef(null);
   const isScrolling = useRef(false);
-  const touchStartY = useRef(0); // For tracking touch swipe start position
+  const touchStartY = useRef(0);
 
   useEffect(() => {
     const changeSlide = (direction) => {
@@ -68,31 +91,27 @@ export default function GraphicShowcase() {
 
       setTimeout(() => {
         isScrolling.current = false;
-      }, 700); // Corresponds to animation time
+      }, 700);
     };
 
-    // --- Mouse Wheel Handler ---
     const handleWheel = (e) => {
       e.preventDefault();
       const direction = e.deltaY > 0 ? 'down' : 'up';
       changeSlide(direction);
     };
 
-    // --- Touch Handlers for Mobile ---
     const handleTouchStart = (e) => {
       touchStartY.current = e.touches[0].clientY;
     };
 
     const handleTouchMove = (e) => {
-      e.preventDefault(); // Prevent page scroll while swiping on the element
+      e.preventDefault();
       const touchEndY = e.touches[0].clientY;
       const deltaY = touchStartY.current - touchEndY;
 
-      // Only trigger if the swipe is significant enough
       if (Math.abs(deltaY) > 50) {
         const direction = deltaY > 0 ? 'down' : 'up';
         changeSlide(direction);
-        // Reset start Y to prevent multiple triggers from one swipe
         touchStartY.current = touchEndY;
       }
     };
@@ -111,33 +130,121 @@ export default function GraphicShowcase() {
         currentPanel.removeEventListener('touchmove', handleTouchMove);
       }
     };
-  }, []); // Empty dependency array ensures this runs only once
+  }, []);
 
   return (
     <div className="graphic-showcase"> 
       <header className="main-header">
         <span>PIXELCRAFT WORKS</span>
       </header>
+
       <div className="maingrph">
-        {/* ===== LEFT PANEL: Image Showcase ===== */}
+        {/* ===== LEFT PANEL ===== */}
         <div className="leftgrph">
           {sectionsData.map((section, index) => (
             <div
               key={section.id}
               className={`left-content-wrapper ${index === activeIndex ? 'active' : ''}`}
+              style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             >
               <div className="left-content-background"></div>
-              <img
-                src={section.image}
-                alt={section.title}
-                className="left-content-image"
-                onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/600x400/111/FFF?text=Image+Not+Found"; }}
-              />
+
+              {/* IMAGE DISPLAY */}
+              {section.type === 'image' && (
+                <img
+                  src={section.media}
+                  alt={section.title}
+                  className="left-content-image"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src =
+                      'https://placehold.co/600x400/111/FFF?text=Image+Not+Found';
+                  }}
+                />
+              )}
+
+              {/* ----- CLEAN PDF VIEWER (NO TOOLBAR) ----- */}
+              {section.type === 'pdf' && (
+                <div 
+                  className="modern-pdf-container"
+                  style={{
+                    position: 'relative',
+                    width: '90%',
+                    height: '80vh',
+                    maxHeight: '800px',
+                    borderRadius: '12px',
+                    overflow: 'hidden',
+                    background: '#1a1a1a', // Dark background for contrast
+                    boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
+                    border: '1px solid rgba(255,255,255,0.1)'
+                  }}
+                >
+                  {/* ✅ FIX: Added #toolbar=0&navpanes=0&scrollbar=0 to URL 
+                     This hides the top bar in Chrome/Edge/Firefox 
+                  */}
+                  <iframe
+                    src={`${section.media}#toolbar=0&navpanes=0&scrollbar=0`}
+                    title={section.title}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 'none', display: 'block' }}
+                  />
+
+                  {/* ATTRACTIVE FLOATING BUTTON */}
+                  <div style={{
+                    position: 'absolute',
+                    bottom: '25px',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    zIndex: 20,
+                  }}>
+                    <a 
+                      href={section.media}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '10px',
+                        padding: '12px 28px',
+                        background: 'rgba(20, 20, 20, 0.75)',
+                        backdropFilter: 'blur(10px)', // Glassmorphism
+                        border: '1px solid rgba(255, 255, 255, 0.2)',
+                        borderRadius: '50px',
+                        color: '#fff',
+                        textDecoration: 'none',
+                        fontSize: '14px',
+                        fontWeight: '600',
+                        letterSpacing: '0.5px',
+                        transition: 'all 0.3s ease',
+                        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = 'rgba(255, 255, 255, 0.95)';
+                        e.currentTarget.style.color = '#000';
+                        e.currentTarget.style.transform = 'translateY(-3px)';
+                      }}
+                      onMouseLeave={(e) => {
+                         e.currentTarget.style.background = 'rgba(20, 20, 20, 0.75)';
+                         e.currentTarget.style.color = '#fff';
+                         e.currentTarget.style.transform = 'translateY(0)';
+                      }}
+                    >
+                      <span style={{ textTransform: 'uppercase' }}>Open Full Document</span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        <polyline points="15 3 21 3 21 9"/>
+                        <line x1="10" y1="14" x2="21" y2="3"/>
+                      </svg>
+                    </a>
+                  </div>
+
+                </div>
+              )}
             </div>
           ))}
         </div>
 
-        {/* ===== RIGHT PANEL: Stacking Content ===== */}
         <div className="rightgrph" ref={rightPanelRef}>
           <div className="rightgrph-inner">
             {sectionsData.map((section, index) => {
@@ -149,6 +256,7 @@ export default function GraphicShowcase() {
                 opacity: isActive ? 1 : 0.4,
                 zIndex: sectionsData.length - Math.abs(offset),
               };
+
               return (
                 <div key={section.id} className="right-item" style={style}>
                   <h3>{section.title}</h3>
