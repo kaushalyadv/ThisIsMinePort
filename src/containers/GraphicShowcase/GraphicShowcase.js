@@ -16,19 +16,21 @@ import brand_minerva from '../../assets/images/Minerva___white__final.pdf';
 const sectionsData = [
   {
     id: 1,
-    title: 'Brand Awareness Calendar Design',
-    description:
-      'Created a citywide gifting calendar for Minerva Progressive School as part of a brand awareness initiative.The design focused on professionalism, clarity, and brand recall, helping introduce the school to families across the city through everyday visual engagement.',
-    type: 'pdf',
-    media: brandGuide,
-  },
- {
-  id: 2,
-  title: 'Newspaper Recruitment Advertisement',
+    title: 'Newspaper Recruitment Advertisement',
   description:
     'Designed a newspaper recruitment advertisement for Minerva Progressive School aimed at hiring teaching and administrative staff. The design emphasized clear information hierarchy, emotional connection, and print-friendly readability to ensure strong visibility and engagement in a citywide newspaper publication.',
   type: 'pdf',
   media: brand_minerva,
+  },
+
+  
+ {
+  id: 2,
+  title: 'Brand Awareness Calendar Design',
+    description:
+      'Created a citywide gifting calendar for Minerva Progressive School as part of a brand awareness initiative.The design focused on professionalism, clarity, and brand recall, helping introduce the school to families across the city through everyday visual engagement.',
+    type: 'pdf',
+    media: brandGuide,
 },
   {
     id: 3,
