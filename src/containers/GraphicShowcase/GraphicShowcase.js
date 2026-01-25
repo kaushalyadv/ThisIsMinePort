@@ -7,33 +7,38 @@ import moon from '../../assets/images/MOON_YK.jpg';
 import boi from '../../assets/images/nowigpne.jpg';
 import pol from '../../assets/images/godbye.jpg';
 
-
-// ✅ PDF import
-import brandGuide from '../../assets/images/_minerva_calendar_.pdf';
-import brand_minerva from '../../assets/images/Minerva___white__final.pdf';
-
-
+// ✅ UPDATED DATA SECTIONS
 const sectionsData = [
   {
     id: 1,
     title: 'Newspaper Recruitment Advertisement',
-  description:
-    'Designed a newspaper recruitment advertisement for Minerva Progressive School aimed at hiring teaching and administrative staff. The design emphasized clear information hierarchy, emotional connection, and print-friendly readability to ensure strong visibility and engagement in a citywide newspaper publication.',
-  type: 'pdf',
-  media: brand_minerva,
+    description:
+      'Designed a newspaper recruitment advertisement for Minerva Progressive School aimed at hiring teaching and administrative staff. The design emphasized clear information hierarchy, emotional connection, and print-friendly readability to ensure strong visibility and engagement in a citywide newspaper publication.',
+    type: 'pdf',
+    // ⬇️ FIX: Removed "/pdf/" and added the extra underscores to match your filename
+    media: `${process.env.PUBLIC_URL}/Minerva___white__final.pdf`,
   },
-
-  
- {
-  id: 2,
-  title: 'Brand Awareness Calendar Design',
+  {
+    id: 2,
+    title: 'Brand Awareness Calendar Design',
     description:
       'Created a citywide gifting calendar for Minerva Progressive School as part of a brand awareness initiative.The design focused on professionalism, clarity, and brand recall, helping introduce the school to families across the city through everyday visual engagement.',
     type: 'pdf',
-    media: brandGuide,
-},
+    // ⬇️ FIX: Updated this path to root as well, just in case you use it later
+    media: `${process.env.PUBLIC_URL}/Minerva_calendar_.pdf`, 
+  },
+
   {
-    id: 3,
+  id: 3,
+  title: 'School Admission Brochure Design',
+  description:
+    'Designed an informative and visually engaging school brochure for Busy Bees School, Haldwani, to help parents understand the school’s philosophy, facilities, and learning approach before admissions. The brochure focused on clarity, warm visual storytelling, and parent-friendly layout to communicate trust, transparency, and the overall school environment effectively.',
+  type: 'pdf',
+  media: `${process.env.PUBLIC_URL}/BusyBees_Brochure.pdf`,
+},
+
+  {
+    id: 4,
     title: 'KYD Premium Cotton Tee',
     description:
       'Minimal yet impactful merchandise mockup, highlighting 100% premium cotton with a sleek, monochrome aesthetic for a luxury streetwear vibe',
@@ -41,7 +46,7 @@ const sectionsData = [
     media: sahg,
   },
   {
-    id: 4,
+    id: 5,
     title: 'Pulse 30',
     description:
       'Showcasing design for premium over-ear headphones, built around 30-hour battery life and rapid USB-C charging.',
@@ -49,7 +54,7 @@ const sectionsData = [
     media: hph,
   },
   {
-    id: 5,
+    id: 6,
     title: 'Yours, Beyond Time | Film Festival Key Art',
     description:
       'Cinematic key art concept for a fictional film festival, combining surreal space imagery with poetic typography.',
@@ -57,7 +62,7 @@ const sectionsData = [
     media: moon,
   },
   {
-    id: 6,
+    id: 7,
     title: 'Industrial Reality | Editorial Poster',
     description:
       'A striking editorial poster on urban pollution, blending bold typography with atmospheric photography.',
@@ -65,7 +70,7 @@ const sectionsData = [
     media: boi,
   },
   {
-    id: 7,
+    id: 8,
     title: 'Automotive Lifestyle Adventure Art',
     description:
       'A bold, high-contrast poster design capturing the thrill of road trips and the freedom of open highways.',
@@ -137,11 +142,10 @@ export default function GraphicShowcase() {
   return (
     <div className="graphic-showcase"> 
       <header className="main-header">
-        <span>PIXELCRAFT WORKS</span>
+        <span>Graphic Design Works</span>
       </header>
 
       <div className="maingrph">
-        {/* ===== LEFT PANEL ===== */}
         <div className="leftgrph">
           {sectionsData.map((section, index) => (
             <div
@@ -176,15 +180,14 @@ export default function GraphicShowcase() {
                     maxHeight: '800px',
                     borderRadius: '12px',
                     overflow: 'hidden',
-                    background: '#1a1a1a', // Dark background for contrast
+                    background: '#1a1a1a',
                     boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
                     border: '1px solid rgba(255,255,255,0.1)'
                   }}
                 >
-                  {/* ✅ FIX: Added #toolbar=0&navpanes=0&scrollbar=0 to URL 
-                     This hides the top bar in Chrome/Edge/Firefox 
-                  */}
                   <iframe
+                    // Added unique key to force re-render if media changes
+                    key={section.media} 
                     src={`${section.media}#toolbar=0&navpanes=0&scrollbar=0`}
                     title={section.title}
                     width="100%"
@@ -210,7 +213,7 @@ export default function GraphicShowcase() {
                         gap: '10px',
                         padding: '12px 28px',
                         background: 'rgba(20, 20, 20, 0.75)',
-                        backdropFilter: 'blur(10px)', // Glassmorphism
+                        backdropFilter: 'blur(10px)',
                         border: '1px solid rgba(255, 255, 255, 0.2)',
                         borderRadius: '50px',
                         color: '#fff',
@@ -227,9 +230,9 @@ export default function GraphicShowcase() {
                         e.currentTarget.style.transform = 'translateY(-3px)';
                       }}
                       onMouseLeave={(e) => {
-                         e.currentTarget.style.background = 'rgba(20, 20, 20, 0.75)';
-                         e.currentTarget.style.color = '#fff';
-                         e.currentTarget.style.transform = 'translateY(0)';
+                          e.currentTarget.style.background = 'rgba(20, 20, 20, 0.75)';
+                          e.currentTarget.style.color = '#fff';
+                          e.currentTarget.style.transform = 'translateY(0)';
                       }}
                     >
                       <span style={{ textTransform: 'uppercase' }}>Open Full Document</span>
@@ -247,6 +250,7 @@ export default function GraphicShowcase() {
           ))}
         </div>
 
+        {/* ===== RIGHT PANEL ===== */}
         <div className="rightgrph" ref={rightPanelRef}>
           <div className="rightgrph-inner">
             {sectionsData.map((section, index) => {

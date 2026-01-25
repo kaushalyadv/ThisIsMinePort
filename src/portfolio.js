@@ -21,9 +21,9 @@ const illustration = {
 
 const greeting = {
   username: "Kaushal Yadav",
-  title: "Hi all, I'm Kaushal",
+  title: "Hi, I’m Kaushal",
   subTitle: emoji(
-    "A creative, detail-driven Frontend Developer with real hands-on experience building smooth and engaging web and mobile experiences. I work primarily with JavaScript, React.js, Node.js, React Native, and Django, and I love bringing ideas to life with modern tools, clean design thinking, and a bit of experimentation. I’ve built multiple projects across web and mobile, and I’m always exploring new libraries, frameworks, and even 3D tools like Blender to push my work a little further every time."
+    "A creative and detail-oriented Graphic Designer and Digital Marketing Executive with hands-on experience in crafting strong visual identities and executing digital-first marketing creatives. I specialize in branding, social media creatives, marketing visuals, and content-led design that help brands communicate clearly and stand out online. Alongside design and marketing, I have working knowledge of HTML, CSS, and basic web technologies. This helps me design web-ready creatives, collaborate better with developers, and ensure designs translate accurately across digital platforms."
   ),
   resumeLink:
     "https://docs.google.com/presentation/d/14uF7NmhsXxVjML5RhtkP6UHCqZto3VUo/edit?usp=sharing&ouid=115960713439289799000&rtpof=true&sd=true", // Set to empty to hide the button

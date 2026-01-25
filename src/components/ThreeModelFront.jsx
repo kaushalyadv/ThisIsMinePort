@@ -5,14 +5,14 @@ import { OrbitControls, useGLTF, Center } from "@react-three/drei";
 
 
 const BASE_MODEL = {
-  scale: 3.5,
+  scale: 20,
   position: [10, -37, 5],
   rotation: [5, Math.PI / 50, 54.80]
 };
 
 const CAMERA = {
   position: [-10, 1.3, 4.9],
-  fov: 45,
+  fov: 40,
   near: 0.1,
   far: 50
 };
@@ -37,8 +37,8 @@ function getResponsiveModel(width) {
   // Tablet
   if (width < 8) {
     return {
-      scale: 1.7,
-      position: [-0.15, 1.3, -0.2]
+      scale: 2.7,
+      position: [-1.6, 2.2, -0.2]
     };
   }
 
