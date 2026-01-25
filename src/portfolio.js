@@ -48,21 +48,67 @@ const socialMediaLinks = {
 
 const skillsSection = {
   title: "What I do",
-  subTitle: "Frontend dev with zero chill — on a mission to poke every tech stack that dares to exist",
+  subTitle: "Graphic Designer and Digital Marketing Executive focused on creating impactful visual and digital experiences",
   skills: [
     emoji(
-      "⚡Designing sleek, interactive user interfaces that bring your web and mobile apps to life — pixel by pixel, line by line"
+      "⚡Designing brand identities, social media creatives, and marketing visuals that communicate clearly and leave a lasting impression."
     ),
-    emoji("⚡Crafting PWAs with both classic multi-page setups and modern SPA frameworks — because flexibility matters."),
     emoji(
-      "⚡Whether it’s blender magic, Unity Engine, or Android studio vibes — I connect projects with the cloud like it's second nature"
+      "⚡Creating content-driven designs for digital marketing campaigns, including posts, banners, ads, and promotional creatives optimized for engagement."),
+    emoji(
+      "⚡Using my working knowledge of HTML, CSS, and web fundamentals to ensure designs are web-ready, responsive, and easy to implement across platforms."
     )
   ],
 
   /* Make Sure to include correct Font Awesome Classname to view your icon
 https://fontawesome.com/icons?d=gallery */
 
-  softwareSkills: [
+softwareSkills: [
+  // Design Tools (Primary)
+  {
+    skillName: "Adobe Photoshop",
+    fontAwesomeClassname: "fas fa-image"
+  },
+  {
+    skillName: "Adobe Illustrator",
+    fontAwesomeClassname: "fas fa-pen-nib"
+  },
+  {
+    skillName: "Canva",
+    fontAwesomeClassname: "fas fa-palette"
+  },
+  {
+    skillName: "Figma",
+    fontAwesomeClassname: "fab fa-figma"
+  },
+  {
+    skillName: "Typography & Layout",
+    fontAwesomeClassname: "fas fa-font"
+  },
+
+  // Branding & Marketing Execution
+  {
+    skillName: "Branding & Visual Identity",
+    fontAwesomeClassname: "fas fa-layer-group"
+  },
+  {
+    skillName: "Social Media Creatives",
+    fontAwesomeClassname: "fas fa-hashtag"
+  },
+  {
+    skillName: "Digital Marketing Creatives",
+    fontAwesomeClassname: "fas fa-bullhorn"
+  },
+  {
+    skillName: "Campaign & Ad Creatives",
+    fontAwesomeClassname: "fas fa-ad"
+  },
+  {
+    skillName: "Content Planning",
+    fontAwesomeClassname: "fas fa-calendar-alt"
+  },
+
+  // Web & Technical Awareness (Support Skills)
   {
     skillName: "HTML5",
     fontAwesomeClassname: "fab fa-html5"
@@ -72,52 +118,22 @@ https://fontawesome.com/icons?d=gallery */
     fontAwesomeClassname: "fab fa-css3-alt"
   },
   {
-    skillName: "JavaScript",
+    skillName: "Basic JavaScript",
     fontAwesomeClassname: "fab fa-js"
   },
   {
-    skillName: "SASS",
-    fontAwesomeClassname: "fab fa-sass"
+    skillName: "Responsive Design",
+    fontAwesomeClassname: "fas fa-mobile-alt"
   },
   {
-    skillName: "ReactJS",
-    fontAwesomeClassname: "fab fa-react"
-  },
-  {
-    skillName: "Bootstrap",
-    fontAwesomeClassname: "fab fa-bootstrap"
-  },
-  {
-    skillName: "Blender",
-    fontAwesomeClassname: "fas fa-cube"
-  },
-  {
-    skillName: "NPM",
-    fontAwesomeClassname: "fab fa-npm"
-  },
-  {
-    skillName: "SQL Database",
-    fontAwesomeClassname: "fas fa-database"
-  },
-  {
-    skillName: "Unity Engine",
-    fontAwesomeClassname: "fas fa-gamepad"
-  },
-  {
-    skillName: "Java",
-    fontAwesomeClassname: "fab fa-java"
-  },
-  {
-    skillName: "Python",
-    fontAwesomeClassname: "fab fa-python"
-  },
-  {
-    skillName: "C++",
+    skillName: "Web-ready Design",
     fontAwesomeClassname: "fas fa-code"
   }
 ],
-  display: true // Set false to hide this section, defaults to true
+display: true
 };
+
+
 
 // Education Section
 
@@ -165,20 +181,20 @@ const techStack = {
   viewSkillBars: true, //Set it to true to show Proficiency Section
   experience: [
     {
-      Stack: "Frontend/Design", //Insert stack or technology you have experience in
-      progressPercentage: "90%" //Insert relative proficiency in percentage
+      Stack: "Graphic Design & Visual Communication", //Insert stack or technology you have experience in
+      progressPercentage: "85%" //Insert relative proficiency in percentage
     },
     {
-      Stack: "Backend",
-      progressPercentage: "60%"
-    },
-    {
-      Stack: "Programming",
+      Stack: "Digital Marketing & Content Design",
       progressPercentage: "80%"
     },
     {
-      Stack: "GraphicDesigning",
-      progressPercentage: "90%"
+      Stack: "UI Design & Web Design Fundamentals",
+      progressPercentage: "75%"
+    },
+    {
+      Stack: "Technical & Programming Awareness",
+      progressPercentage: "60%"
     }
   ],
   displayCodersrank: false // Set true to display codersrank badges section need to changes your username in src/containers/skillProgress/skillProgress.js:17:62, defaults to false
@@ -237,27 +253,27 @@ const bigProjects = {
 
 const achievementSection = {
   title: emoji("Achievements & Certifications"),
-  subtitle: "Courses and certifications I've completed to grow as a developer.",
+  subtitle: "Courses and certifications that strengthen my design, digital, and technical foundation",
   achievementsCards: [
     {
-      title: "Machine Learning Basics - College Program",
-      subtitle: "College program covering ML fundamentals and algorithms.",
+      title: "Analytical & Data Foundations",
+      subtitle: "College-level program focused on analytical thinking and structured problem-solving",
       image: require("../src/assets/images/machinL.png"),
       imageAlt: "JavaScript Logo",
       footerLink: []
 
     },
     {
-      title: "Meta Certified: Front-End Pro in the Making",
-      subtitle: "Completed Meta’s Front-End Developer Certificate — built real-world projects using HTML, CSS, JavaScript & React.",
+      title: "Meta Professional Certificate (Web & UI Foundations)",
+      subtitle: "Training in web structure, responsive design, and UI fundamentals for digital platforms",
       image: require("./assets/images/Meta_front.png"),
       imageAlt: "Frontend Logo",
       footerLink: []
 
     },
     {
-      title: "React Crash Course - YouTube",
-      subtitle: "Built small projects while learning core React concepts like components, props, and hooks.",
+      title: "Visual Design for Digital Platforms",
+      subtitle: "Focused on applying design principles to modern digital interfaces and content layouts.",
       image: require("./assets/images/react_y.png"),
       imageAlt: "React Logo",
       footerLink: []
@@ -271,22 +287,22 @@ const achievementSection = {
 // Blogs Section
 
 const blogSection = {
-  title: "Blogs",
+  title: "INSIGHTS",
   subtitle:
-    "Reading other dev blogs with chill vibes? Yes please — they keep my code sharp and my UIs dangerously good-looking.",
+    "Notes, breakdowns, and insights from my learning in design, digital creativity, and visual communication",
   displayMediumBlogs: false,
   blogs: [
     {
-      url: "https://svar.dev/blog/resources-for-learning-react/",
-      title: "Getting Started with React",
+      url: "https://webandcrafts.com/blog/visual-design",
+      title: "What Makes a Digital Design Visually Effective",
       description:
-        "This guide will help beginners understand the key concepts of React and how to start building projects."
+        "A concise look at how layout, spacing, color, and visual hierarchy shape clarity and user attention in digital designs, and why certain visuals feel more intuitive than others."
     },
     {
-      url: "https://www.lambdatest.com/blog/advanced-css-tricks-and-techniques/://medium.com/",
-      title: "5 Must-Know CSS Tricks",
+      url: "https://jennpereira.medium.com/7-principles-of-design-to-increase-engagement-and-boost-social-media-posts-813d92ca5b1c",
+      title: "Design Principles That Improve Online Engagement",
       description:
-        "A short post about underrated but useful CSS tips for cleaner layouts and better UI control"
+        "An overview of how typography, contrast, and consistency influence engagement in digital content, with common design mistakes and practical takeaways"
     }
   ],
   display: true
@@ -297,11 +313,11 @@ const blogSection = {
 
 const talkSection = {
   title: "Talks",
-  subtitle: emoji("I love sharing what I learn, even if it's just with peers or in small groups."),
+  subtitle: emoji("I enjoy sharing design insights, creative thinking, and digital learnings through discussions and small group sessions"),
   talks: [
     {
-      title: "Intro to Frontend Web Development",
-      subtitle: "Unpacked the entire frontend dev journey in a bite-sized seminar with my college friends — from HTML basics to real-world React builds..",
+      title: "Introduction to Digital Design & Visual Thinking",
+      subtitle: "A beginner-friendly session focused on visual design fundamentals, layout, and how design choices impact digital experiences across platforms",
       slides_url: "",
       event_url: ""
     }
@@ -313,8 +329,8 @@ const talkSection = {
 // Podcast Section
 
 const podcastSection = {
-  title: emoji("🎵 My Music Zone"),
-  subtitle: "I love listening to music while coding — it keeps my creativity flowing and focus sharp.",
+  title: emoji("🎵 Creative Soundtrack"),
+  subtitle: "usic that supports my creative focus and design workflow",
   podcast: [
     "https://open.spotify.com/playlist/1huDykElkdN8krkwTATpRJ?si=CstZrypgR2CTavgpv7LZBg&pi=DNSoJNM-TQOtl&nd=1&dlsi=8bc5de3365214ecc"
   ],

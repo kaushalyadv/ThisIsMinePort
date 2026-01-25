@@ -5,7 +5,12 @@
   width: 100%;
   overflow: hidden;
 }
+.skills-text{
+  display: flex;
+  justify-content:flex-start;
+  // text-align: start;
 
+}
 .skills-text-div {
   margin-left: 50px; // Base left margin for text content
 }

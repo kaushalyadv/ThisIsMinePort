@@ -225,7 +225,7 @@ const FloatingSendButton = ({
         ref={textareaRef}
         id="animated-textarea"
         name="message"
-        placeholder="Write your message here..."
+        placeholder="Tell me about your project, role, or idea…"
         value={text}
         onChange={onChange}
         onFocus={() => setIsFocused(true)}

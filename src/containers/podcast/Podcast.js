@@ -27,7 +27,7 @@ export default function Podcast() {
   }}
 >
         <h1 className="podcast-header-title">
-  <span className="music-emoji">🎵</span> My Music Zone
+  <span className="music-emoji">🎵</span> Creative Soundtrack
 </h1>
 
         <p

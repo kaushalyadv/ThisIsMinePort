@@ -59,7 +59,7 @@ export default function Blogs() {
         <p
   className={isDark ? "light-mode blog-subtitle" : "subTitle blog-subtitle"}
   style={{
-    padding: window.innerWidth <= 768 ? '0' : '0 10.5em'
+    padding: window.innerWidth <= 768 ? '0' : '5 7.5em'
   }}
 >
 

@@ -22,6 +22,7 @@
 .skill {
   color: $toggleSwitchSliderBG !important;
   line-height: 3.5vw; // Base line-height, scales with viewport width
+  font-weight: 700;
 }
 .skill-bars {
   font-size: 28px; // Base font size for skill names
@@ -32,7 +33,7 @@
   width: 90%; // Base width for the container
   padding: 20px 10px; // Base padding
   margin: 0px auto; // Centers horizontally
-  margin-top: 2rem; // Base top margin
+  margin-top: 0rem; // Base top margin
 }
 .skills-container > * {
   flex: 1;
