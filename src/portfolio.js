@@ -217,13 +217,13 @@ const openSource = {
 const bigProjects = {
   title: "My Projects",
   subtitle:
-    "A showcase of practical projects I've worked on, including a full-featured eCommerce site built as a college group leader with secure payment integration and backend control.",
+    "A selection of projects where I focused on visual design, digital structure, and user-focused experiences across web platforms",
   projects: [
     {
       image: require("../src/assets/images/Techsphere.png"),
-      projectName: "TechSphere (MERN Ecommerce)",
+      projectName: "TechSphere — E-commerce Website Design & Execution",
       projectDesc:
-        "A full-stack MERN eCommerce platform with Stripe payment integration. Includes dynamic product management, secure checkout, and admin dashboard for backend operations.",
+        "Designed and structured a complete e-commerce website with a focus on layout, visual clarity, product presentation, and user flow. Worked on translating business requirements into a clean, functional digital experience",
       footerLink: [
         {
           name: "GitHub (Placeholder)",
@@ -233,9 +233,9 @@ const bigProjects = {
     },
     {
       image: require("./assets/images/nextuLogo.webp"),
-      projectName: "Nextu (In Progress)",
+      projectName: "NextU — Digital Interface (In Progress)",
       projectDesc:
-        "An ongoing React-based platform exploring user interaction design and API-driven content. Aiming to experiment with animations and real-time features.",
+        "An ongoing personal project focused on experimenting with interface layouts, visual hierarchy, motion, and interaction patterns for modern digital platforms",
       footerLink: [
         {
           name: "GitHub (Placeholder)",
