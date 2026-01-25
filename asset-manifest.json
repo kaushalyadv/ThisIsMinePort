@@ -1,13 +1,11 @@
 {
   "files": {
-    "main.css": "/ThisIsMinePort/static/css/main.97c0ef83.css",
-    "main.js": "/ThisIsMinePort/static/js/main.f12404a8.js",
+    "main.css": "/ThisIsMinePort/static/css/main.385b0169.css",
+    "main.js": "/ThisIsMinePort/static/js/main.3d51c49e.js",
     "static/css/868.8d4193d6.chunk.css": "/ThisIsMinePort/static/css/868.8d4193d6.chunk.css",
     "static/js/868.298a3eb1.chunk.js": "/ThisIsMinePort/static/js/868.298a3eb1.chunk.js",
     "static/css/768.31806905.chunk.css": "/ThisIsMinePort/static/css/768.31806905.chunk.css",
-    "static/js/768.9b55a310.chunk.js": "/ThisIsMinePort/static/js/768.9b55a310.chunk.js",
-    "static/media/_minerva_calendar_.pdf": "/ThisIsMinePort/static/media/_minerva_calendar_.8cab5d2bbc9d2e93d10c.pdf",
-    "static/media/Minerva___white__final.pdf": "/ThisIsMinePort/static/media/Minerva___white__final.94497f6d80c0346a77e0.pdf",
+    "static/js/768.88c050d5.chunk.js": "/ThisIsMinePort/static/js/768.88c050d5.chunk.js",
     "static/media/godbye.jpg": "/ThisIsMinePort/static/media/godbye.0201daf5bbb3c61d4c10.jpg",
     "static/media/nowigpne.jpg": "/ThisIsMinePort/static/media/nowigpne.d83ba5cce75b88506464.jpg",
     "static/media/headph_png_fnl.jpg": "/ThisIsMinePort/static/media/headph_png_fnl.50c60ff8664eac29d295.jpg",
@@ -29,15 +27,15 @@
     "static/media/nextuLogo.webp": "/ThisIsMinePort/static/media/nextuLogo.e033dbfa4c58c0a906aa.webp",
     "index.html": "/ThisIsMinePort/index.html",
     "static/media/talksCardBack.svg": "/ThisIsMinePort/static/media/talksCardBack.73ed1545d58273ba64b0.svg",
-    "main.97c0ef83.css.map": "/ThisIsMinePort/static/css/main.97c0ef83.css.map",
-    "main.f12404a8.js.map": "/ThisIsMinePort/static/js/main.f12404a8.js.map",
+    "main.385b0169.css.map": "/ThisIsMinePort/static/css/main.385b0169.css.map",
+    "main.3d51c49e.js.map": "/ThisIsMinePort/static/js/main.3d51c49e.js.map",
     "868.8d4193d6.chunk.css.map": "/ThisIsMinePort/static/css/868.8d4193d6.chunk.css.map",
     "868.298a3eb1.chunk.js.map": "/ThisIsMinePort/static/js/868.298a3eb1.chunk.js.map",
     "768.31806905.chunk.css.map": "/ThisIsMinePort/static/css/768.31806905.chunk.css.map",
-    "768.9b55a310.chunk.js.map": "/ThisIsMinePort/static/js/768.9b55a310.chunk.js.map"
+    "768.88c050d5.chunk.js.map": "/ThisIsMinePort/static/js/768.88c050d5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.97c0ef83.css",
-    "static/js/main.f12404a8.js"
+    "static/css/main.385b0169.css",
+    "static/js/main.3d51c49e.js"
   ]
 }
