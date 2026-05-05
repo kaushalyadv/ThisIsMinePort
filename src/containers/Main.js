@@ -23,6 +23,7 @@ import "./Main.scss";
 import ThreeDBackground from '../components/ThreeDBackground.jsx';
 import KaushalGPTChat from '../components/KaushalGPTChat.js';
 import KaushalGPTWidget from "../components/KaushalGPTWidget.js";
+import CareerJourney from "./CareerJourney/CareerJourney.jsx";
 
 const Main = () => {
   const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
@@ -113,6 +114,7 @@ const Main = () => {
               <StartupProject />
               <GraphicShowcase/>
               <Achievement />
+              <CareerJourney />
               <Blogs />
               <Talks />
               {/* <Twitter /> */}

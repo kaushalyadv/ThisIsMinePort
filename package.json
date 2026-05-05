@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://kaushalyadv.github.io/ThisIsMinePort",
-
   "dependencies": {
     "@babel/core": "^7.28.0",
     "@react-three/drei": "^10.5.1",
@@ -12,9 +11,12 @@
     "colorthief": "^2.3.0",
     "expo": "^53.0.20",
     "flubber": "^0.4.2",
+    "framer-motion": "^12.38.0",
+    "gsap": "^3.14.2",
     "jest-canvas-mock": "^2.3.1",
     "lottie-react": "^2.4.0",
     "lottie-web": "^5.13.0",
+    "mapbox-gl": "^3.20.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-easy-emoji": "^1.8.1",

@@ -1,0 +1,122 @@
+.career-journey-section {
+  padding: 100px 10%;
+  position: relative;
+}
+
+.journey-title {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 80px;
+}
+
+.timeline {
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, #6c63ff, #00c6ff);
+  transform: translateX(-50%);
+}
+
+/* Timeline Items */
+
+.timeline-item {
+  width: 50%;
+  padding: 20px;
+  position: relative;
+}
+
+.timeline-item.left {
+  left: 0;
+}
+
+.timeline-item.right {
+  left: 50%;
+}
+
+/* Content Card */
+
+.content {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  padding: 25px;
+  border-radius: 15px;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: 0.3s ease;
+}
+
+.content:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* Circle Dot */
+
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  top: 30px;
+  width: 18px;
+  height: 18px;
+  background: #6c63ff;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.timeline-item.left::after {
+  right: -9px;
+}
+
+.timeline-item.right::after {
+  left: -9px;
+}
+
+/* Text */
+
+.content h3 {
+  color: #00c6ff;
+}
+
+.content h2 {
+  font-size: 22px;
+  margin: 5px 0;
+}
+
+.content h4 {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 10px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 40px;
+  }
+
+  .timeline-item.right {
+    left: 0;
+  }
+
+  .timeline-item.left::after,
+  .timeline-item.right::after {
+    left: 0;
+  }
+}

@@ -1,22 +1,22 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './GraphicShowcase.scss'; 
 
+
 import sahg from '../../assets/images/tshirtupdt.jpg';
 import hph from '../../assets/images/headph_png_fnl.jpg';
 import moon from '../../assets/images/MOON_YK.jpg';
 import boi from '../../assets/images/nowigpne.jpg';
 import pol from '../../assets/images/godbye.jpg';
 
-// ✅ UPDATED DATA SECTIONS
 const sectionsData = [
   {
     id: 1,
-    title: 'Newspaper Recruitment Advertisement',
+    title: 'Healthcare Recruitment Campaign Design | Zorgers',
     description:
-      'Designed a newspaper recruitment advertisement for Minerva Progressive School aimed at hiring teaching and administrative staff. The design emphasized clear information hierarchy, emotional connection, and print-friendly readability to ensure strong visibility and engagement in a citywide newspaper publication.',
+      'Designed a print-ready recruitment campaign for Zorgers Home Healthcare to support large-scale hiring of medical and support staff across multiple roles. The layout focused on clear information hierarchy, strong call-to-action placement, and high readability for newspaper distribution.',
     type: 'pdf',
     // ⬇️ FIX: Removed "/pdf/" and added the extra underscores to match your filename
-    media: `${process.env.PUBLIC_URL}/Minerva___white__final.pdf`,
+    media: `${process.env.PUBLIC_URL}/Zorgers_merged_work.pdf`,
   },
   {
     id: 2,
