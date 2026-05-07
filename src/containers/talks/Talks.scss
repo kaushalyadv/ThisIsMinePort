@@ -1,20 +1,27 @@
 @import "../../_globalColor";
 
+* {
+  box-sizing: border-box;
+}
+
 .main {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  box-sizing: border-box;
+  padding: 40px 20px;
+  overflow-x: hidden;
 }
 
 .talk-header-title {
   color: #c9c9c9 !important;
-  font-size: 56px;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 400;
-  line-height: 0px;
+  line-height: 1.2;
   text-align: center;
+  margin: 0;
+  word-break: break-word;
 }
 
 .light-mode {
@@ -23,119 +30,186 @@
   transition: 0.1s;
 }
 
-.subTitle {
+.subTitle,
+.talk-header-subtitle {
   color: $subTitle;
   text-align: center;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  line-height: 1.7;
+  max-width: 900px;
+  margin-top: 15px;
+  padding: 0 10px;
 }
 
 .talks-content-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
   width: 100%;
-  max-width: 1200px;
-  margin-top: 40px;
+  max-width: 1300px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  margin-top: 50px;
   flex-wrap: wrap;
-  gap: 20px;
 }
 
 .talk-cards-wrapper {
-  flex-grow: 1;
-  flex-basis: 0;
-  min-width: 290px;
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 1rem 1rem;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.talk-cards-wrapper > * {
+  width: 100%;
 }
 
 .FloatingSendButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
 }
 
-@media (max-width: 768px) {
-  .talk-header-title {
-    font-size: 30px;
+/* =========================
+   LARGE LAPTOPS / DESKTOPS
+========================= */
+@media (max-width: 1200px) {
+  .main {
+    padding: 35px 18px;
   }
-  .talk-header-subtitle {
-    font-size: 16px;
-    line-height: normal;
+
+  .talks-content-container {
+    gap: 20px;
+  }
+
+  .talk-cards-wrapper {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+/* =========================
+   TABLETS
+========================= */
+@media (max-width: 992px) {
+  .main {
+    padding: 30px 16px;
+  }
+
+  .talk-header-title {
+    font-size: clamp(2rem, 6vw, 2.8rem);
   }
 
   .talks-content-container {
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    margin-top: 35px;
   }
 
   .talk-cards-wrapper {
-    width: 100%;
-    grid-template-columns: 1fr;
-    margin-right: 0;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 18px;
   }
 }
 
-@media (max-width: 1024px) {
+/* =========================
+   MOBILE DEVICES
+========================= */
+@media (max-width: 768px) {
   .main {
-    padding: 15px;
+    padding: 25px 14px;
   }
 
   .talk-header-title {
-    font-size: 40px;
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  .subTitle,
+  .talk-header-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
 
   .talks-content-container {
     margin-top: 30px;
-    gap: 15px;
-  }
-
-  .talk-cards-wrapper {
-    min-width: 250px;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 0.8rem 0.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .main {
-    padding: 10px;
-  }
-
-  .talk-header-title {
-    font-size: 24px;
-  }
-
-  .subTitle {
-    font-size: 0.9rem;
-  }
-
-  .talks-content-container {
-    margin-top: 20px;
     gap: 20px;
   }
 
   .talk-cards-wrapper {
-    min-width: 200px;
     grid-template-columns: 1fr;
-    gap: 0.7rem 0.7rem;
+    gap: 16px;
+  }
+
+  .FloatingSendButton {
+    bottom: 16px;
+    right: 16px;
   }
 }
 
-@media (max-width: 375px) {
-  .talk-header-title {
-    font-size: 20px;
+/* =========================
+   SMALL MOBILE DEVICES
+========================= */
+@media (max-width: 480px) {
+  .main {
+    padding: 20px 12px;
   }
 
-  .subTitle {
-    font-size: 0.85rem;
+  .talk-header-title {
+    font-size: 1.7rem;
+  }
+
+  .subTitle,
+  .talk-header-subtitle {
+    font-size: 0.9rem;
   }
 
   .talks-content-container {
-    margin-top: 15px;
-    gap: 15px;
+    margin-top: 24px;
+    gap: 16px;
   }
 
   .talk-cards-wrapper {
-    min-width: 180px;
-    gap: 0.6rem 0.6rem;
+    gap: 14px;
+  }
+
+  .FloatingSendButton {
+    bottom: 14px;
+    right: 14px;
+    transform: scale(0.95);
+  }
+}
+
+/* =========================
+   EXTRA SMALL DEVICES
+========================= */
+@media (max-width: 360px) {
+  .main {
+    padding: 18px 10px;
+  }
+
+  .talk-header-title {
+    font-size: 1.45rem;
+  }
+
+  .subTitle,
+  .talk-header-subtitle {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .talks-content-container {
+    margin-top: 20px;
+    gap: 14px;
+  }
+
+  .talk-cards-wrapper {
+    gap: 12px;
+  }
+
+  .FloatingSendButton {
+    bottom: 12px;
+    right: 12px;
+    transform: scale(0.9);
   }
 }

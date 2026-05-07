@@ -1,40 +1,57 @@
-@import "../../_globalColor"; // Assuming this path is correct and the file exists
+@import "../../_globalColor";
+
+/* =========================
+   SOCIAL MEDIA CONTAINER
+========================= */
 
 .social-media-div {
-  display: flex;
-  justify-content: flex-start;
-  font-size: 2em; // Base font size, influencing icon size due to `em` units
-  text-align: center; // Center alignment for larger screens as well, often desired
-}
-
-.icon-button {
-  text-decoration: none;
-  margin-bottom: 10px; // Base bottom margin for individual buttons
-}
-
-.icon-button i {
-  // outline: none;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* =========================
+   ICON BUTTON
+========================= */
+
+.icon-button {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-button i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 3rem;
+  height: 3rem;
+
+  font-size: 1.2rem;
+  border-radius: 50%;
+
   color: $textColorDark;
-  border-radius: 2.6rem; // Base border-radius
   cursor: pointer;
-  // display: inline-block;
-  font-size: 1.3rem; // Base font size for the icon itself
-  height: 2rem; // Base height
-  line-height: 2.6rem; // Base line-height for vertical centering
-  margin: 0 5px; // Base horizontal margin between icons
-  position: relative;
-  text-align: center;
+
+  transition: all 0.25s ease;
+
+  user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none;
-  width: 3.6rem; // Base width
-  margin-bottom: 10px; // Duplicate, consider removing if .icon-button handles it
-  transition: 0.2s ease-in;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
+
+/* =========================
+   SOCIAL COLORS
+========================= */
 
 .facebook i {
   background-color: $faceBook;
@@ -76,7 +93,10 @@
   background-color: $instagram;
 }
 
-/* Hover Transition */
+/* =========================
+   HOVER EFFECTS
+========================= */
+
 .twitter i:hover,
 .google i:hover,
 .gitlab i:hover,
@@ -88,48 +108,72 @@
 .kaggle i:hover,
 .medium i:hover {
   background-color: $textColor;
+  transform: translateY(-3px) scale(1.05);
 }
 
-/* --- Existing Media Query (UNCHANGED) --- */
+/* =========================
+   LARGE TABLETS
+========================= */
+
+@media (max-width: 1024px) {
+  .social-media-div {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .icon-button i {
+    width: 2.8rem;
+    height: 2.8rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* =========================
+   TABLETS & MOBILE
+========================= */
+
 @media (max-width: 768px) {
   .social-media-div {
-    translate: -50%;
-    text-align: center; // Ensures centering on tablets and smaller screens
-    margin-left: 50% !important;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
   }
-  
+
+  .icon-button i {
+    width: 2.6rem;
+    height: 2.6rem;
+    font-size: 1rem;
+  }
 }
 
-/* --- New Media Query for Mobile Devices (max-width: 480px) --- */
+/* =========================
+   SMALL MOBILE
+========================= */
+
 @media (max-width: 480px) {
   .social-media-div {
-    font-size: 1.8em; // Slightly smaller overall size for mobile
+    gap: 8px;
   }
 
   .icon-button i {
-    font-size: 1.1rem; // Smaller icon font size
-    height: 2.2rem; // Reduced height
-    line-height: 2.2rem; // Adjusted line-height
-    width: 2.2rem; // Reduced width
-    margin: 0 4px; // Reduced horizontal margin
-    border-radius: 2.2rem; // Adjusted border-radius
-    margin-bottom: 8px; // Reduced bottom margin
+    width: 2.4rem;
+    height: 2.4rem;
+    font-size: 0.95rem;
   }
 }
 
-// Optional: Even smaller mobile devices (max-width: 375px)
-@media (max-width: 375px) {
+/* =========================
+   EXTRA SMALL DEVICES
+========================= */
+
+@media (max-width: 360px) {
   .social-media-div {
-    font-size: 1.6em; // Even smaller overall size
+    gap: 6px;
   }
 
   .icon-button i {
-    font-size: 1rem; // Smallest icon font size
-    height: 2rem; // Smallest height
-    line-height: 2rem; // Smallest line-height
-    width: 2rem; // Smallest width
-    margin: 0 3px; // Smallest horizontal margin
-    border-radius: 2rem; // Smallest border-radius
-    margin-bottom: 6px; // Smallest bottom margin
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 0.85rem;
   }
 }

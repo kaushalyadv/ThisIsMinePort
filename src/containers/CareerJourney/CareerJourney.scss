@@ -1,6 +1,8 @@
+/* Base Styles (Desktop) */
 .career-journey-section {
   padding: 100px 10%;
   position: relative;
+  overflow: hidden; /* Prevents horizontal scroll on small screens */
 }
 
 .journey-title {
@@ -25,10 +27,9 @@
 }
 
 /* Timeline Items */
-
 .timeline-item {
   width: 50%;
-  padding: 20px;
+  padding: 20px 40px; /* Adjusted horizontal padding for breathing room */
   position: relative;
 }
 
@@ -41,15 +42,15 @@
 }
 
 /* Content Card */
-
 .content {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
   padding: 25px;
   border-radius: 15px;
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .content:hover {
@@ -57,11 +58,10 @@
 }
 
 /* Circle Dot */
-
 .timeline-item::after {
   content: "";
   position: absolute;
-  top: 30px;
+  top: 40px; /* Vertically centered relative to card padding */
   width: 18px;
   height: 18px;
   background: #6c63ff;
@@ -70,17 +70,17 @@
 }
 
 .timeline-item.left::after {
-  right: -9px;
+  right: -9px; /* Half of 18px width to center it exactly on the line */
 }
 
 .timeline-item.right::after {
   left: -9px;
 }
 
-/* Text */
-
+/* Text Elements */
 .content h3 {
   color: #00c6ff;
+  margin-top: 0;
 }
 
 .content h2 {
@@ -97,26 +97,85 @@
 .content p {
   font-size: 15px;
   opacity: 0.9;
+  line-height: 1.5;
+  margin-bottom: 0;
 }
 
-/* Responsive */
+/* --- Responsive Breakpoints --- */
 
+/* Tablet & Smaller Desktop */
+@media (max-width: 1024px) {
+  .career-journey-section {
+    padding: 80px 5%;
+  }
+  .journey-title {
+    font-size: 38px;
+  }
+  .timeline-item {
+    padding: 20px 30px;
+  }
+}
+
+/* Mobile & Tablet Portrait (Single Column Layout) */
 @media (max-width: 768px) {
-  .timeline::before {
-    left: 10px;
+  .career-journey-section {
+    padding: 60px 5%;
   }
 
+  .journey-title {
+    font-size: 32px;
+    margin-bottom: 50px;
+  }
+
+  /* Shift the timeline line to the left */
+  .timeline::before {
+    left: 20px;
+  }
+
+  /* Make items full width and adjust padding to fit the left line */
   .timeline-item {
     width: 100%;
-    padding-left: 40px;
+    padding-left: 60px; 
+    padding-right: 0;
   }
 
+  /* Reset right-side items to stack normally */
   .timeline-item.right {
     left: 0;
   }
 
+  /* Accurately align the dots to the new line position */
   .timeline-item.left::after,
   .timeline-item.right::after {
-    left: 0;
+    left: 11px; /* 20px (line position) minus 9px (half dot width) */
+    right: auto; /* Overrides desktop .left::after */
+  }
+}
+
+/* Small Mobile (Phones) */
+@media (max-width: 480px) {
+  .career-journey-section {
+    padding: 50px 15px;
+  }
+
+  .journey-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  .timeline-item {
+    padding-left: 50px; /* Tighter padding for very small screens */
+  }
+
+  .content {
+    padding: 20px 15px;
+  }
+
+  .content h2 {
+    font-size: 20px;
+  }
+
+  .content p {
+    font-size: 14px;
   }
 }
