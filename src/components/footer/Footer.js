@@ -13,7 +13,7 @@ export default function Footer() {
       <p className={isDark ? "light-mode footer-text" : "footer-text"}>
         Crafted by ☕ {" "}
         <a
-          href="https://github.com/kaushalyadv"
+          href="https://www.linkedin.com/in/kaushal-yadav-38a167201/"
           target="_blank"
           rel="noreferrer"
           style={{color: "white"}}
